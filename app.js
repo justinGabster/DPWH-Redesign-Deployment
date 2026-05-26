@@ -1266,8 +1266,65 @@ function toggleMobileNav() {
   const navInner = document.getElementById('nav-inner');
   if (navInner) {
     navInner.classList.toggle('active');
+    // Close all dropdowns when closing nav
+    if (!navInner.classList.contains('active')) {
+      document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+    }
   }
 }
+
+// Mobile dropdown toggle - handle clicks on nav items with dropdowns
+function initMobileNavDropdowns() {
+  const isMobile = () => window.innerWidth <= 900;
+  
+  document.querySelectorAll('.nav-item').forEach(navItem => {
+    const navLink = navItem.querySelector('.nav-link');
+    const dropdown = navItem.querySelector('.dropdown');
+    
+    if (navLink && dropdown) {
+      // Nav items WITH dropdowns - toggle dropdown on mobile
+      navLink.addEventListener('click', function(e) {
+        if (isMobile()) {
+          e.preventDefault();
+          e.stopPropagation();
+          // Close other dropdowns
+          document.querySelectorAll('.nav-item.open').forEach(item => {
+            if (item !== navItem) item.classList.remove('open');
+          });
+          // Toggle this dropdown
+          navItem.classList.toggle('open');
+        }
+      });
+    } else if (navLink) {
+      // Nav items WITHOUT dropdowns - close mobile nav after navigation
+      navLink.addEventListener('click', function() {
+        if (isMobile()) {
+          const navInner = document.getElementById('nav-inner');
+          if (navInner) {
+            navInner.classList.remove('active');
+            document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+          }
+        }
+      });
+    }
+  });
+  
+  // Close mobile nav when clicking a dropdown link
+  document.querySelectorAll('.nav-item .dropdown a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (isMobile()) {
+        const navInner = document.getElementById('nav-inner');
+        if (navInner) {
+          navInner.classList.remove('active');
+          document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+        }
+      }
+    });
+  });
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', initMobileNavDropdowns);
 
 /*  PAGE NAVIGATION  */
 function showPage(id) {
