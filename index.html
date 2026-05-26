@@ -3545,6 +3545,29 @@
 
     <div class="ann-layout">
 
+      <!-- Mobile Filter Toggle -->
+      <button class="mobile-filter-toggle" onclick="toggleMobileFilter('ann-mobile-drawer')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+        Filters &amp; Calendar
+      </button>
+      <div class="mobile-filter-drawer" id="ann-mobile-drawer">
+        <!-- Calendar navigator -->
+        <div style="margin-bottom:16px;">
+          <div style="font-weight:600;font-size:13px;color:var(--navy);margin-bottom:8px;">Browse by Month</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span id="ann-cal-year-mobile" style="font-weight:600;font-size:14px;color:var(--navy);">2026</span>
+            <button onclick="annYearNav(-1)" style="padding:4px 8px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;">&#8592;</button>
+            <button onclick="annYearNav(1)" style="padding:4px 8px;background:var(--bg);border:1px solid var(--border);border-radius:4px;cursor:pointer;">&#8594;</button>
+          </div>
+          <div class="ann-month-grid" id="ann-month-grid-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;"></div>
+        </div>
+        <!-- Category filter -->
+        <div>
+          <div style="font-weight:600;font-size:13px;color:var(--navy);margin-bottom:8px;">Filter by Category</div>
+          <div id="ann-filter-list-mobile" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+        </div>
+      </div>
+
       <!--  SIDEBAR  -->
       <div class="ann-sidebar">
 
@@ -3627,6 +3650,31 @@
     </div>
 
     <div class="news-layout">
+
+    <!-- Mobile Filter Toggle -->
+    <button class="mobile-filter-toggle" onclick="toggleMobileFilter('news-mobile-drawer')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+      Search &amp; Filters
+    </button>
+    <div class="mobile-filter-drawer" id="news-mobile-drawer">
+      <div style="margin-bottom:12px;">
+        <div class="ns-search" style="display:flex;align-items:center;gap:8px;background:#F5F7FF;border:1px solid var(--border);border-radius:6px;padding:8px 12px;">
+          <svg width="13" height="13" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="text" id="news-search-mobile" placeholder="Search news..." oninput="newsApply()" style="border:none;outline:none;background:transparent;font-size:13px;width:100%;">
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <select id="news-region-mobile" onchange="newsApply()" style="flex:1;min-width:120px;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;">
+          <option value="">All Regions</option>
+        </select>
+        <select id="news-year-mobile" onchange="newsApply()" style="flex:1;min-width:100px;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;">
+          <option value="">All Years</option>
+        </select>
+        <select id="news-cat-mobile" onchange="newsApply()" style="flex:1;min-width:120px;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:12px;">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+    </div>
 
     <!--  SIDEBAR  -->
     <div class="news-sidebar">

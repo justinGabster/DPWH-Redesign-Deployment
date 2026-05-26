@@ -1,6 +1,14 @@
 
     (function() {
 
+      /* MOBILE FILTER DRAWER TOGGLE */
+      window.toggleMobileFilter = function(drawerId) {
+        var drawer = document.getElementById(drawerId);
+        if (drawer) {
+          drawer.classList.toggle('open');
+        }
+      };
+
       /* enable/disable download button when a select changes */
       window.tpEnableBtn = function(sel, btnId) {
         var btn = document.getElementById(btnId);
@@ -1336,6 +1344,11 @@ function showPage(id) {
 
 function showSubpage(page, sub) {
   showPage(page);
+  // Handle careers page tabs differently
+  if (page === 'careers') {
+    switchTab(sub);
+    return;
+  }
   const tabId = page + '-' + sub;
   // For references page, use sidebar nav system
   if (page === 'references') {
@@ -1351,6 +1364,11 @@ function showSubpage(page, sub) {
     t.classList.toggle('active', !!(t.getAttribute('onclick') && t.getAttribute('onclick').includes(tabId)));
   });
   parent.querySelectorAll('.r-section').forEach(s => s.classList.toggle('active', s.id === tabId));
+  // Scroll to section on mobile
+  setTimeout(function() {
+    var section = document.getElementById(tabId);
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
 }
 
 function activateSubTab(el, targetId) {
@@ -2277,11 +2295,15 @@ function changePage(dir) {
 
 /*  TAB SWITCH (careers page)  */
 function switchTab(tab) {
-  document.querySelectorAll("#page-careers .subpage-tab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll("#page-careers .r-section").forEach(s => s.classList.remove("active"));
-  document.getElementById("tab-" + tab).classList.add("active");
-  document.getElementById("section-" + tab).classList.add("active");
-  window.scrollTo({ top: 0, behavior:"smooth" });
+document.querySelectorAll("#page-careers .subpage-tab").forEach(t => t.classList.remove("active"));
+document.querySelectorAll("#page-careers .r-section").forEach(s => s.classList.remove("active"));
+document.getElementById("tab-" + tab).classList.add("active");
+var section = document.getElementById("section-" + tab);
+section.classList.add("active");
+// Scroll to the section on mobile for better UX
+setTimeout(function() {
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+}, 100);
 }
 
 /*  SYNC HEADER SEARCH  */

@@ -3665,6 +3665,9 @@ a {
 
 .mobile-menu-btn { display: none; cursor: pointer; color: var(--white); padding: 12px; }
 .mobile-search-bar { display: none; }
+.mobile-filter-toggle { display: none; }
+.mobile-filter-drawer { display: none; }
+.mobile-region-toggle { display: none; }
 @media (max-width: 900px) {
   nav { position: relative; display: flex; align-items: center; justify-content: flex-end; padding: 0 16px; }
   .mobile-search-bar { 
@@ -3698,20 +3701,79 @@ a {
   header { flex-direction: row !important; align-items: center !important; padding: 12px 16px !important; gap: 12px !important; flex-wrap: nowrap !important; }
   .logo-glow { width: 40px !important; height: 40px !important; }
   .header-text { margin-top: 0 !important; flex: 1; }
-  .header-text .republic { font-size: 9px !important; margin-bottom: 2px !important; }
+  .header-text .republic { font-size: 9px !important; margin-bottom: 2px !important; white-space: nowrap !important; }
   .header-text h1 { font-size: 15px !important; line-height: 1.2 !important; margin: 0 !important; }
   .header-text .tagline { font-size: 8px !important; margin-top: 2px !important; }
   
   /* Compact sizes */
   .hero { padding: 24px 16px !important; }
-  .hero h2 { font-size: 24px !important; margin-bottom: 12px !important; }
-  .hero p { font-size: 13.5px !important; margin-bottom: 20px !important; }
-  .page-header { padding: 20px 16px !important; }
-  .page-header h2 { font-size: 22px !important; }
-  .ql-card { padding: 16px !important; }
-  .ql-card h3 { font-size: 14px !important; }
-  h2.section-title { font-size: 18px !important; margin-bottom: 16px !important; }
-
+  .hero h2 { font-size: 22px !important; margin-bottom: 10px !important; line-height: 1.25 !important; }
+  .hero p { font-size: 13px !important; margin-bottom: 16px !important; line-height: 1.5 !important; }
+  .hero-badge { font-size: 9px !important; padding: 4px 10px !important; white-space: nowrap !important; }
+  .hero-btns { flex-direction: column !important; gap: 8px !important; }
+  .hero-btns button { width: 100% !important; padding: 10px 16px !important; font-size: 13px !important; }
+  
+  /* Page headers - hide description paragraphs on mobile */
+  .page-header { padding: 16px 16px !important; }
+  .page-header h2 { font-size: 20px !important; margin-bottom: 0 !important; }
+  .page-header > p { display: none !important; }
+  .breadcrumb { font-size: 11px !important; margin-bottom: 6px !important; }
+  
+  /* Quick links grid - 2 columns */
+  .quicklinks { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; padding: 0 16px !important; }
+  .ql-card { padding: 14px !important; }
+  .ql-card h3 { font-size: 12px !important; }
+  .ql-card p { font-size: 10px !important; }
+  .ql-icon { width: 32px !important; height: 32px !important; }
+  .ql-icon svg { width: 16px !important; height: 16px !important; }
+  
+  /* Stats bar - 2x2 grid */
+  .stats-bar { 
+    display: grid !important; 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 8px !important; 
+    padding: 16px !important;
+  }
+  .stat-item { padding: 12px !important; }
+  .stat-num { font-size: 18px !important; }
+  .stat-label { font-size: 10px !important; }
+  
+  /* Section titles */
+  h2.section-title { font-size: 16px !important; margin-bottom: 12px !important; padding: 0 16px !important; }
+  
+  /* Subpage tabs - horizontal scroll */
+  .subpage-tabs {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 0 16px 0 !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .subpage-tabs::-webkit-scrollbar { display: none !important; }
+  .subpage-tab { 
+    flex-shrink: 0 !important; 
+    padding: 10px 16px !important; 
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Filter chips - horizontal scroll */
+  .chip-row, .tp-chip-row {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .chip-row::-webkit-scrollbar, .tp-chip-row::-webkit-scrollbar { display: none !important; }
+  .chip, .tp-chip { flex-shrink: 0 !important; font-size: 11px !important; padding: 6px 12px !important; }
+  
   /* Responsive tables (horizontal slider) */
   table { 
     display: block !important; 
@@ -3720,4 +3782,397 @@ a {
     -webkit-overflow-scrolling: touch; 
     width: 100% !important; 
   }
+  
+  /* Transparency Portal tiles - 2 column grid */
+  .tp-portal-tiles { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 8px !important;
+  }
+  .tp-portal-tile { padding: 12px !important; }
+  .tp-portal-tile-icon { width: 28px !important; height: 28px !important; }
+  .tp-portal-tile-icon svg { width: 14px !important; height: 14px !important; }
+  .tp-portal-tile-label { font-size: 11px !important; }
+  .tp-portal-tile-sub { font-size: 9px !important; display: none !important; }
+  
+  /* Transparency filter panel */
+  .tp-filter-wrap { flex-direction: column !important; }
+  .tp-filter-wrap > div { width: 100% !important; }
+  .stat-strip { 
+    display: grid !important; 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 8px !important;
+  }
+  .stat-card { padding: 10px !important; }
+  .stat-val { font-size: 16px !important; }
+  .stat-lbl { font-size: 9px !important; }
+  
+  /* Accordion items compact */
+  .acc-header { padding: 12px !important; flex-wrap: wrap !important; gap: 6px !important; }
+  .acc-roman { width: 28px !important; height: 28px !important; font-size: 12px !important; }
+  .acc-title { font-size: 13px !important; }
+  .acc-subtitle { font-size: 10px !important; display: none !important; }
+  .tp-tag { font-size: 9px !important; padding: 2px 6px !important; }
+  .acc-status { font-size: 9px !important; }
+  
+  /* Document rows */
+  .doc-row { padding: 10px 12px !important; }
+  .doc-icon { font-size: 14px !important; }
+  .doc-name { font-size: 12px !important; }
+  .doc-desc { font-size: 10px !important; }
+  .doc-chip { font-size: 9px !important; padding: 2px 6px !important; }
+  
+  /* Transparency seal section - compact */
+  .seal-section { padding: 16px !important; margin: 0 16px 16px !important; }
+  .seal-inner { flex-direction: column !important; gap: 16px !important; }
+  .seal-img-wrap { width: 100% !important; max-width: 200px !important; margin: 0 auto !important; }
+  .seal-img-wrap img { width: 100% !important; }
+  .seal-lbl { font-size: 11px !important; }
+  .seal-body h2 { font-size: 18px !important; }
+  .seal-body p { font-size: 12px !important; line-height: 1.5 !important; }
+  .seal-badge { font-size: 10px !important; padding: 8px 12px !important; }
+  
+  /* Transparency sub-rows (FAR documents) */
+  .tp-sub-row { 
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+  .tp-sub-letter { width: 24px !important; height: 24px !important; font-size: 11px !important; flex-shrink: 0 !important; }
+  .tp-sub-name { font-size: 12px !important; }
+  .tp-sub-note { font-size: 10px !important; }
+  .tp-sub-controls { 
+    width: 100% !important; 
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+  .tp-sel-wrap { flex: 1 !important; }
+  .tp-sel { font-size: 11px !important; padding: 6px 8px !important; width: 100% !important; }
+  .tp-dl-btn { font-size: 11px !important; padding: 6px 10px !important; flex-shrink: 0 !important; }
+  
+  /* Transparency section label */
+  .tp-section-label { font-size: 13px !important; padding: 0 16px !important; margin-bottom: 12px !important; }
+  
+  /* News & Announcements layout - stack sidebar */
+  .news-layout, .ann-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 16px !important;
+  }
+  .news-sidebar, .ann-sidebar { 
+    display: none !important;
+  }
+  
+  /* Mobile filter drawer toggle */
+  .mobile-filter-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+  .mobile-filter-drawer {
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .mobile-filter-drawer.open { display: block !important; }
+  
+  /* Announcements list items - compact */
+  .ann-item { padding: 14px !important; margin-bottom: 10px !important; }
+  .ann-item-date { font-size: 10px !important; }
+  .ann-item-title { font-size: 14px !important; line-height: 1.3 !important; }
+  .ann-item-excerpt { font-size: 12px !important; display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important; }
+  .ann-item-cat { font-size: 10px !important; padding: 3px 8px !important; }
+  
+  /* Announcements toolbar - stack */
+  .ann-toolbar { 
+    flex-direction: column !important; 
+    gap: 10px !important; 
+    margin-bottom: 12px !important;
+  }
+  .ann-search-wrap { width: 100% !important; }
+  .ann-sort { width: 100% !important; }
+  .ann-date-active-pill { font-size: 12px !important; }
+  .ann-meta-row { margin-bottom: 12px !important; }
+  .ann-count { font-size: 12px !important; }
+  
+  /* News cards - compact */
+  .news-card { margin-bottom: 12px !important; }
+  .news-card-img { height: 140px !important; }
+  .news-card-body { padding: 12px !important; }
+  .news-card-date { font-size: 10px !important; }
+  .news-card-title { font-size: 14px !important; line-height: 1.3 !important; }
+  .news-card-excerpt { font-size: 12px !important; display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important; }
+  .news-card-region { font-size: 10px !important; }
+  
+  /* News toolbar */
+  .news-toolbar { 
+    flex-direction: column !important; 
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+  .news-count { font-size: 12px !important; }
+  .news-sort { width: 100% !important; }
+  .ns-active-pill { font-size: 11px !important; }
+  
+  /* Featured news slot - smaller */
+  #news-featured-slot .news-featured {
+    flex-direction: column !important;
+  }
+  #news-featured-slot .news-featured-img { 
+    width: 100% !important; 
+    height: 160px !important;
+  }
+  #news-featured-slot .news-featured-body { padding: 14px !important; }
+  #news-featured-slot .news-featured-title { font-size: 16px !important; }
+  #news-featured-slot .news-featured-excerpt { font-size: 12px !important; }
+  
+  /* News grid - single column */
+  .news-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  /* Pagination compact */
+  .ann-pagination, .news-pagination {
+    gap: 4px !important;
+    margin-top: 16px !important;
+  }
+  .ann-pagination button, .news-pagination button {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    min-width: 32px !important;
+  }
+  
+  /* Careers filter panel compact */
+  .filter-panel { padding: 12px !important; margin: 0 0 16px 0 !important; }
+  .filter-panel-header { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+  .filter-panel-title { font-size: 14px !important; }
+  .filter-grid { 
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .filter-group { grid-column: span 1 !important; }
+  .filter-group label { font-size: 11px !important; }
+  .filter-group input, .filter-group select { font-size: 12px !important; padding: 8px 10px !important; }
+  .filter-actions { 
+    flex-direction: column !important; 
+    gap: 8px !important;
+  }
+  .filter-actions button { width: 100% !important; }
+  .sort-wrap { margin-left: 0 !important; width: 100% !important; }
+  
+  /* Notice banner compact */
+  .notice-banner { 
+    padding: 12px !important; 
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+  
+  /* Careers page tabs - explicit horizontal bar */
+  #page-careers .subpage-tabs {
+    display: flex !important;
+    border-bottom: 2px solid var(--border) !important;
+    margin-bottom: 16px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  #page-careers .subpage-tabs::-webkit-scrollbar { display: none !important; }
+  #page-careers .subpage-tab {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    border-bottom: 2px solid transparent !important;
+    margin-bottom: -2px !important;
+  }
+  #page-careers .subpage-tab.active {
+    border-bottom-color: var(--navy) !important;
+    color: var(--navy) !important;
+    font-weight: 600 !important;
+  }
+  
+  /* How to Apply section compact */
+  #section-how-to-apply { padding: 0 !important; }
+  .apply-steps { gap: 12px !important; }
+  .apply-step { padding: 14px !important; }
+  .apply-step-num { width: 28px !important; height: 28px !important; font-size: 12px !important; }
+  .apply-step h4 { font-size: 14px !important; }
+  .apply-step p { font-size: 12px !important; }
+  
+  /* Requirements list compact */
+  .req-list { gap: 10px !important; }
+  .req-item { padding: 12px !important; }
+  .req-item h4 { font-size: 13px !important; }
+  .req-item p, .req-item li { font-size: 11px !important; }
+  
+  /* Job card actions */
+  .job-card .card-footer { 
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .job-card .btn-apply, .job-card .btn-details {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+  
+  /* Pagination for careers */
+  .pagination-wrap {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+    margin-top: 16px !important;
+  }
+  .page-btn {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    min-width: 36px !important;
+  }
+  
+  /* Job cards - compact */
+  .job-card { padding: 14px !important; }
+  .job-card-header { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+  .job-title { font-size: 14px !important; }
+  .job-meta { font-size: 11px !important; flex-wrap: wrap !important; }
+  .job-badge { font-size: 10px !important; padding: 3px 8px !important; }
+  
+  /* Updates grid - single column */
+  .updates-grid { 
+    grid-template-columns: 1fr !important; 
+    gap: 12px !important;
+    padding: 0 16px !important;
+  }
+  .update-card { padding: 14px !important; }
+  .update-card-header { margin-bottom: 10px !important; }
+  .uch-label { font-size: 12px !important; }
+  .update-item { padding: 8px 0 !important; }
+  .update-item p { font-size: 12px !important; line-height: 1.4 !important; }
+  .update-date { font-size: 10px !important; }
+  
+  /* Transparency portal banner - stack on mobile */
+  .tp-portal-banner {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+  .tp-portal-banner-text h3 { font-size: 16px !important; }
+  .tp-portal-banner-text p { font-size: 12px !important; display: none !important; }
+  .tp-portal-btn { width: 100% !important; text-align: center !important; }
+  
+  /* Contracts table wrapper */
+  .tp-contracts-wrap {
+    padding: 12px !important;
+  }
+  .tp-contracts-header { 
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 8px !important;
+  }
+  .tp-contracts-header h3 { font-size: 14px !important; }
+  .tp-view-all-btn { width: 100% !important; font-size: 12px !important; }
+  .tp-contracts-table th, .tp-contracts-table td { 
+    font-size: 11px !important; 
+    padding: 8px !important;
+  }
+  .tp-ct-name { font-size: 11px !important; }
+  .tp-ct-ref { font-size: 9px !important; }
+  .tp-ct-amt { font-size: 12px !important; }
+  
+  /* Projects map section */
+  #projects-infrastructure > div:first-child { padding: 16px !important; }
+  #projects-infrastructure h2 { font-size: 20px !important; line-height: 1.2 !important; }
+  #projects-infrastructure em { font-size: 14px !important; }
+  #projects-infrastructure p { font-size: 12px !important; display: none !important; }
+  .map-viewport { min-height: 280px !important; max-height: 350px !important; }
+  
+  /* Map row - stack on mobile */
+  #projects-infrastructure > div > div:last-child {
+    flex-direction: column !important;
+  }
+  
+  /* Region legend - convert to horizontal scroll or hide */
+  .region-legend { 
+    display: none !important;
+  }
+  
+  /* Mobile region toggle button */
+  .mobile-region-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+  }
+  
+  /* Infra stats section - vertical cards */
+  .infra-stats-grid, .atlas-info-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .infra-stat-card, .atlas-info-card { 
+    padding: 14px !important;
+  }
+  .infra-stat-card h3, .atlas-info-card h3 { font-size: 14px !important; margin-bottom: 6px !important; }
+  .infra-stat-card p, .atlas-info-card p { font-size: 12px !important; line-height: 1.5 !important; }
+  
+  /* GIS section compact */
+  .gis-hero { padding: 16px !important; }
+  .gis-hero h3 { font-size: 18px !important; }
+  .gis-hero p { font-size: 12px !important; }
+  .gis-btn { font-size: 12px !important; padding: 10px 16px !important; }
+  
+  /* PPP section */
+  .ppp-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .ppp-card { padding: 14px !important; }
+  .ppp-card h4 { font-size: 14px !important; }
+  .ppp-card p { font-size: 12px !important; }
+  
+  /* Regional detail panel */
+  #regional-detail { padding: 16px !important; }
+  #regional-detail h3 { font-size: 16px !important; }
+  #regional-detail .subpage-tabs { margin-bottom: 12px !important; }
+  
+  /* Infra stats cards - stack vertically */
+  .infra-stats-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .infra-stat-card { padding: 14px !important; }
+  .infra-stat-card h3 { font-size: 14px !important; }
+  .infra-stat-card p { font-size: 12px !important; }
 }
