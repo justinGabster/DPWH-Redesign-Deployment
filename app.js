@@ -14,16 +14,12 @@
         var panel = document.getElementById('legend-panel');
         var icon = document.getElementById('legend-toggle-icon');
         if (panel && icon) {
-          var isCollapsed = panel.style.maxWidth === '0px' || panel.offsetWidth === 0;
-          if (isCollapsed) {
-            panel.style.maxWidth = '220px';
-            panel.style.opacity = '1';
-            panel.style.visibility = 'visible';
+          var isHidden = panel.style.display === 'none';
+          if (isHidden) {
+            panel.style.display = 'block';
             icon.style.transform = 'rotate(180deg)';
           } else {
-            panel.style.maxWidth = '0px';
-            panel.style.opacity = '0';
-            panel.style.visibility = 'hidden';
+            panel.style.display = 'none';
             icon.style.transform = 'rotate(0deg)';
           }
         }
