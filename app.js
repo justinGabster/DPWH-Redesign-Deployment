@@ -369,7 +369,11 @@ function filterRoads(q) {
           card.addEventListener('click', function(){
             card.classList.toggle('open');
             const rm = card.querySelector('.ann-read-more');
+<<<<<<< HEAD
             if (rm) rm.textContent = card.classList.contains('open') ? 'Hide ←' : 'View all →';
+=======
+            if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
+>>>>>>> 186d7ae (Implement expandable cards and redesigned search toolbar)
           });
           listEl.appendChild(card);
         });
