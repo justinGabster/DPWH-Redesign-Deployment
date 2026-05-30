@@ -341,35 +341,27 @@ function filterRoads(q) {
 
         slice.forEach(function(r) {
           const card = document.createElement('div');
-          card.className = 'ann-card ' + r.cat;
+          card.className = 'ann-item ' + r.cat;
           card.innerHTML =
-            '<div class="ann-card-left">' +
-              '<div class="ann-date-day">'  + fmtDay(r.date)  + '</div>' +
-              '<div class="ann-date-mon">'  + fmtMon(r.date)  + '</div>' +
-              '<div class="ann-date-year">' + fmtYear(r.date) + '</div>' +
-            '</div>' +
-            '<div style="flex:1;min-width:0;">' +
-              '<div class="ann-card-body">' +
-                '<div class="ann-card-top">' +
-                  '<span class="ann-badge ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
-                  (r.isNew ? '<span class="ann-new-tag">New</span>' : '') +
-                '</div>' +
-                '<div class="ann-card-title">' + r.title + '</div>' +
-                '<div class="ann-card-snippet">' + r.snippet + '</div>' +
-                '<div class="ann-card-footer">' +
-                  '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
-                  '<span class="ann-read-more">Read more &#8594;</span>' +
-                '</div>' +
+            '<div style="display:flex;gap:12px;">' +
+              '<div class="ann-item-date">' +
+                '<div>' + fmtDay(r.date) + '</div>' +
+                '<div>' + fmtMon(r.date) + '</div>' +
+                '<div>' + fmtYear(r.date) + '</div>' +
               '</div>' +
-              '<div class="ann-card-expanded">' +
-                '<p style="margin-bottom:10px;">' + r.snippet + ' Further details will be published in the official gazette and distributed to all concerned offices.</p>' +
-                '<p style="color:var(--textlt);font-size:12px;">Source: ' + r.source + ' &middot; ' + fmtFull(r.date) + '</p>' +
+              '<div style="flex:1;min-width:0;">' +
+                '<div class="ann-item-cats" style="display:flex;gap:6px;margin-bottom:6px;">' +
+                  '<span class="ann-item-cat ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
+                  (r.isNew ? '<span class="ann-item-cat new">New</span>' : '') +
+                '</div>' +
+                '<div class="ann-item-title">' + r.title + '</div>' +
+                '<div class="ann-item-excerpt">' + r.snippet + '</div>' +
+                '<div style="font-size:11px;color:var(--textlt);margin-top:6px;">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</div>' +
+                '<div class="ann-view-all" style="margin-top:8px;"></div>' +
               '</div>' +
             '</div>';
           card.addEventListener('click', function(){
-            card.classList.toggle('open');
-            const rm = card.querySelector('.ann-read-more');
-            if (rm) rm.textContent = card.classList.contains('open') ? 'Close \u2191' : 'Read more \u2192';
+            card.classList.toggle('expanded');
           });
           listEl.appendChild(card);
         });
