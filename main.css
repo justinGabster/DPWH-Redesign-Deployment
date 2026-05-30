@@ -2496,9 +2496,11 @@ table.proj-table tr:hover td { background: var(--light); }
       .ann-card {
         background:var(--white); border:1px solid var(--border); border-radius:10px;
         overflow:hidden; display:flex; cursor:pointer;
-        transition:box-shadow 0.18s, border-color 0.18s;
+        transition:box-shadow 0.18s, border-color 0.18s, max-height 0.3s ease;
         border-left:4px solid transparent;
+        max-height: 200px;
       }
+      .ann-card.open { max-height: none; }
       .ann-card:hover { box-shadow:0 4px 20px rgba(36,56,166,0.10); border-color:rgba(76,110,245,0.3); }
       .ann-card.urgent   { border-left-color:#E53E3E; }
       .ann-card.advisory { border-left-color:var(--orange); }
