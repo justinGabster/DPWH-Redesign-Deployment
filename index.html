@@ -3640,13 +3640,15 @@
         <div class="ann-toolbar">
           <div class="ann-search-wrap">
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <input type="text" id="ann-search" placeholder="Search announcements&hellip;" oninput="annApply()" style="width:100%;">
+            <input type="text" id="ann-search" placeholder="Search announcements&hellip;" oninput="annApply()">
           </div>
-          <select class="ann-sort" id="ann-sort" onchange="annApply()" style="min-width:110px;">
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-          </select>
-          <div class="ann-count" id="ann-count" style="font-size:11px;color:var(--textlt);">Showing <strong>0</strong></div>
+          <div style="display:flex;align-items:center;gap:12px;white-space:nowrap;flex-shrink:0;">
+            <select class="ann-sort" id="ann-sort" onchange="annApply()">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </select>
+            <div class="ann-count" id="ann-count" style="font-size:12.5px;color:var(--textlt);white-space:nowrap;">Showing <strong>0</strong></div>
+          </div>
         </div>
 
         <!-- Active date pill -->
