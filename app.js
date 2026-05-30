@@ -358,7 +358,7 @@ function filterRoads(q) {
                 '<div class="ann-card-snippet">' + r.snippet + '</div>' +
                 '<div class="ann-card-footer">' +
                   '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
-                  '<span class="ann-read-more">Read more &#8594;</span>' +
+                  '<span class="ann-read-more">View all →</span>' +
                 '</div>' +
               '</div>' +
               '<div class="ann-card-expanded">' +
@@ -369,7 +369,15 @@ function filterRoads(q) {
           card.addEventListener('click', function(){
             card.classList.toggle('open');
             const rm = card.querySelector('.ann-read-more');
+<<<<<<< HEAD
             if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
+=======
+<<<<<<< HEAD
+            if (rm) rm.textContent = card.classList.contains('open') ? 'Hide ←' : 'View all →';
+=======
+            if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
+>>>>>>> 186d7ae (Implement expandable cards and redesigned search toolbar)
+>>>>>>> b548e131a59b6b6fa1d150aeee13d079b8d5e2a3
           });
           listEl.appendChild(card);
         });
