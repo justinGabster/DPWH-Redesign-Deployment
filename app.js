@@ -9,6 +9,46 @@
         }
       };
 
+      /* LEGEND PANEL TOGGLE */
+      window.toggleLegendPanel = function() {
+        var panel = document.getElementById('legend-panel');
+        var toggle = document.getElementById('legend-toggle');
+        var icon = document.getElementById('legend-toggle-icon');
+        if (panel && toggle) {
+          var isCollapsed = panel.style.width === '0px' || panel.style.maxWidth === '0px';
+          if (isCollapsed) {
+            panel.style.width = 'auto';
+            panel.style.maxWidth = '220px';
+            panel.style.padding = '14px 16px';
+            panel.style.opacity = '1';
+            toggle.style.right = '-14px';
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            panel.style.width = '0px';
+            panel.style.maxWidth = '0px';
+            panel.style.padding = '0px';
+            panel.style.opacity = '0';
+            toggle.style.right = '-16px';
+            icon.style.transform = 'rotate(0deg)';
+          }
+        }
+      };
+
+      /* INFRA STATS HORIZONTAL CARD SLIDER */
+      window.slideInfraCards = function(direction) {
+        var container = document.getElementById('infra-cards-container');
+        if (container) {
+          var scrollAmount = 320; // Card width + gap
+          container.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+          });
+        }
+      };
+          }
+        }
+      };
+
       /* enable/disable download button when a select changes */
       window.tpEnableBtn = function(sel, btnId) {
         var btn = document.getElementById(btnId);
@@ -339,9 +379,10 @@ function filterRoads(q) {
         listEl.innerHTML = '';
         emptyEl.style.display = slice.length === 0 ? 'block' : 'none';
 
-        slice.forEach(function(r) {
+        slice.forEach(function(r, idx) {
           const card = document.createElement('div');
           card.className = 'ann-card ' + r.cat;
+          const cardId = 'ann-card-' + idx;
           card.innerHTML =
             '<div class="ann-card-left">' +
               '<div class="ann-date-day">'  + fmtDay(r.date)  + '</div>' +
@@ -359,6 +400,9 @@ function filterRoads(q) {
                 '<div class="ann-card-footer">' +
                   '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
                   '<span class="ann-read-more">View all →</span>' +
+                '</div>' +
+                '<div class="ann-card-slider-container">' +
+                  '<input type="range" class="ann-card-slider" id="' + cardId + '" min="0" max="100" value="0" style="width:100%;margin-top:8px;">' +
                 '</div>' +
               '</div>' +
               '<div class="ann-card-expanded">' +
