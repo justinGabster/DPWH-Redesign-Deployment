@@ -13,8 +13,24 @@
       window.toggleLegendPanel = function() {
         var panel = document.getElementById('legend-panel');
         var icon = document.getElementById('legend-toggle-icon');
+        var legendList = document.getElementById('map-legend-list');
+        
         if (panel && icon) {
           var isHidden = panel.style.display === 'none';
+          
+          // Populate legend list on first open if empty
+          if (isHidden && legendList && legendList.children.length === 0 && typeof regionMapData !== 'undefined') {
+            regionMapData.forEach(r => {
+              const item = document.createElement('div');
+              item.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;padding:6px 4px;border-radius:4px;transition:background 0.15s;';
+              item.innerHTML = `<span style="width:10px;height:10px;border-radius:50%;background:${r.color};flex-shrink:0;border:1px solid rgba(0,0,0,0.1);"></span><span style="color:#1A2352;flex:1;">${r.name}</span>`;
+              item.addEventListener('mouseenter', () => item.style.background = 'rgba(36,56,166,0.08)');
+              item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+              item.addEventListener('click', () => selectRegion(r.code, r.name));
+              legendList.appendChild(item);
+            });
+          }
+          
           if (isHidden) {
             panel.style.display = 'block';
             icon.style.transform = 'rotate(180deg)';
