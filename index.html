@@ -1002,28 +1002,68 @@
     
 
     <!--  SEARCH + FILTER  -->
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px;">
-      <div style="display:flex;align-items:center;gap:10px;background:#F5F7FF;border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;">
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <input type="text" id="tp-search" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
-          style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
-      </div>
-      <div class="stat-strip">
-        <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
+    <div style="margin-bottom:18px;">
+      <!-- Compact Toggle Bar -->
+      <button class="mobile-filter-toggle" onclick="toggleMobileFilter('tp-filter-drawer')" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:12px 16px;background:var(--white);border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:500;color:var(--navy);cursor:pointer;margin-bottom:12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+        Search &amp; Filters
+      </button>
+
+      <!-- Filter Drawer -->
+      <div class="mobile-filter-drawer" id="tp-filter-drawer" style="display:none;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px;">
+        <!-- Search Box -->
+        <div style="display:flex;align-items:center;gap:10px;background:#F5F7FF;border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="text" id="tp-search" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
+            style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stat-strip" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;">
+          <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
           <div class="stat-card"><div class="stat-val">2010</div><div class="stat-lbl">Records from as early as</div></div>
           <div class="stat-card"><div class="stat-val">6</div><div class="stat-lbl">Report types available</div></div>
           <div class="stat-card"><div class="stat-val">FOI</div><div class="stat-lbl">Open access portal linked</div></div>
+        </div>
+
+        <!-- Filter Chips -->
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
+          <button class="tp-chip active" onclick="tpSetFilter('all',this)">All</button>
+          <button class="tp-chip" onclick="tpSetFilter('org',this)">Organizational</button>
+          <button class="tp-chip" onclick="tpSetFilter('fin',this)">Financial</button>
+          <button class="tp-chip" onclick="tpSetFilter('proc',this)">Procurement</button>
+          <button class="tp-chip" onclick="tpSetFilter('perf',this)">Performance</button>
+          <button class="tp-chip" onclick="tpSetFilter('legal',this)">Legal &amp; Compliance</button>
+          <button class="tp-chip" onclick="tpSetFilter('foi',this)">FOI</button>
+          <span id="tp-count" style="margin-left:auto;font-size:11.5px;color:var(--textlt);">11 categories</span>
+        </div>
       </div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-        <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
-        <button class="tp-chip active" onclick="tpSetFilter('all',this)">All</button>
-        <button class="tp-chip" onclick="tpSetFilter('org',this)">Organizational</button>
-        <button class="tp-chip" onclick="tpSetFilter('fin',this)">Financial</button>
-        <button class="tp-chip" onclick="tpSetFilter('proc',this)">Procurement</button>
-        <button class="tp-chip" onclick="tpSetFilter('perf',this)">Performance</button>
-        <button class="tp-chip" onclick="tpSetFilter('legal',this)">Legal &amp; Compliance</button>
-        <button class="tp-chip" onclick="tpSetFilter('foi',this)">FOI</button>
-        <span id="tp-count" style="margin-left:auto;font-size:11.5px;color:var(--textlt);">11 categories</span>
+
+      <!-- Desktop View (always visible) -->
+      <div style="display:none;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px;" class="tp-desktop-filters">
+        <div style="display:flex;align-items:center;gap:10px;background:#F5F7FF;border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <input type="text" id="tp-search-desktop" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
+            style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
+        </div>
+        <div class="stat-strip">
+          <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
+          <div class="stat-card"><div class="stat-val">2010</div><div class="stat-lbl">Records from as early as</div></div>
+          <div class="stat-card"><div class="stat-val">6</div><div class="stat-lbl">Report types available</div></div>
+          <div class="stat-card"><div class="stat-val">FOI</div><div class="stat-lbl">Open access portal linked</div></div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
+          <button class="tp-chip active" onclick="tpSetFilter('all',this)">All</button>
+          <button class="tp-chip" onclick="tpSetFilter('org',this)">Organizational</button>
+          <button class="tp-chip" onclick="tpSetFilter('fin',this)">Financial</button>
+          <button class="tp-chip" onclick="tpSetFilter('proc',this)">Procurement</button>
+          <button class="tp-chip" onclick="tpSetFilter('perf',this)">Performance</button>
+          <button class="tp-chip" onclick="tpSetFilter('legal',this)">Legal &amp; Compliance</button>
+          <button class="tp-chip" onclick="tpSetFilter('foi',this)">FOI</button>
+          <span id="tp-count" style="margin-left:auto;font-size:11.5px;color:var(--textlt);">11 categories</span>
+        </div>
       </div>
     </div>
 

@@ -18,7 +18,15 @@
     --font-serif: 'Source Serif 4', Georgia, serif;
   }
 
-  html { scroll-behavior: smooth; }
+  /* Transparency page filters - desktop visibility */
+  .tp-desktop-filters { display: flex !important; flex-wrap: wrap; gap: 14px; }
+  
+  @media (max-width: 768px) {
+    /* Hide desktop filters on mobile */
+    .tp-desktop-filters { display: none !important; }
+    /* Show mobile toggle and make drawer visible when open */
+    .mobile-filter-toggle { display: flex !important; }
+  }
 
   body {
     font-family: var(--font-sans);
