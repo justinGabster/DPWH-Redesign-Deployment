@@ -2512,4 +2512,6 @@ function _pinchDist(touches) {
   return Math.sqrt(dx*dx + dy*dy);
 }
 
+    })();
+
 
