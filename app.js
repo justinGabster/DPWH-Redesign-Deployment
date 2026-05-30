@@ -2413,10 +2413,14 @@ function _applyMapTransform(animate) {
   /* update badge */
   var badge = document.getElementById('map-zoom-badge');
   if (badge) badge.textContent = Math.round(_mapScale * 100) + '%';
+  
+  /* update zoom level display */
+  var zoomDisplay = document.getElementById('zoom-level-display');
+  if (zoomDisplay) zoomDisplay.textContent = Math.round(_mapScale * 100) + '%';
 }
 
 /* Button zoom (zooms toward center of viewport) */
-function mapZoom(factor) {
+window.mapZoom = function(factor) {
   var vp = document.getElementById('map-viewport');
   if (!vp) return;
   var cx = vp.offsetWidth  / 2;
@@ -2426,7 +2430,7 @@ function mapZoom(factor) {
 }
 
 /* Reset */
-function mapReset() {
+window.mapReset = function() {
   _mapScale = 1; _mapTX = 0; _mapTY = 0;
   _applyMapTransform(true);
 }
