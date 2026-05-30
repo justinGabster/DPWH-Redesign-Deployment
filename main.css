@@ -4431,7 +4431,63 @@ a {
     line-height: 1.6 !important;
   }
   
-  /* Infra stats section - vertical cards */
+  /* Infra stats section - horizontal scrollable cards */
+  .infra-stats-grid, .atlas-info-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding-bottom: 8px !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .infra-stat-card, .atlas-info-card {
+    flex: 0 0 calc(50% - 8px) !important;
+    min-width: 240px !important;
+    padding: 18px !important;
+    border-radius: 8px !important;
+    background: #F0F3FF !important;
+    border-left: 4px solid #2438A6 !important;
+  }
+
+  .infra-stat-card.orange, .atlas-info-card.orange {
+    border-left-color: #FF8A5C !important;
+  }
+
+  .infra-stat-card h3, .atlas-info-card h3 {
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+    color: #0B1A4A !important;
+    font-weight: 700 !important;
+  }
+
+  .infra-stat-card p, .atlas-info-card p {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    color: #5A6A9A !important;
+    margin: 0 !important;
+  }
+
+  /* Horizontal scroll styling */
+  .infra-stats-grid::-webkit-scrollbar {
+    height: 6px !important;
+  }
+
+  .infra-stats-grid::-webkit-scrollbar-track {
+    background: rgba(36, 56, 166, 0.05) !important;
+    border-radius: 3px !important;
+  }
+
+  .infra-stats-grid::-webkit-scrollbar-thumb {
+    background: rgba(36, 56, 166, 0.2) !important;
+    border-radius: 3px !important;
+  }
+
+  .infra-stats-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(36, 56, 166, 0.4) !important;
+  }
   .infra-stats-grid, .atlas-info-grid {
     display: flex !important;
     flex-direction: column !important;
@@ -4463,13 +4519,20 @@ a {
   #regional-detail h3 { font-size: 16px !important; }
   #regional-detail .subpage-tabs { margin-bottom: 12px !important; }
   
-  /* Infra stats cards - stack vertically */
+  /* Infra stats cards - stack on mobile */
   .infra-stats-grid {
-    display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
+    overflow-x: auto !important;
   }
-  .infra-stat-card { padding: 14px !important; }
-  .infra-stat-card h3 { font-size: 14px !important; }
-  .infra-stat-card p { font-size: 12px !important; }
+  .infra-stat-card, .atlas-info-card {
+    flex: 0 0 auto !important;
+    min-width: 100% !important;
+    padding: 14px !important;
+  }
+  .infra-stat-card h3, .atlas-info-card h3 {
+    font-size: 14px !important;
+  }
+  .infra-stat-card p, .atlas-info-card p {
+    font-size: 12px !important;
+  }
 }
