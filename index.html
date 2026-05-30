@@ -3637,38 +3637,21 @@
       <!--  MAIN  -->
       <div style="flex:1;">
         <!-- Toolbar -->
-      <!-- Mobile Filter Toggle -->
-      <button class="mobile-filter-toggle" onclick="toggleMobileFilter('ann-mobile-drawer')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
-        Search &amp; Filters
-      </button>
-
-      <!-- Filter Drawer -->
-      <div class="mobile-filter-drawer" id="ann-mobile-drawer">
-        <div style="margin-bottom:12px;">
-          <div style="display:flex;align-items:center;gap:8px;background:#F5F7FF;border:1px solid var(--border);border-radius:6px;padding:8px 12px;">
-            <svg width="13" height="13" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <input type="text" id="ann-search" placeholder="Search announcements..." oninput="annApply()" style="border:none;outline:none;background:transparent;font-size:13px;width:100%;font-family:var(--font-sans);">
+        <div class="ann-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px;">
+          <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+            <div class="ann-date-active-pill" id="ann-date-pill" onclick="annClearDate()" style="display:none;">
+              <span id="ann-date-pill-label">April 2026</span>
+              <span style="font-size:14px;line-height:1;">&#x2715;</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <select class="ann-sort" id="ann-sort" onchange="annApply()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--white);cursor:pointer;">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </select>
+            <div class="ann-count" id="ann-count" style="font-size:12px;color:var(--textlt);white-space:nowrap;">Showing <strong>0</strong></div>
           </div>
         </div>
-      </div>
-
-      <!-- Toolbar -->
-      <div class="ann-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px 16px;">
-        <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;">
-          <div class="ann-date-active-pill" id="ann-date-pill" onclick="annClearDate()" style="display:none;">
-            <span id="ann-date-pill-label">April 2026</span>
-            <span style="font-size:14px;line-height:1;">&#x2715;</span>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;white-space:nowrap;flex-shrink:0;">
-          <select class="ann-sort" id="ann-sort" onchange="annApply()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--white);cursor:pointer;">
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-          </select>
-          <div class="ann-count" id="ann-count" style="font-size:12px;color:var(--textlt);">Showing <strong>0</strong></div>
-        </div>
-      </div>
 
         <!-- List -->
         <div class="ann-list" id="ann-list"></div>
