@@ -1311,16 +1311,16 @@ function selectRegion(code, name) {
 }
 
 /*  MOBILE NAV TOGGLE  */
-function toggleMobileNav() {
-  const navInner = document.getElementById('nav-inner');
-  if (navInner) {
-    navInner.classList.toggle('active');
-    // Close all dropdowns when closing nav
-    if (!navInner.classList.contains('active')) {
-      document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
-    }
-  }
-}
+      window.toggleMobileNav = function() {
+        const navInner = document.getElementById('nav-inner');
+        if (navInner) {
+          navInner.classList.toggle('active');
+          // Close all dropdowns when closing nav
+          if (!navInner.classList.contains('active')) {
+            document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
+          }
+        }
+      };
 
 // Mobile dropdown toggle - handle clicks on nav items with dropdowns
 function initMobileNavDropdowns() {
