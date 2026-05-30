@@ -45,9 +45,6 @@
           });
         }
       };
-          }
-        }
-      };
 
       /* enable/disable download button when a select changes */
       window.tpEnableBtn = function(sel, btnId) {
