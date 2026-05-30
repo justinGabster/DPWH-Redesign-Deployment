@@ -2724,14 +2724,14 @@
       <h2>About DPWH</h2>
       <p>Learn about the Department's mandate, history, leadership, and organizational structure.</p>
     </div>
-    <div class="subpage-tabs">
-      <div class="subpage-tab active" onclick="activateSubTab(this,'about-about-dpwh')">About DPWH</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'about-history')">History</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'about-former-secs')">Former Secretaries</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'about-logo')">About the Logo</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'about-budget')">Annual Budget</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'about-workforce')">Workforce Complement</div>
-    </div>
+  <div class="subpage-tabs">
+    <div class="subpage-tab active" onclick="activateSubTab(this,'about-about-dpwh')">About DPWH</div>
+    <div class="subpage-tab" onclick="activateSubTab(this,'about-history')">History</div>
+    <div class="subpage-tab" onclick="activateSubTab(this,'about-former-secs')">Former Secretaries</div>
+    <div class="subpage-tab" onclick="activateSubTab(this,'about-logo')">About the Logo</div>
+    <div class="subpage-tab" onclick="activateSubTab(this,'about-budget')">Annual Budget</div>
+    <div class="subpage-tab" onclick="activateSubTab(this,'about-workforce')">Workforce Complement</div>
+  </div>
     <div id="about-about-dpwh" class="r-section active">
       <section class="about-modern">
 
@@ -3726,18 +3726,20 @@
     <div>
 
       <!-- Toolbar -->
-      <div class="news-toolbar" style="align-items:center;">
+      <div class="news-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
         <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;">
           <div class="ns-active-pill" id="news-active-pill" onclick="newsClearFilter()">
             <span id="news-pill-label">NCR</span>
             <span style="font-size:14px;line-height:1;">&#x2715;</span>
           </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;white-space:nowrap;flex-shrink:0;">
           <select class="news-sort" id="news-sort" onchange="newsApply()">
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
+          <div class="news-count" id="news-count">Showing <strong>0</strong> articles</div>
         </div>
-        <div class="news-count" id="news-count">Showing <strong>0</strong> articles</div>
       </div>
 
       <!-- Featured article slot -->

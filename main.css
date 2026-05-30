@@ -345,6 +345,7 @@
     font-size: 11px; font-weight: 500; cursor: pointer;
     text-transform: none; letter-spacing: 0; opacity: 0.9;
     display: flex; align-items: center; gap: 4px; transition: opacity 0.15s;
+    white-space: nowrap; flex-shrink: 0;
   }
   .update-card-header .more:hover { opacity: 1; }
   .uc-announcements .update-card-header .more { color: #FFD0A8; }
@@ -437,14 +438,34 @@
   }
 
   /* SUBPAGE TABS */
-  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+  .subpage-tabs { 
+    display: flex; 
+    gap: 4px; 
+    margin-bottom: 24px; 
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  .subpage-tabs::-webkit-scrollbar { height: 6px; }
+  .subpage-tabs::-webkit-scrollbar-track { background: transparent; }
+  .subpage-tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   .subpage-tab {
-    padding: 8px 16px; background: var(--white); border: 1px solid var(--border);
-    border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--textlt);
-    cursor: pointer; transition: all 0.15s;
+    padding: 10px 18px; 
+    background: var(--white); 
+    border: 1px solid var(--border);
+    border-bottom: 2px solid transparent;
+    border-radius: 8px; 
+    font-size: 13px; 
+    font-weight: 500; 
+    color: var(--textlt);
+    cursor: pointer; 
+    transition: all 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .subpage-tab:hover { color: var(--royal); border-color: var(--blue); }
-  .subpage-tab.active { background: var(--royal); color: var(--white); border-color: var(--royal); }
+  .subpage-tab.active { background: var(--royal); color: var(--white); border-color: var(--royal); border-bottom-color: var(--orange); }
 
   /* REGION */
   .region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
