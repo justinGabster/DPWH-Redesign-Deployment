@@ -1855,16 +1855,18 @@
           </div><!-- /map-viewport -->
         </div><!-- /map col -->
 
-        <!-- LEGEND (Collapsible Drawer) -->
-        <div style="display:flex;flex-direction:column;min-width:0;">
-          <button id="legend-toggle" onclick="toggleLegendPanel()" style="align-self:flex-end;margin-bottom:8px;padding:8px 12px;background:rgba(36,56,166,0.08);border:1px solid rgba(36,56,166,0.15);border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--navy);transition:all 0.2s;" onmouseover="this.style.background='rgba(36,56,166,0.12)'" onmouseout="this.style.background='rgba(36,56,166,0.08)'">
-            <svg id="legend-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            <span id="legend-toggle-text">Show Legend</span>
-          </button>
-          <div id="legend-panel" style="background:var(--light);border:1px solid var(--border);border-radius:10px;padding:14px 16px;max-height:480px;overflow-y:auto;transition:all 0.3s ease;display:none;min-width:220px;">
+        <!-- LEGEND (Retractable Side Navigation) -->
+        <div id="legend-container" style="display:flex;gap:0;align-items:stretch;min-width:0;transition:all 0.3s ease;">
+          <!-- Retractable Legend Panel -->
+          <div id="legend-panel" style="background:var(--light);border:1px solid var(--border);border-radius:10px;padding:14px 16px;max-height:480px;overflow-y:auto;min-width:220px;flex-shrink:0;transition:all 0.3s ease;max-width:220px;opacity:1;">
             <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--border);">Regions</div>
             <div id="map-legend-list" style="display:flex;flex-direction:column;gap:5px;"></div>
           </div>
+          
+          <!-- Collapse/Expand Button -->
+          <button id="legend-toggle" onclick="toggleLegendPanel()" style="align-self:center;margin-left:4px;padding:8px;background:rgba(36,56,166,0.08);border:1px solid rgba(36,56,166,0.15);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:600;color:var(--navy);transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='rgba(36,56,166,0.12)'" onmouseout="this.style.background='rgba(36,56,166,0.08)'">
+            <svg id="legend-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
 
       </div><!-- /map row ? THIS WAS MISSING -->

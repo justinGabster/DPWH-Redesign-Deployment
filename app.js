@@ -12,23 +12,18 @@
       /* LEGEND PANEL TOGGLE */
       window.toggleLegendPanel = function() {
         var panel = document.getElementById('legend-panel');
-        var toggle = document.getElementById('legend-toggle');
         var icon = document.getElementById('legend-toggle-icon');
-        if (panel && toggle) {
-          var isCollapsed = panel.style.width === '0px' || panel.style.maxWidth === '0px';
+        if (panel && icon) {
+          var isCollapsed = panel.style.maxWidth === '0px' || panel.offsetWidth === 0;
           if (isCollapsed) {
-            panel.style.width = 'auto';
             panel.style.maxWidth = '220px';
-            panel.style.padding = '14px 16px';
             panel.style.opacity = '1';
-            toggle.style.right = '-14px';
+            panel.style.visibility = 'visible';
             icon.style.transform = 'rotate(180deg)';
           } else {
-            panel.style.width = '0px';
             panel.style.maxWidth = '0px';
-            panel.style.padding = '0px';
             panel.style.opacity = '0';
-            toggle.style.right = '-16px';
+            panel.style.visibility = 'hidden';
             icon.style.transform = 'rotate(0deg)';
           }
         }
