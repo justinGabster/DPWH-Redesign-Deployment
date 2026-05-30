@@ -347,19 +347,14 @@
   .update-card-header .uch-icon {
     width: 22px; height: 22px; opacity: 0.85; flex-shrink: 0;
   }
-  .update-card-header .uch-label { flex: 1; margin-left: 8px; position: relative; }
-  .update-card-header .uch-label::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    background: linear-gradient(90deg, transparent, #C04E00 100%);
-    pointer-events: none;
-  }
-  .uc-news .update-card-header .uch-label::after {
-    background: linear-gradient(90deg, transparent, #1A2E8A 100%);
+  .update-card-header .uch-label {
+    flex: 1;
+    margin-left: 8px;
+    position: relative;
+    background: linear-gradient(90deg, var(--white) 0%, var(--white) 70%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* "View all" link */
@@ -367,7 +362,7 @@
     font-size: 11px; font-weight: 500; cursor: pointer;
     text-transform: none; letter-spacing: 0; opacity: 0.9;
     display: flex; align-items: center; gap: 4px; transition: opacity 0.15s;
-    white-space: nowrap; flex-shrink: 0;
+    white-space: nowrap; flex-shrink: 0; margin-left: -8px;
   }
   .update-card-header .more:hover { opacity: 1; }
   .uc-announcements .update-card-header .more { color: #FFD0A8; }
