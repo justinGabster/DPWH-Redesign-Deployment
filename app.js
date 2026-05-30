@@ -369,7 +369,7 @@ function filterRoads(q) {
           card.addEventListener('click', function(){
             card.classList.toggle('open');
             const rm = card.querySelector('.ann-read-more');
-            if (rm) rm.textContent = card.classList.contains('open') ? 'Close \u2191' : 'Read more \u2192';
+            if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
           });
           listEl.appendChild(card);
         });
