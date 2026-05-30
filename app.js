@@ -21,15 +21,21 @@
           
           // Populate legend list on first open if empty
           if (!isOpen && legendList && legendList.children.length === 0 && typeof regionMapData !== 'undefined') {
-            regionMapData.forEach(r => {
-              const item = document.createElement('div');
+            for (var i = 0; i < regionMapData.length; i++) {
+              var r = regionMapData[i];
+              var item = document.createElement('div');
               item.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:12px;cursor:pointer;padding:10px 8px;border-radius:6px;transition:background 0.15s;';
-              item.innerHTML = `<span style="width:12px;height:12px;border-radius:50%;background:${r.color};flex-shrink:0;border:1px solid rgba(0,0,0,0.15);"></span><span style="color:#1A2352;flex:1;font-weight:500;">${r.name}</span>`;
-              item.addEventListener('mouseenter', () => item.style.background = 'rgba(36,56,166,0.1)');
-              item.addEventListener('mouseleave', () => item.style.background = 'transparent');
-              item.addEventListener('click', () => { selectRegion(r.code, r.name); toggleLegendPanel(); });
+              item.innerHTML = '<span style="width:12px;height:12px;border-radius:50%;background:' + r.color + ';flex-shrink:0;border:1px solid rgba(0,0,0,0.15);"></span><span style="color:#1A2352;flex:1;font-weight:500;">' + r.name + '</span>';
+              item.addEventListener('mouseenter', function(e) { e.target.parentElement.style.background = 'rgba(36,56,166,0.1)'; });
+              item.addEventListener('mouseleave', function(e) { e.target.parentElement.style.background = 'transparent'; });
+              (function(regionCode, regionName) {
+                item.addEventListener('click', function() { 
+                  selectRegion(regionCode, regionName); 
+                  window.toggleLegendPanel(); 
+                });
+              })(r.code, r.name);
               legendList.appendChild(item);
-            });
+            }
           }
           
           if (isOpen) {
