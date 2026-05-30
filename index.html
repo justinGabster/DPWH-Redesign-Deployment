@@ -821,7 +821,6 @@
             </button>
           </div>
 
-          <!-- LEGEND DROPDOWN - Positioned above zoom controls -->
 
 
   <!-- Category tiles -->
@@ -1786,6 +1785,20 @@
 
           <!-- SCROLL HINT -->
           <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);z-index:10;background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.6);font-size:10px;padding:3px 10px;border-radius:20px;white-space:nowrap;pointer-events:none;">Scroll to zoom &bull; Drag to pan</div>
+
+          <!-- LEGEND DROPDOWN - beside zoom controls -->
+          <div style="position:absolute;top:8px;left:52px;z-index:12;display:flex;flex-direction:column;gap:4px;">
+            <button id="legend-toggle" onclick="toggleLegendPanel()" title="Show regions" style="padding:6px 10px;background:rgba(36,56,166,0.12);border:1px solid rgba(36,56,166,0.2);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:600;color:white;transition:all 0.2s;white-space:nowrap;backdrop-filter:blur(4px);" onmouseover="this.style.background='rgba(36,56,166,0.2)'" onmouseout="this.style.background='rgba(36,56,166,0.12)'">
+              <svg id="legend-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Regions</span>
+            </button>
+            
+            <!-- Dropdown Panel -->
+            <div id="legend-panel" style="position:absolute;top:40px;left:0;width:200px;background:rgba(255,255,255,0.98);border:1px solid rgba(255,255,255,0.4);border-radius:8px;padding:10px 12px;max-height:280px;overflow-y:auto;z-index:13;display:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);backdrop-filter:blur(8px);">
+              <div style="font-size:9px;font-weight:700;color:#0B1A4A;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(36,56,166,0.1);">Regions</div>
+              <div id="map-legend-list" style="display:flex;flex-direction:column;gap:3px;"></div>
+            </div>
+          </div>
 
           <!-- MAP VIEWPORT -->
           <div id="map-viewport" class="map-viewport"
@@ -3048,21 +3061,6 @@
             </button>
           </div>
 
-          <!-- LEGEND DROPDOWN - beside zoom controls -->
-          <div style="position:absolute;top:8px;left:52px;z-index:12;display:flex;flex-direction:column;gap:4px;">
-            <button id="legend-toggle" onclick="toggleLegendPanel()" title="Show regions" style="padding:6px 10px;background:rgba(36,56,166,0.12);border:1px solid rgba(36,56,166,0.2);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:600;color:white;transition:all 0.2s;white-space:nowrap;backdrop-filter:blur(4px);" onmouseover="this.style.background='rgba(36,56,166,0.2)'" onmouseout="this.style.background='rgba(36,56,166,0.12)'">
-              <svg id="legend-toggle-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Regions</span>
-            </button>
-            
-            <!-- Dropdown Panel -->
-            <div id="legend-panel" style="position:absolute;top:40px;left:0;width:200px;background:rgba(255,255,255,0.98);border:1px solid rgba(255,255,255,0.4);border-radius:8px;padding:10px 12px;max-height:280px;overflow-y:auto;z-index:13;display:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);backdrop-filter:blur(8px);">
-              <div style="font-size:9px;font-weight:700;color:#0B1A4A;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(36,56,166,0.1);">Regions</div>
-              <div id="map-legend-list" style="display:flex;flex-direction:column;gap:3px;"></div>
-            </div>
-          </div>
-            </div>
-          </div>
           <!-- Row 2: Era filters -->
           <div class="fs-controls-row2">
             <span class="fs-filter-label">Era:</span>
