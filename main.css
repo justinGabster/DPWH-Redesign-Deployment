@@ -4075,9 +4075,19 @@ a {
   }
   .mobile-filter-drawer.open { display: block !important; }
   
-  /* Former Secretaries filter drawer - show on desktop */
+  /* Mobile view: hide drawer by default, show toggle button */
+  @media (max-width: 800px) {
+    .mobile-filter-drawer {
+      display: none !important;
+    }
+    .mobile-filter-toggle {
+      display: flex !important;
+    }
+  }
+
+  /* Desktop view (801px+): show drawer normally, hide toggle button */
   @media (min-width: 801px) {
-    #fs-filter-drawer {
+    .mobile-filter-drawer {
       display: block !important;
       background: transparent;
       border: none;
