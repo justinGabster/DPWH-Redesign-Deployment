@@ -363,21 +363,23 @@ function filterRoads(q) {
               '<div class="ann-date-mon">'  + fmtMon(r.date)  + '</div>' +
               '<div class="ann-date-year">' + fmtYear(r.date) + '</div>' +
             '</div>' +
-            '<div style="flex:1;min-width:0;">' +
-              '<div class="ann-card-body">' +
-                '<div class="ann-card-top">' +
-                  '<span class="ann-badge ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
-                  (r.isNew ? '<span class="ann-new-tag">New</span>' : '') +
+            '<div style="flex:1;min-width:0;display:flex;flex-direction:column;">' +
+              '<div class="ann-card-scroll-wrapper" style="flex:1;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-bottom:8px;">' +
+                '<div class="ann-card-body" style="display:inline-block;min-width:100%;padding-right:16px;">' +
+                  '<div class="ann-card-top">' +
+                    '<span class="ann-badge ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
+                    (r.isNew ? '<span class="ann-new-tag">New</span>' : '') +
+                  '</div>' +
+                  '<div class="ann-card-title">' + r.title + '</div>' +
+                  '<div class="ann-card-snippet">' + r.snippet + '</div>' +
+                  '<div class="ann-card-footer">' +
+                    '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
+                    '<span class="ann-read-more">View all →</span>' +
+                  '</div>' +
                 '</div>' +
-                '<div class="ann-card-title">' + r.title + '</div>' +
-                '<div class="ann-card-snippet">' + r.snippet + '</div>' +
-                '<div class="ann-card-footer">' +
-                  '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
-                  '<span class="ann-read-more">View all →</span>' +
-                '</div>' +
-                '<div class="ann-card-slider-container">' +
-                  '<input type="range" class="ann-card-slider" id="' + cardId + '" min="0" max="100" value="0" style="width:100%;margin-top:8px;">' +
-                '</div>' +
+              '</div>' +
+              '<div class="ann-card-slider-container" style="padding:0 0;">' +
+                '<input type="range" class="ann-card-slider" id="' + cardId + '" min="0" max="100" value="0" style="width:100%;height:3px;cursor:pointer;" title="Scroll announcement content">' +
               '</div>' +
               '<div class="ann-card-expanded">' +
                 '<p style="margin-bottom:10px;">' + r.snippet + ' Further details will be published in the official gazette and distributed to all concerned offices.</p>' +
@@ -389,6 +391,23 @@ function filterRoads(q) {
             const rm = card.querySelector('.ann-read-more');
             if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
           });
+          
+          // Add slider control for horizontal scrolling
+          const slider = card.querySelector('#' + cardId);
+          const scrollWrapper = card.querySelector('.ann-card-scroll-wrapper');
+          if (slider && scrollWrapper) {
+            slider.addEventListener('input', function(e) {
+              const value = parseFloat(e.target.value);
+              const scrollLeft = (value / 100) * (scrollWrapper.scrollWidth - scrollWrapper.clientWidth);
+              scrollWrapper.scrollLeft = scrollLeft;
+            });
+            scrollWrapper.addEventListener('scroll', function() {
+              const maxScroll = scrollWrapper.scrollWidth - scrollWrapper.clientWidth;
+              const scrollPercent = maxScroll > 0 ? (scrollWrapper.scrollLeft / maxScroll) * 100 : 0;
+              slider.value = scrollPercent;
+            });
+          }
+          
           listEl.appendChild(card);
         });
 

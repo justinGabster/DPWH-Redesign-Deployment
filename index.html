@@ -3877,12 +3877,13 @@
       </div>
 
       <!-- FILTER PANEL -->
-      <div class="filter-panel">
-        <div class="filter-panel-header">
-          <div class="filter-panel-title">Filter Vacancies</div>
-          <div class="results-meta" style="margin-bottom:0;">
-            <span class="results-count">Showing <strong id="resultCount">0</strong> of <strong id="totalCount">0</strong> vacancies</span>
-          </div>
+      <button class="mobile-filter-toggle" onclick="toggleMobileFilter('careers-mobile-drawer')" style="margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+        Filter Vacancies
+      </button>
+      <div class="mobile-filter-drawer" id="careers-mobile-drawer">
+        <div class="results-meta" style="margin-bottom:16px;">
+          <span class="results-count">Showing <strong id="resultCount">0</strong> of <strong id="totalCount">0</strong> vacancies</span>
         </div>
         <div class="filter-grid">
           <div class="filter-group" style="grid-column: span 2;">
@@ -3963,7 +3964,7 @@
             </select>
           </div>
         </div>
-      </div>
+      </div><!-- end .mobile-filter-drawer -->
 
       <!-- QUICK CATEGORY CHIPS -->
       <div class="chip-row" role="group" aria-label="Filter by category">
