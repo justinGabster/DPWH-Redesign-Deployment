@@ -543,6 +543,9 @@
       color: var(--white) !important;
       position: relative !important;
       overflow: hidden !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
       margin-bottom: 16px !important;
     }
     .hist-background-box::before {
@@ -602,7 +605,19 @@
     @media (max-width: 900px) {
       .hist-layout {
         grid-template-columns: 1fr !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
       }
+      .hist-background-col {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .hist-background-box {
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+    }
       .hist-background-col {
         position: static !important;
       }
@@ -3297,7 +3312,7 @@
                   <div class="bgt-card-title">OO-1: Safe National Road System</div>
                   <div class="bgt-hero-stat" style="margin-bottom:10px;"><div class="bgt-label">FY 2021 GAA</div><div class="bgt-value bgt-accent">₱205.99B</div><span class="bgt-change up">+14.77% vs NEP</span></div>
                   <div class="bgt-hero-stat" style="margin-bottom:14px;"><div class="bgt-label">FY 2020 GAA</div><div class="bgt-value">₱184.82B</div></div>
-                  <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Asset Pres.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:31.5%;background:#1A3080"><span>₱64.90B</span></div></div></div>
+                  <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Asset Pres.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:31.5%;background:#1A3080"><span>���64.90B</span></div></div></div>
                   <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Network Dev.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:57.5%;background:#2E5FD9"><span>₱118.44B</span></div></div></div>
                   <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Bridge Prog.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:11%;background:#E8620A"><span>₱22.64B</span></div></div></div>
                 </div>
