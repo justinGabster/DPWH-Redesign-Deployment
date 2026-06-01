@@ -253,9 +253,6 @@
       flex: 1; margin-bottom: 12px;
       transition: box-shadow 0.2s;
       max-width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
     }
     .hist-card:hover { box-shadow: 0 4px 16px rgba(11,26,74,0.08); }
     .hist-year {
@@ -268,11 +265,8 @@
       font-family: var(--font-display) !important;
       font-size: 15px; font-weight: 700;
       color: var(--navy); margin-bottom: 6px;
-      white-space: nowrap;
     }
-    .hist-card p { font-size: 13px; color: var(--textlt); line-height: 1.7; margin: 0;
-      white-space: nowrap;
-    }
+    .hist-card p { font-size: 13px; color: var(--textlt); line-height: 1.7; margin: 0; }
     .hist-badge {
       display: inline-block; margin-top: 10px;
       font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
@@ -3142,33 +3136,40 @@
       <div class="hist-section-intro">
         <h2 class="section-banner" style="margin-bottom:14px;">About the Logo</h2>
       </div>
-      <div style="display:flex; gap:32px; align-items:flex-start; margin-top:16px;">
-        <!-- LEFT: Logo with number dots -->
-        <div style="position:relative; flex-shrink:0; width:300px; height:300px; margin: 40px auto;">
-          <!-- 1 GEAR FRAME -->
-          <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--navy); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">1</div>
-          <!-- 3 DORIC COLUMN -->
-          <div style="position:absolute; top:70px; right:-14px; background:var(--royal); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">3</div>
-          <!-- 2 HIGHWAY -->
-          <div style="position:absolute; bottom:80px; right:-14px; background:var(--orange); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">2</div>
-          <!-- 4 INNER CIRCLE -->
-          <div style="position:absolute; top:130px; left:-14px; background:var(--blue); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">4</div>
-          <!-- 5 ORANGE & WHITE LANES -->
-          <div style="position:absolute; bottom:40px; left:-14px; background:var(--navy); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">5</div>
-          <img src="images/secretaries/LOGO.png" width="300" height="300" alt="DPWH Logo">
+      <div style="display:flex; flex-direction:column; gap:32px; align-items:center; margin-top:16px;">
+        <!-- Logo only, centered -->
+        <div style="position:relative; flex-shrink:0; width:280px; height:280px;">
+          <img src="images/secretaries/LOGO.png" width="280" height="280" alt="DPWH Logo" style="display:block; margin:0 auto;">
         </div>
 
-        <!-- RIGHT: Description -->
-        <div style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:14px; max-width:520px; padding-top:40px; margin-left:-30px;">
-          <p style="max-width:100%; width:100%; background:var(--light); padding:10px 16px; border-radius:4px; font-style:normal; color:var(--text); font-weight:500; margin-bottom:24px;">The design conveys the idea of Filipino engineering excellence with sub-themes such as the fine craftsmanship of Filipino design engineers, architects and the whole field of engineering profession, competence and integrity.</p>
-          <ol style="padding-left:-20px; display:flex; flex-direction:column; gap:8px;">
-            <li><strong>Gear Frame</strong> — Completely circular, representing motion, transmission and direction towards the common man's economic and social upliftment. Seeks unity of effort, direction and purpose.</li>
-            <li><strong>Highway</strong> — Stretches northward and merges to infinity, conveying that roads complement public works projects hand-in-hand.</li>
-            <li><strong>Doric Column</strong> — Symbol of the building and construction industry, denoting unity of objectives and unity of efforts.</li>
-            <li><strong>Inner Circle</strong> — Encases all elements, representing the wholeness and completeness of the Department's mandate.</li>
-            <li><strong>Orange &amp; White Lanes</strong> — Represent engineering outputs: roads and bridges, flood control, ports, water supply, national buildings, and other public works.</li>
-          </ol>
-          <p style="margin-top:16px; font-style:italic; font-size:13px;">Thus, the doric column and the highway should be taken in a total context.</p>
+        <!-- Logo descriptions below logo in a grid -->
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; max-width:500px; width:100%;">
+          <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--navy); text-align:left;">
+            <strong style="color:var(--navy); font-size:14px;">1. Gear Frame</strong>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Represents motion, transmission and direction towards the common man's economic and social upliftment.</p>
+          </div>
+          <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--orange); text-align:left;">
+            <strong style="color:var(--navy); font-size:14px;">2. Highway</strong>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Stretches northward and merges to infinity, conveying that roads complement public works projects.</p>
+          </div>
+          <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--royal); text-align:left;">
+            <strong style="color:var(--navy); font-size:14px;">3. Doric Column</strong>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Symbol of the building and construction industry, denoting unity of objectives and efforts.</p>
+          </div>
+          <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--blue); text-align:left;">
+            <strong style="color:var(--navy); font-size:14px;">4. Inner Circle</strong>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Encases all elements, representing the wholeness and completeness of the Department.</p>
+          </div>
+          <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--navy); text-align:left; grid-column:1/-1;">
+            <strong style="color:var(--navy); font-size:14px;">5. Orange & White Lanes</strong>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Represent engineering outputs: roads and bridges, flood control, ports, water supply, national buildings, and other public works.</p>
+          </div>
+        </div>
+
+        <!-- Right: Description paragraph -->
+        <div style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:13px; max-width:600px; text-align:center;">
+          <p style="max-width:100%; width:100%; background:var(--light); padding:14px 16px; border-radius:4px; font-style:normal; color:var(--text); font-weight:500; margin-bottom:0;">The design conveys the idea of Filipino engineering excellence with sub-themes such as the fine craftsmanship of Filipino design engineers, architects and the whole field of engineering profession, competence and integrity.</p>
+          <p style="margin-top:16px; font-style:italic; font-size:12px;">Thus, the doric column and the highway should be taken in a total context.</p>
         </div>
       </div>
     </div>
@@ -3533,91 +3534,91 @@
             <p style="font-size:13px; color:var(--navy); opacity:0.7;">As of March 31, 2025 &nbsp;|&nbsp; Source: DPWH Human Resource Management Division</p>
           </div>
       
-          <!-- Summary Cards -->
-          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:28px; max-width:700px; margin-left:auto; margin-right:auto;">
-            <div style="background:var(--navy); color:var(--white); border-radius:8px; padding:16px; text-align:center;">
-              <div style="font-size:22px; font-weight:700;">79,749</div>
-              <div style="font-size:11px; opacity:0.8; margin-top:4px;">Total Workforce</div>
+          <!-- Summary Cards - 2x2 grid on mobile/tablet, auto on larger -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:12px; margin-bottom:24px; max-width:600px; margin-left:auto; margin-right:auto;">
+            <div style="background:var(--navy); color:var(--white); border-radius:8px; padding:14px; text-align:center;">
+              <div style="font-size:20px; font-weight:700;">79,749</div>
+              <div style="font-size:10px; opacity:0.8; margin-top:4px;">Total Workforce</div>
             </div>
-            <div style="background:var(--orange); color:var(--white); border-radius:8px; padding:16px; text-align:center;">
-              <div style="font-size:22px; font-weight:700;">17,818</div>
-              <div style="font-size:11px; opacity:0.9; margin-top:4px;">Regular (Filled)</div>
+            <div style="background:var(--orange); color:var(--white); border-radius:8px; padding:14px; text-align:center;">
+              <div style="font-size:20px; font-weight:700;">17,818</div>
+              <div style="font-size:10px; opacity:0.9; margin-top:4px;">Regular (Filled)</div>
             </div>
-            <div style="background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:8px; padding:16px; text-align:center;">
-              <div style="font-size:22px; font-weight:700;">1,745</div>
-              <div style="font-size:11px; opacity:0.7; margin-top:4px;">Regular (Vacant)</div>
+            <div style="background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:8px; padding:14px; text-align:center;">
+              <div style="font-size:20px; font-weight:700;">1,745</div>
+              <div style="font-size:10px; opacity:0.7; margin-top:4px;">Regular (Vacant)</div>
             </div>
-            <div style="background:#fff; color:var(--navy); border:2px solid var(--orange); border-radius:8px; padding:16px; text-align:center;">
-              <div style="font-size:22px; font-weight:700;">2,060</div>
-              <div style="font-size:11px; opacity:0.7; margin-top:4px;">Co-Terminous (CTI)</div>
+            <div style="background:#fff; color:var(--navy); border:2px solid var(--orange); border-radius:8px; padding:14px; text-align:center;">
+              <div style="font-size:20px; font-weight:700;">2,060</div>
+              <div style="font-size:10px; opacity:0.7; margin-top:4px;">Co-Terminous (CTI)</div>
             </div>
           </div>
       
           <!-- Charts & Table -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:700px; margin-left:auto; margin-right:auto;">
+          <div style="display:grid; grid-template-columns:1fr; gap:20px; max-width:600px; margin-left:auto; margin-right:auto;">
       
             <div>
-              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Filled Positions by Office Type</p>
-              <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:var(--navy);">
+              <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:12px;">Filled Positions by Office Type</p>
+              <div style="display:flex; flex-direction:column; gap:10px; font-size:12px; color:var(--navy);">
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Central Office</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:30%; background:var(--navy); height:14px; border-radius:4px;"></div>
+                  <span style="width:100px; flex-shrink:0; font-size:11px;">Central Office</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
+                    <div style="width:30%; background:var(--navy); height:12px; border-radius:4px;"></div>
                   </div>
-                  <span style="width:46px; text-align:right;">2,358</span>
+                  <span style="width:50px; text-align:right; font-size:11px;">2,358</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Class A Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:100%; background:var(--orange); height:14px; border-radius:4px;"></div>
+                  <span style="width:100px; flex-shrink:0; font-size:11px;">Class A Regions</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
+                    <div style="width:100%; background:var(--orange); height:12px; border-radius:4px;"></div>
                   </div>
-                  <span style="width:46px; text-align:right;">8,062</span>
+                  <span style="width:50px; text-align:right; font-size:11px;">8,062</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Class B Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:92%; background:var(--navy); height:14px; border-radius:4px; opacity:0.6;"></div>
+                  <span style="width:100px; flex-shrink:0; font-size:11px;">Class B Regions</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
+                    <div style="width:92%; background:var(--navy); height:12px; border-radius:4px; opacity:0.6;"></div>
                   </div>
-                  <span style="width:46px; text-align:right;">7,398</span>
+                  <span style="width:50px; text-align:right; font-size:11px;">7,398</span>
                 </div>
               </div>
             </div>
       
             <div>
-              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Workforce Breakdown</p>
-              <table style="width:100%; font-size:12px; border-collapse:collapse; color:var(--navy);">
+              <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:12px;">Workforce Breakdown</p>
+              <table style="width:100%; font-size:11px; border-collapse:collapse; color:var(--navy);">
                 <thead>
                   <tr style="background:var(--navy); color:var(--white);">
-                    <th style="padding:6px 8px; text-align:left;">Category</th>
-                    <th style="padding:6px 8px; text-align:right;">Count</th>
-                    <th style="padding:6px 8px; text-align:right;">Rate</th>
+                    <th style="padding:6px; text-align:left;">Category</th>
+                    <th style="padding:6px; text-align:right;">Count</th>
+                    <th style="padding:6px; text-align:right;">Rate</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:6px 8px;">Regular Positions</td>
-                    <td style="padding:6px 8px; text-align:right;">19,563</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
+                    <td style="padding:5px 6px;">Regular Positions</td>
+                    <td style="padding:5px 6px; text-align:right;">19,563</td>
+                    <td style="padding:5px 6px; text-align:right;">—</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:6px 8px;">Vacancy Rate</td>
-                    <td style="padding:6px 8px; text-align:right;">1,745</td>
-                    <td style="padding:6px 8px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
+                    <td style="padding:5px 6px;">Vacancy Rate</td>
+                    <td style="padding:5px 6px; text-align:right;">1,745</td>
+                    <td style="padding:5px 6px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:6px 8px;">BBB (Engineer) Positions</td>
-                    <td style="padding:6px 8px; text-align:right;">2,079</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
+                    <td style="padding:5px 6px;">BBB (Engineer) Positions</td>
+                    <td style="padding:5px 6px; text-align:right;">2,079</td>
+                    <td style="padding:5px 6px; text-align:right;">—</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:6px 8px;">Contractual (CTI)</td>
-                    <td style="padding:6px 8px; text-align:right;">2,060</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
+                    <td style="padding:5px 6px;">Contractual (CTI)</td>
+                    <td style="padding:5px 6px; text-align:right;">2,060</td>
+                    <td style="padding:5px 6px; text-align:right;">—</td>
                   </tr>
                   <tr style="font-weight:700; background:var(--navy); color:var(--white);">
-                    <td style="padding:6px 8px;">Grand Total</td>
-                    <td style="padding:6px 8px; text-align:right;">79,749</td>
-                    <td style="padding:6px 8px; text-align:right;">100%</td>
+                    <td style="padding:6px;">Grand Total</td>
+                    <td style="padding:6px; text-align:right;">79,749</td>
+                    <td style="padding:6px; text-align:right;">100%</td>
                   </tr>
                 </tbody>
               </table>
@@ -5786,7 +5787,7 @@
           <div class="doc-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
           <div class="doc-card-meta">
             <span class="doc-card-tag">JICA Project</span>
-            <span class="doc-card-title">JICA Technical Cooperation Project — Phase III</span>
+            <span class="doc-card-title">JICA Technical Cooperation Project �� Phase III</span>
           </div>
         </div>
         <div class="doc-card-body">

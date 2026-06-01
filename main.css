@@ -1458,10 +1458,14 @@ table.proj-table tr:hover td { background: var(--light); }
   margin-left: auto;
 }
 .fs-search-box {
-  display: flex; align-items: center; gap: 8px;
-  background: var(--light); border: 1px solid var(--border);
-  border-radius: 8px; padding: 9px 16px;
-  flex: 1; min-width: 220px; max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F5F7FF;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  flex: 1;
 }
 .fs-search-box input {
   background: none; border: none; outline: none;
