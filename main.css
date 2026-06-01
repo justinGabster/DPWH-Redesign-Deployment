@@ -931,6 +931,14 @@
   margin-bottom: 32px;
 }
 
+/* Careers page: Make cards-grid full width like the title banner */
+#page-careers .cards-grid {
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 /*  JOB CARD  */
 .job-card {
   background: var(--white);
