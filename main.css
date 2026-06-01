@@ -4075,6 +4075,20 @@ a {
   }
   .mobile-filter-drawer.open { display: block !important; }
   
+  /* Former Secretaries filter drawer - show on desktop */
+  @media (min-width: 801px) {
+    #fs-filter-drawer {
+      display: block !important;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+    .mobile-filter-toggle {
+      display: none !important;
+    }
+  }
+  
   /* Announcements list items - with expand functionality */
   .ann-item { 
     padding: 14px !important; 
