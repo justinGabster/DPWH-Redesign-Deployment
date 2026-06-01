@@ -3784,9 +3784,16 @@ a {
     height: auto !important;
   }
   
-  /* Hide nav-inner on mobile */
-  nav .nav-inner { display: none !important; }
-  nav .nav-inner.active { display: none !important; }
+  /* Show/hide nav-inner on mobile */
+  nav .nav-inner { 
+    display: none !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    background: rgba(12,32,92,0.98) !important;
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 8px 0 !important;
+  }
+  nav .nav-inner.active { display: flex !important; }
   
   .logo-glow { width: 40px !important; height: 40px !important; }
   .logo-glow { width: 40px !important; height: 40px !important; }

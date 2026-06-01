@@ -1269,6 +1269,59 @@ function toggleMobileNav() {
   }
 }
 
+/* Navigate or toggle dropdown based on device width */
+function navItemClick(pageId, hasDropdown) {
+  if (!hasDropdown) {
+    showPage(pageId);
+    return;
+  }
+  
+  // On mobile with dropdown, toggle the dropdown
+  if (window.innerWidth <= 768) {
+    const navItems = document.querySelectorAll('.nav-item');
+    let targetItem = null;
+    
+    // Find the nav item containing the page
+    navItems.forEach(item => {
+      const link = item.querySelector('.nav-link');
+      if (link) {
+        const text = link.textContent.toLowerCase();
+        if (text.includes(pageId.toLowerCase())) {
+          targetItem = item;
+        }
+      }
+    });
+    
+    if (targetItem) {
+      // Close other dropdowns
+      navItems.forEach(item => {
+        if (item !== targetItem && item.classList.contains('open')) {
+          item.classList.remove('open');
+        }
+      });
+      // Toggle current dropdown
+      targetItem.classList.toggle('open');
+    }
+  } else {
+    // On desktop, navigate to the page
+    showPage(pageId);
+  }
+}
+
+/* Initialize dropdown close handlers on mobile */
+document.addEventListener('DOMContentLoaded', function() {
+  // Close dropdowns when a subpage link is clicked
+  document.querySelectorAll('.dropdown a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        document.querySelectorAll('.nav-item.open').forEach(function(item) {
+          item.classList.remove('open');
+        });
+      }
+    });
+  });
+});
+
 /*  PAGE NAVIGATION  */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
