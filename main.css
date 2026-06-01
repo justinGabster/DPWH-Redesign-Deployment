@@ -114,6 +114,12 @@
     position: sticky; top: 0; z-index: 100;
     box-shadow: 0 2px 12px rgba(11,26,74,0.25);
   }
+  
+  /* Desktop: hide nav-search-container, show nav-inner */
+  .nav-search-container {
+    display: none !important;
+  }
+  
   .nav-inner {
     max-width: 100%;
     margin: 0 auto;
@@ -3695,13 +3701,13 @@ a {
   nav { 
     display: flex !important; 
     align-items: center !important; 
-    padding: 12px 16px !important; 
+    padding: 0 !important;
     position: relative;
     flex-wrap: nowrap !important;
     white-space: nowrap;
   }
   
-  /* Search and menu container - main flex wrapper */
+  /* Show search and menu container on mobile */
   .nav-search-container {
     display: flex !important;
     flex-direction: row !important;
@@ -3710,6 +3716,7 @@ a {
     width: 100% !important;
     gap: 1rem !important;
     flex-wrap: nowrap !important;
+    padding: 12px 16px !important;
   }
   
   /* Search bar in nav - grows to fill available space */
@@ -3777,6 +3784,7 @@ a {
     height: auto !important;
   }
   
+  /* Hide nav-inner on mobile */
   nav .nav-inner { display: none !important; }
   nav .nav-inner.active { display: none !important; }
   
