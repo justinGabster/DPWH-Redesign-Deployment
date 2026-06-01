@@ -1,20 +1,6 @@
 
     (function() {
 
-      /* LEGEND PANEL TOGGLE */
-      
-      /* INFRA STATS HORIZONTAL CARD SLIDER */
-      window.slideInfraCards = function(direction) {
-        var container = document.getElementById('infra-cards-container');
-        if (container) {
-          var scrollAmount = 320; // Card width + gap
-          container.scrollBy({
-            left: direction * scrollAmount,
-            behavior: 'smooth'
-          });
-        }
-      };
-
       /* enable/disable download button when a select changes */
       window.tpEnableBtn = function(sel, btnId) {
         var btn = document.getElementById(btnId);
@@ -345,33 +331,27 @@ function filterRoads(q) {
         listEl.innerHTML = '';
         emptyEl.style.display = slice.length === 0 ? 'block' : 'none';
 
-        slice.forEach(function(r, idx) {
+        slice.forEach(function(r) {
           const card = document.createElement('div');
           card.className = 'ann-card ' + r.cat;
-          const cardId = 'ann-card-' + idx;
           card.innerHTML =
             '<div class="ann-card-left">' +
               '<div class="ann-date-day">'  + fmtDay(r.date)  + '</div>' +
               '<div class="ann-date-mon">'  + fmtMon(r.date)  + '</div>' +
               '<div class="ann-date-year">' + fmtYear(r.date) + '</div>' +
             '</div>' +
-            '<div style="flex:1;min-width:0;display:flex;flex-direction:column;">' +
-              '<div class="ann-card-scroll-wrapper" style="flex:1;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;margin-bottom:8px;">' +
-                '<div class="ann-card-body" style="display:inline-block;min-width:100%;padding-right:16px;">' +
-                  '<div class="ann-card-top">' +
-                    '<span class="ann-badge ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
-                    (r.isNew ? '<span class="ann-new-tag">New</span>' : '') +
-                  '</div>' +
-                  '<div class="ann-card-title">' + r.title + '</div>' +
-                  '<div class="ann-card-snippet">' + r.snippet + '</div>' +
-                  '<div class="ann-card-footer">' +
-                    '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
-                    '<span class="ann-read-more">View all →</span>' +
-                  '</div>' +
+            '<div style="flex:1;min-width:0;">' +
+              '<div class="ann-card-body">' +
+                '<div class="ann-card-top">' +
+                  '<span class="ann-badge ' + r.cat + '">' + catLabel[r.cat] + '</span>' +
+                  (r.isNew ? '<span class="ann-new-tag">New</span>' : '') +
                 '</div>' +
-              '</div>' +
-              '<div class="ann-card-slider-container" style="padding:0 0;">' +
-                '<input type="range" class="ann-card-slider" id="' + cardId + '" min="0" max="100" value="0" style="width:100%;height:3px;cursor:pointer;" title="Scroll announcement content">' +
+                '<div class="ann-card-title">' + r.title + '</div>' +
+                '<div class="ann-card-snippet">' + r.snippet + '</div>' +
+                '<div class="ann-card-footer">' +
+                  '<span class="ann-card-source">&#128205; ' + r.source + ' &middot; ' + fmtFull(r.date) + '</span>' +
+                  '<span class="ann-read-more">Read more &#8594;</span>' +
+                '</div>' +
               '</div>' +
               '<div class="ann-card-expanded">' +
                 '<p style="margin-bottom:10px;">' + r.snippet + ' Further details will be published in the official gazette and distributed to all concerned offices.</p>' +
@@ -381,25 +361,8 @@ function filterRoads(q) {
           card.addEventListener('click', function(){
             card.classList.toggle('open');
             const rm = card.querySelector('.ann-read-more');
-            if (rm) rm.textContent = card.classList.contains('open') ? 'Hide \u2190' : 'View all \u2192';
+            if (rm) rm.textContent = card.classList.contains('open') ? 'Close \u2191' : 'Read more \u2192';
           });
-          
-          // Add slider control for horizontal scrolling
-          const slider = card.querySelector('#' + cardId);
-          const scrollWrapper = card.querySelector('.ann-card-scroll-wrapper');
-          if (slider && scrollWrapper) {
-            slider.addEventListener('input', function(e) {
-              const value = parseFloat(e.target.value);
-              const scrollLeft = (value / 100) * (scrollWrapper.scrollWidth - scrollWrapper.clientWidth);
-              scrollWrapper.scrollLeft = scrollLeft;
-            });
-            scrollWrapper.addEventListener('scroll', function() {
-              const maxScroll = scrollWrapper.scrollWidth - scrollWrapper.clientWidth;
-              const scrollPercent = maxScroll > 0 ? (scrollWrapper.scrollLeft / maxScroll) * 100 : 0;
-              slider.value = scrollPercent;
-            });
-          }
-          
           listEl.appendChild(card);
         });
 
@@ -1299,69 +1262,12 @@ function selectRegion(code, name) {
 }
 
 /*  MOBILE NAV TOGGLE  */
-      window.toggleMobileNav = function() {
-        const navInner = document.getElementById('nav-inner');
-        if (navInner) {
-          navInner.classList.toggle('active');
-          // Close all dropdowns when closing nav
-          if (!navInner.classList.contains('active')) {
-            document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
-          }
-        }
-      };
-
-// Mobile dropdown toggle - handle clicks on nav items with dropdowns
-function initMobileNavDropdowns() {
-  const isMobile = () => window.innerWidth <= 900;
-  
-  document.querySelectorAll('.nav-item').forEach(navItem => {
-    const navLink = navItem.querySelector('.nav-link');
-    const dropdown = navItem.querySelector('.dropdown');
-    
-    if (navLink && dropdown) {
-      // Nav items WITH dropdowns - toggle dropdown on mobile
-      navLink.addEventListener('click', function(e) {
-        if (isMobile()) {
-          e.preventDefault();
-          e.stopPropagation();
-          // Close other dropdowns
-          document.querySelectorAll('.nav-item.open').forEach(item => {
-            if (item !== navItem) item.classList.remove('open');
-          });
-          // Toggle this dropdown
-          navItem.classList.toggle('open');
-        }
-      });
-    } else if (navLink) {
-      // Nav items WITHOUT dropdowns - close mobile nav after navigation
-      navLink.addEventListener('click', function() {
-        if (isMobile()) {
-          const navInner = document.getElementById('nav-inner');
-          if (navInner) {
-            navInner.classList.remove('active');
-            document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
-          }
-        }
-      });
-    }
-  });
-  
-  // Close mobile nav when clicking a dropdown link
-  document.querySelectorAll('.nav-item .dropdown a').forEach(link => {
-    link.addEventListener('click', function() {
-      if (isMobile()) {
-        const navInner = document.getElementById('nav-inner');
-        if (navInner) {
-          navInner.classList.remove('active');
-          document.querySelectorAll('.nav-item.open').forEach(item => item.classList.remove('open'));
-        }
-      }
-    });
-  });
+function toggleMobileNav() {
+  const navInner = document.getElementById('nav-inner');
+  if (navInner) {
+    navInner.classList.toggle('active');
+  }
 }
-
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', initMobileNavDropdowns);
 
 /*  PAGE NAVIGATION  */
 function showPage(id) {
@@ -1373,11 +1279,6 @@ function showPage(id) {
 
 function showSubpage(page, sub) {
   showPage(page);
-  // Handle careers page tabs differently
-  if (page === 'careers') {
-    switchTab(sub);
-    return;
-  }
   const tabId = page + '-' + sub;
   // For references page, use sidebar nav system
   if (page === 'references') {
@@ -1393,11 +1294,6 @@ function showSubpage(page, sub) {
     t.classList.toggle('active', !!(t.getAttribute('onclick') && t.getAttribute('onclick').includes(tabId)));
   });
   parent.querySelectorAll('.r-section').forEach(s => s.classList.toggle('active', s.id === tabId));
-  // Scroll to section on mobile
-  setTimeout(function() {
-    var section = document.getElementById(tabId);
-    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 100);
 }
 
 function activateSubTab(el, targetId) {
@@ -2324,15 +2220,11 @@ function changePage(dir) {
 
 /*  TAB SWITCH (careers page)  */
 function switchTab(tab) {
-document.querySelectorAll("#page-careers .subpage-tab").forEach(t => t.classList.remove("active"));
-document.querySelectorAll("#page-careers .r-section").forEach(s => s.classList.remove("active"));
-document.getElementById("tab-" + tab).classList.add("active");
-var section = document.getElementById("section-" + tab);
-section.classList.add("active");
-// Scroll to the section on mobile for better UX
-setTimeout(function() {
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-}, 100);
+  document.querySelectorAll("#page-careers .subpage-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll("#page-careers .r-section").forEach(s => s.classList.remove("active"));
+  document.getElementById("tab-" + tab).classList.add("active");
+  document.getElementById("section-" + tab).classList.add("active");
+  window.scrollTo({ top: 0, behavior:"smooth" });
 }
 
 /*  SYNC HEADER SEARCH  */
@@ -2401,14 +2293,10 @@ function _applyMapTransform(animate) {
   /* update badge */
   var badge = document.getElementById('map-zoom-badge');
   if (badge) badge.textContent = Math.round(_mapScale * 100) + '%';
-  
-  /* update zoom level display */
-  var zoomDisplay = document.getElementById('zoom-level-display');
-  if (zoomDisplay) zoomDisplay.textContent = Math.round(_mapScale * 100) + '%';
 }
 
 /* Button zoom (zooms toward center of viewport) */
-window.mapZoom = function(factor) {
+function mapZoom(factor) {
   var vp = document.getElementById('map-viewport');
   if (!vp) return;
   var cx = vp.offsetWidth  / 2;
@@ -2418,7 +2306,7 @@ window.mapZoom = function(factor) {
 }
 
 /* Reset */
-window.mapReset = function() {
+function mapReset() {
   _mapScale = 1; _mapTX = 0; _mapTY = 0;
   _applyMapTransform(true);
 }

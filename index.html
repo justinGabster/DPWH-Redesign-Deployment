@@ -230,7 +230,6 @@
     .hist-item {
       display: flex; gap: 0; align-items: flex-start;
       margin-bottom: 4px; position: relative;
-      min-width: 0;
     }
     .hist-dot {
       width: 14px; height: 14px; border-radius: 50%;
@@ -252,7 +251,6 @@
       border-radius: 10px; padding: 16px 20px;
       flex: 1; margin-bottom: 12px;
       transition: box-shadow 0.2s;
-      max-width: 100%;
     }
     .hist-card:hover { box-shadow: 0 4px 16px rgba(11,26,74,0.08); }
     .hist-year {
@@ -606,12 +604,6 @@
       .about-grid { grid-template-columns: 1fr !important; }
       #page-references > .page-header { padding: 28px 20px !important; }
       #about-about-dpwh, #about-history > .content-body { padding: 20px !important; }
-      .hist-section-intro {
-        margin-bottom: 24px !important;
-      }
-      .hist-background-col {
-        margin: 0 auto !important;
-      }
     }
 
     /* ── 14. csection-label — consistent icon+label chip ────────────*/
@@ -633,29 +625,6 @@
     .csection-label svg {
       color: var(--orange) !important;
     }
-
-    /* ── CAREERS SUBTABS STYLING ────────────────────────────────────
-       Unique styling for Careers page tabs only with blue background
-       and orange underline on active tab.                          */
-    #page-careers .subpage-tab.active {
-      background: var(--navy) !important;
-      color: var(--white) !important;
-      border-radius: 6px 6px 0 0 !important;
-      position: relative !important;
-      padding-bottom: 16px !important;
-    }
-
-    #page-careers .subpage-tab.active::after {
-      content: '' !important;
-      position: absolute !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      height: 3px !important;
-      background: var(--orange) !important;
-      border-radius: 0 0 6px 6px !important;
-    }
-
   </style>
 </head>
 <body>
@@ -677,10 +646,6 @@
 
 <!-- NAVBAR -->
 <nav>
-  <div class="mobile-search-bar">
-    <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="6" stroke="#C8D0E8" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="#C8D0E8" stroke-width="2" stroke-linecap="round"/></svg>
-    <input type="text" placeholder="Search DPWH...">
-  </div>
   <div class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileNav()">
     <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -961,8 +926,8 @@
       <div class="update-card uc-announcements">
         <div class="update-card-header">
           <svg class="uch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          <span class="uch-label">ANNOUNCEMENTS</span>
-          <span class="more" onclick="showPage('announcements')">View all →</span>
+          <span class="uch-label">Announcements</span>
+          <span class="more" onclick="showPage('announcements')">View all &#8594;</span>
         </div>
         <a class="update-item" onclick="showPage('announcements')">
           <span class="update-date">APR 28</span>
@@ -982,8 +947,8 @@
       <div class="update-card uc-news">
         <div class="update-card-header">
           <svg class="uch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
-          <span class="uch-label">NEWS</span>
-          <span class="more" onclick="showPage('news')">View all →</span>
+          <span class="uch-label">News</span>
+          <span class="more" onclick="showPage('news')">View all &#8594;</span>
         </div>
         <a class="update-item" onclick="showPage('news')">
           <span class="update-date">APR 29</span>
@@ -1016,7 +981,7 @@
       <div class="seal-top-bar"></div>
       <div class="seal-inner">
         <div class="seal-img-wrap">
-          <img src="images/transparency-seal.png" alt="Philippine Transparency Seal">
+          <img src="images/transparency-seal.jpg" alt="Philippines Transparency Seal">
           <div class="seal-lbl">Philippines<br>Transparency Seal</div>
         </div>
         <div class="seal-body">
@@ -1033,32 +998,28 @@
     
 
     <!--  SEARCH + FILTER  -->
-    <div style="margin-bottom:18px;">
-      <!-- Compact Toggle Bar -->
-      <!-- Filter View -->
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px;" class="tp-desktop-filters">
-        <div style="display:flex;align-items:center;gap:10px;background:#F5F7FF;border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;">
-          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <input type="text" id="tp-search-desktop" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
-            style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
-        </div>
-        <div class="stat-strip">
-          <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:10px;background:#F5F7FF;border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="text" id="tp-search" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
+          style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
+      </div>
+      <div class="stat-strip">
+        <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
           <div class="stat-card"><div class="stat-val">2010</div><div class="stat-lbl">Records from as early as</div></div>
           <div class="stat-card"><div class="stat-val">6</div><div class="stat-lbl">Report types available</div></div>
           <div class="stat-card"><div class="stat-val">FOI</div><div class="stat-lbl">Open access portal linked</div></div>
-        </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-          <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
-          <button class="tp-chip active" onclick="tpSetFilter('all',this)">All</button>
-          <button class="tp-chip" onclick="tpSetFilter('org',this)">Organizational</button>
-          <button class="tp-chip" onclick="tpSetFilter('fin',this)">Financial</button>
-          <button class="tp-chip" onclick="tpSetFilter('proc',this)">Procurement</button>
-          <button class="tp-chip" onclick="tpSetFilter('perf',this)">Performance</button>
-          <button class="tp-chip" onclick="tpSetFilter('legal',this)">Legal &amp; Compliance</button>
-          <button class="tp-chip" onclick="tpSetFilter('foi',this)">FOI</button>
-          <span id="tp-count" style="margin-left:auto;font-size:11.5px;color:var(--textlt);">11 categories</span>
-        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+        <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
+        <button class="tp-chip active" onclick="tpSetFilter('all',this)">All</button>
+        <button class="tp-chip" onclick="tpSetFilter('org',this)">Organizational</button>
+        <button class="tp-chip" onclick="tpSetFilter('fin',this)">Financial</button>
+        <button class="tp-chip" onclick="tpSetFilter('proc',this)">Procurement</button>
+        <button class="tp-chip" onclick="tpSetFilter('perf',this)">Performance</button>
+        <button class="tp-chip" onclick="tpSetFilter('legal',this)">Legal &amp; Compliance</button>
+        <button class="tp-chip" onclick="tpSetFilter('foi',this)">FOI</button>
+        <span id="tp-count" style="margin-left:auto;font-size:11.5px;color:var(--textlt);">11 categories</span>
       </div>
     </div>
 
@@ -1757,15 +1718,11 @@
           <div id="map-tooltip" class="map-tooltip"></div>
 
           <!-- ZOOM CONTROLS -->
-          <div style="position:absolute;top:8px;left:8px;z-index:10;display:flex;flex-direction:column;gap:4px;align-items:center;">
-            <!-- ZOOM LEVEL DISPLAY -->
-            <div id="zoom-level-display" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;padding:4px 8px;color:#fff;font-size:11px;font-weight:600;min-width:38px;text-align:center;backdrop-filter:blur(4px);">100%</div>
-            
-            <!-- ZOOM CONTROLS BUTTONS -->
-            <button onclick="mapZoom(1.25)" title="Zoom in" style="width:30px;height:30px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;backdrop-filter:blur(4px);" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+          <div style="position:absolute;top:8px;left:8px;z-index:10;display:flex;flex-direction:column;gap:4px;">
+            <button onclick="mapZoom(1.25)" title="Zoom in" style="width:30px;height:30px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="#fff" stroke-width="1.4"/><line x1="5.5" y1="3.5" x2="5.5" y2="7.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><line x1="3.5" y1="5.5" x2="7.5" y2="5.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><line x1="8.8" y1="8.8" x2="12" y2="12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
             </button>
-            <button onclick="mapZoom(0.8)" title="Zoom out" style="width:30px;height:30px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;backdrop-filter:blur(4px);" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+            <button onclick="mapZoom(0.8)" title="Zoom out" style="width:30px;height:30px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="#fff" stroke-width="1.4"/><line x1="3.5" y1="5.5" x2="7.5" y2="5.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><line x1="8.8" y1="8.8" x2="12" y2="12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
             </button>
             <button onclick="mapReset()" title="Reset view" style="width:30px;height:30px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
@@ -1850,8 +1807,8 @@
           </div><!-- /map-viewport -->
         </div><!-- /map col -->
 
-        <!-- LEGEND (Always Visible) -->
-        <div id="legend-panel" style="background:var(--light);border:1px solid var(--border);border-radius:10px;padding:14px 16px;max-height:480px;overflow-y:auto;min-width:220px;">
+        <!-- LEGEND -->
+        <div style="min-width:200px;max-width:220px;background:var(--light);border:1px solid var(--border);border-radius:10px;padding:14px 16px;max-height:480px;overflow-y:auto;">
           <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--border);">Regions</div>
           <div id="map-legend-list" style="display:flex;flex-direction:column;gap:5px;"></div>
         </div>
@@ -1972,83 +1929,68 @@
 
 
 
- <!-- BODY TEXT SECTIONS - Horizontal Card Slider -->
-<div style="position:relative;margin-bottom:20px;padding:0 40px;">
-  <!-- Navigation Buttons -->
-  <button id="infra-prev" style="position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:var(--white);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);" onclick="slideInfraCards(-1)">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,2 4,7 9,12"/></svg>
-  </button>
-  <button id="infra-next" style="position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;background:var(--white);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);" onclick="slideInfraCards(1)">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,2 10,7 5,12"/></svg>
-  </button>
+ <!-- BODY TEXT SECTIONS -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 
-  <!-- Horizontal Card Container -->
-  <div id="infra-cards-container" style="display:flex;gap:20px;overflow-x:auto;padding:0;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;">
-    <style>
-      #infra-cards-container::-webkit-scrollbar { display:none; }
-    </style>
-
-    <!-- Card 1 -->
-    <div style="flex:0 0 calc(50% - 10px);min-width:280px;background:var(--light);border-radius:10px;padding:24px;border:1px solid var(--border);position:relative;display:flex;flex-direction:column;">
-      <div style="position:absolute;top:-1px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,#2348b0,transparent);border-radius:2px;"></div>
-      
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-        <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(35,72,176,0.1);display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2348b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-          </svg>
-        </div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;">About the Atlas</span>
-      </div>
-
-      <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
-        Over the years, the Department of Public Works and Highways has delivered key infrastructure projects that unlock opportunities and support national development. The <strong>2025 DPWH Infrastructure Atlas</strong> provides updated data on the condition and characteristics of the country's roads and bridges, covering national, regional, and district levels.
-      </p>
-    </div>
-
-    <!-- Card 2 -->
-    <div style="flex:0 0 calc(50% - 10px);min-width:280px;background:var(--light);border-radius:10px;padding:24px;border:1px solid var(--border);position:relative;display:flex;flex-direction:column;">
-      <div style="position:absolute;top:-1px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,var(--orange),transparent);border-radius:2px;"></div>
-      
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-        <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(35,72,176,0.1);display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2348b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-        </div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;">Scope & Coverage</span>
-      </div>
-
-      <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
-        It presents a <strong>ten-year overview (2015-2025)</strong>, with bridge data traced back to 2007. The Atlas is divided into two volumes: <strong>Volume I (Roads)</strong> and <strong>Volume II (Bridges)</strong>, featuring data through clear matrices and visualized using OpenStreet and National Geographic base maps.
-      </p>
-    </div>
+  <!-- Para 1 -->
+  <div style="background:var(--light);border-radius:10px;padding:24px;border:1px solid var(--border);position:relative;display:flex;flex-direction:column;">
+    <div style="position:absolute;top:-1px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,#2348b0,transparent);border-radius:2px;"></div>
     
-    <!-- Card 3 -->
-    <div style="flex:0 0 calc(50% - 10px);min-width:280px;background:var(--light);border-radius:10px;padding:24px;border:1px solid var(--border);position:relative;display:flex;gap:20px;align-items:flex-start;">
-      <div style="position:absolute;top:-1px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,#27ae60,transparent);border-radius:2px;"></div>
-      
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
       <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(35,72,176,0.1);display:flex;align-items:center;justify-content:center;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="#2348b0" stroke-width="1.5"/>
-          <path d="M9 3v15M15 6v15" stroke="#2348b0" stroke-width="1.5"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2348b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
         </svg>
       </div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;">About the Atlas</span>
+    </div>
 
-      <div style="flex:1;min-width:0;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;margin-bottom:8px;">
-          Collaboration & Methodology
-        </div>
-
-        <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
-          Recognizing the value of reliable infrastructure data, the DPWH &mdash; through the <strong>Statistics Division, Planning Service</strong>, and in collaboration with <strong>District Engineering Offices and Regional Offices</strong> &mdash; has strengthened efforts to deliver accurate and accessible information. Enhanced maps, graphs, and tables enable easier analysis, comparison, and understanding of the nation's infrastructure landscape.
-        </p>
-      </div>
-    </div>  
+    <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
+      Over the years, the Department of Public Works and Highways has delivered key infrastructure projects that unlock opportunities and support national development. The <strong>2025 DPWH Infrastructure Atlas</strong> provides updated data on the condition and characteristics of the country's roads and bridges, covering national, regional, and district levels.
+    </p>
   </div>
+
+  <!-- Para 2 -->
+  <div style="background:var(--light);border-radius:10px;padding:24px;border:1px solid var(--border);position:relative;display:flex;flex-direction:column;">
+    <div style="position:absolute;top:-1px;left:24px;right:24px;height:3px;background:linear-gradient(90deg,var(--orange),transparent);border-radius:2px;"></div>
+    
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+      <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(35,72,176,0.1);display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2348b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;">Scope & Coverage</span>
+    </div>
+
+    <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
+      It presents a <strong>ten-year overview (2015-2025)</strong>, with bridge data traced back to 2007. The Atlas is divided into two volumes: <strong>Volume I (Roads)</strong> and <strong>Volume II (Bridges)</strong>, featuring data through clear matrices and visualized using OpenStreet and National Geographic base maps.
+    </p>
+  </div>
+  
+  <!-- Para 3 (FULL WIDTH) -->
+  <div style="grid-column:1 / -1; background:var(--light);border-radius:10px;padding:24px 28px;border:1px solid var(--border);display:flex;gap:20px;align-items:flex-start;">
+    
+    <div style="flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(35,72,176,0.1);display:flex;align-items:center;justify-content:center;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="#2348b0" stroke-width="1.5"/>
+        <path d="M9 3v15M15 6v15" stroke="#2348b0" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);opacity:0.6;margin-bottom:8px;">
+        Collaboration & Methodology
+      </div>
+
+      <p style="font-size:13.5px;line-height:1.85;color:var(--text);margin:0;">
+        Recognizing the value of reliable infrastructure data, the DPWH &mdash; through the <strong>Statistics Division, Planning Service</strong>, and in collaboration with <strong>District Engineering Offices and Regional Offices</strong> &mdash; has strengthened efforts to deliver accurate and accessible information. Enhanced maps, graphs, and tables enable easier analysis, comparison, and understanding of the nation's infrastructure landscape.
+      </p>
+    </div>
+  </div>  
 </div> 
 
 </div><!-- /hero banner -->
@@ -2778,14 +2720,14 @@
       <h2>About DPWH</h2>
       <p>Learn about the Department's mandate, history, leadership, and organizational structure.</p>
     </div>
-  <div class="subpage-tabs">
-    <div class="subpage-tab active" onclick="activateSubTab(this,'about-about-dpwh')">About DPWH</div>
-    <div class="subpage-tab" onclick="activateSubTab(this,'about-history')">History</div>
-    <div class="subpage-tab" onclick="activateSubTab(this,'about-former-secs')">Former Secretaries</div>
-    <div class="subpage-tab" onclick="activateSubTab(this,'about-logo')">About the Logo</div>
-    <div class="subpage-tab" onclick="activateSubTab(this,'about-budget')">Annual Budget</div>
-    <div class="subpage-tab" onclick="activateSubTab(this,'about-workforce')">Workforce Complement</div>
-  </div>
+    <div class="subpage-tabs">
+      <div class="subpage-tab active" onclick="activateSubTab(this,'about-about-dpwh')">About DPWH</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'about-history')">History</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'about-former-secs')">Former Secretaries</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'about-logo')">About the Logo</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'about-budget')">Annual Budget</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'about-workforce')">Workforce Complement</div>
+    </div>
     <div id="about-about-dpwh" class="r-section active">
       <section class="about-modern">
 
@@ -3020,9 +2962,8 @@
 
     <div id="about-former-secs" class="r-section">
 
-        <!-- Mobile Search & Filter Toggle Button -->
-        <!-- Controls Drawer (always visible) -->
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;">
+        <!-- Controls -->
+        <div class="fs-controls-wrap">
           <!-- Row 1: Search + Sort + View toggles -->
           <div class="fs-controls-row1">
             <div class="fs-search-box">
@@ -3049,7 +2990,7 @@
             </div>
           </div>
           <!-- Row 2: Era filters -->
-          <div class="fs-controls-row2" style="margin-top:12px;">
+          <div class="fs-controls-row2">
             <span class="fs-filter-label">Era:</span>
             <div class="fs-era-filters">
               <button class="fs-era-btn active" data-era="all" onclick="fsFilterEra(this)">All</button>
@@ -3096,55 +3037,42 @@
     
   <!-- About Logo -->
 
-      <div id="about-logo" class="r-section">
-        <div class="content-body" style="text-align:left; align-items:flex-start; justify-content:flex-start; width:100%; display:block; max-width:100%;">
-          <div class="hist-section-intro">
-            <h2 class="section-banner" style="margin-bottom:14px;">About the Logo</h2>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:32px; align-items:center; margin-top:16px;">
-            <!-- Logo with numbered overlays -->
-            <div style="position:relative; flex-shrink:0; width:280px; height:280px; margin:0 auto;">
-              <img src="images/secretaries/LOGO.png" width="280" height="280" alt="DPWH Logo" style="display:block; margin:0 auto;">
-              <!-- Number badges positioned on logo -->
-              <div style="position:absolute; top:20px; left:30px; width:28px; height:28px; background:var(--navy); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">1</div>
-              <div style="position:absolute; top:30px; right:35px; width:28px; height:28px; background:var(--orange); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">2</div>
-              <div style="position:absolute; bottom:40px; left:25px; width:28px; height:28px; background:var(--royal); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">3</div>
-              <div style="position:absolute; bottom:50px; right:40px; width:28px; height:28px; background:var(--blue); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">4</div>
-              <div style="position:absolute; bottom:10px; left:50%; transform:translateX(-50%); width:28px; height:28px; background:var(--navy); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; box-shadow:0 2px 8px rgba(0,0,0,0.15);">5</div>
-            </div>
+   <div id="about-logo" class="r-section">
+    <div class="content-body" style="text-align:left; align-items:flex-start; justify-content:flex-start; width:100%; display:block; max-width:100%;">
+      <div class="hist-section-intro">
+        <h2 class="section-banner" style="margin-bottom:14px;">About the Logo</h2>
+      </div>
+      <div style="display:flex; gap:32px; align-items:flex-start; margin-top:16px;">
+        <!-- LEFT: Logo with number dots -->
+        <div style="position:relative; flex-shrink:0; width:300px; height:300px; margin: 40px auto;">
+          <!-- 1 GEAR FRAME -->
+          <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--navy); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">1</div>
+          <!-- 3 DORIC COLUMN -->
+          <div style="position:absolute; top:70px; right:-14px; background:var(--royal); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">3</div>
+          <!-- 2 HIGHWAY -->
+          <div style="position:absolute; bottom:80px; right:-14px; background:var(--orange); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">2</div>
+          <!-- 4 INNER CIRCLE -->
+          <div style="position:absolute; top:130px; left:-14px; background:var(--blue); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">4</div>
+          <!-- 5 ORANGE & WHITE LANES -->
+          <div style="position:absolute; bottom:40px; left:-14px; background:var(--navy); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">5</div>
+          <img src="images/secretaries/LOGO.png" width="300" height="300" alt="DPWH Logo">
+        </div>
 
-            <!-- Logo descriptions below logo in a grid -->
-            <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; max-width:500px; width:100%;">
-              <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--navy); text-align:left;">
-                <strong style="color:var(--navy); font-size:14px;">1. Gear Frame</strong>
-                <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Represents motion, transmission and direction towards the common man's economic and social upliftment.</p>
-              </div>
-              <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--orange); text-align:left;">
-                <strong style="color:var(--navy); font-size:14px;">2. Highway</strong>
-                <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Stretches northward and merges to infinity, conveying that roads complement public works projects.</p>
-              </div>
-              <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--royal); text-align:left;">
-                <strong style="color:var(--navy); font-size:14px;">3. Doric Column</strong>
-                <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Symbol of the building and construction industry, denoting unity of objectives and efforts.</p>
-              </div>
-              <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--blue); text-align:left;">
-                <strong style="color:var(--navy); font-size:14px;">4. Inner Circle</strong>
-                <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Encases all elements, representing the wholeness and completeness of the Department.</p>
-              </div>
-              <div style="background:var(--light); padding:14px; border-radius:8px; border-left:3px solid var(--navy); text-align:left; grid-column:1/-1;">
-                <strong style="color:var(--navy); font-size:14px;">5. Orange & White Lanes</strong>
-                <p style="margin:6px 0 0; font-size:12px; color:var(--textlt); line-height:1.6;">Represent engineering outputs: roads and bridges, flood control, ports, water supply, national buildings, and other public works.</p>
-              </div>
-            </div>
-
-            <!-- Right: Description paragraph -->
-            <div style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:13px; max-width:600px; text-align:center;">
-              <p style="max-width:100%; width:100%; background:var(--light); padding:14px 16px; border-radius:4px; font-style:normal; color:var(--text); font-weight:500; margin-bottom:0;">The design conveys the idea of Filipino engineering excellence with sub-themes such as the fine craftsmanship of Filipino design engineers, architects and the whole field of engineering profession, competence and integrity.</p>
-              <p style="margin-top:16px; font-style:italic; font-size:12px;">Thus, the doric column and the highway should be taken in a total context.</p>
-            </div>
-          </div>
+        <!-- RIGHT: Description -->
+        <div style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:14px; max-width:520px; padding-top:40px; margin-left:-30px;">
+          <p style="max-width:100%; width:100%; background:var(--light); padding:10px 16px; border-radius:4px; font-style:normal; color:var(--text); font-weight:500; margin-bottom:24px;">The design conveys the idea of Filipino engineering excellence with sub-themes such as the fine craftsmanship of Filipino design engineers, architects and the whole field of engineering profession, competence and integrity.</p>
+          <ol style="padding-left:-20px; display:flex; flex-direction:column; gap:8px;">
+            <li><strong>Gear Frame</strong> — Completely circular, representing motion, transmission and direction towards the common man's economic and social upliftment. Seeks unity of effort, direction and purpose.</li>
+            <li><strong>Highway</strong> — Stretches northward and merges to infinity, conveying that roads complement public works projects hand-in-hand.</li>
+            <li><strong>Doric Column</strong> — Symbol of the building and construction industry, denoting unity of objectives and unity of efforts.</li>
+            <li><strong>Inner Circle</strong> — Encases all elements, representing the wholeness and completeness of the Department's mandate.</li>
+            <li><strong>Orange &amp; White Lanes</strong> — Represent engineering outputs: roads and bridges, flood control, ports, water supply, national buildings, and other public works.</li>
+          </ol>
+          <p style="margin-top:16px; font-style:italic; font-size:13px;">Thus, the doric column and the highway should be taken in a total context.</p>
         </div>
       </div>
+    </div>
+  </div>
 
 
     <div id="about-budget" class="r-section">
@@ -3229,7 +3157,7 @@
               <div class="bgt-hero-stats">
                 <div class="bgt-hero-stat"><div class="bgt-label">FY 2021 GAA Total</div><div class="bgt-value bgt-accent">₱694.82B</div><span class="bgt-change up">+4.25% vs NEP</span></div>
                 <div class="bgt-hero-stat"><div class="bgt-label">FY 2021 NEP Total</div><div class="bgt-value">₱666.47B</div></div>
-                <div class="bgt-hero-stat"><div class="bgt-label">Capital Outlays (GAA)</div><div class="bgt-value">����675.35B</div><span class="bgt-change up">+5% vs NEP</span></div>
+                <div class="bgt-hero-stat"><div class="bgt-label">Capital Outlays (GAA)</div><div class="bgt-value">₱675.35B</div><span class="bgt-change up">+5% vs NEP</span></div>
                 <div class="bgt-hero-stat"><div class="bgt-label">Personnel Services</div><div class="bgt-value">₱9.72B</div><span class="bgt-change up">+5.83%</span></div>
               </div>
               <div class="bgt-card">
@@ -3263,7 +3191,7 @@
                   <div class="bgt-card-title">OO-1: Safe National Road System</div>
                   <div class="bgt-hero-stat" style="margin-bottom:10px;"><div class="bgt-label">FY 2021 GAA</div><div class="bgt-value bgt-accent">₱205.99B</div><span class="bgt-change up">+14.77% vs NEP</span></div>
                   <div class="bgt-hero-stat" style="margin-bottom:14px;"><div class="bgt-label">FY 2020 GAA</div><div class="bgt-value">₱184.82B</div></div>
-                  <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Asset Pres.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:31.5%;background:#1A3080"><span>���64.90B</span></div></div></div>
+                  <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Asset Pres.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:31.5%;background:#1A3080"><span>₱64.90B</span></div></div></div>
                   <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Network Dev.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:57.5%;background:#2E5FD9"><span>₱118.44B</span></div></div></div>
                   <div class="bgt-bar-row"><div class="bgt-bar-lbl" style="width:90px;font-size:11px;">Bridge Prog.</div><div class="bgt-bar-track"><div class="bgt-bar-fill" style="width:11%;background:#E8620A"><span>₱22.64B</span></div></div></div>
                 </div>
@@ -3388,7 +3316,7 @@
                     <tr><td>4</td><td>Rehabilitation of Disaster-Related Infrastructure</td><td>1.000</td><td>1.000</td><td><span class="bgt-badge flat">0.00%</span></td></tr>
                     <tr><td>5</td><td>Facilities for PWD, Elderly &amp; Gender-Responsive</td><td>0.480</td><td>0.550</td><td><span class="bgt-badge up">+14.64%</span></td></tr>
                     <tr><td>6</td><td>Provincial Bridges along Provincial Roads</td><td>0.476</td><td>0.476</td><td><span class="bgt-badge flat">—</span></td></tr>
-                    <tr><td>7</td><td>Pasig River Ferry Convergence Program</td><td>0.150</td><td>0.150</td><td><span class="bgt-badge flat">���</span></td></tr>
+                    <tr><td>7</td><td>Pasig River Ferry Convergence Program</td><td>0.150</td><td>0.150</td><td><span class="bgt-badge flat">—</span></td></tr>
                     <tr><td>8</td><td>Special Road Fund — MVUC (R.A. 11239)</td><td>15.192</td><td>15.067</td><td><span class="bgt-badge flat">New</span></td></tr>
                     <tr class="bgt-total-row"><td colspan="2">TOTAL</td><td>₱61.178B</td><td>₱62.148B</td><td><span class="bgt-badge up">+35.93%</span></td></tr>
                   </tbody>
@@ -3498,98 +3426,98 @@
 <!-- Workforce-->
 
       <div id="about-workforce" class="r-section">
-        <div class="content-body" style="text-align:center; align-items:center; justify-content:center; display:flex; flex-direction:column; width:100%;">
+        <div class="content-body" style="text-align:left; align-items:flex-start; justify-content:flex-start;">
           <h2 class="section-banner" style="margin-bottom:24px;">WORKFORCE COMPLEMENT</h2>
       
-          <div style="max-width:700px; margin:0 auto 20px; text-align:center;">
+          <div style="max-width:700px; margin-left:auto; margin-right:auto; text-align:center; margin-bottom:20px;">
             <p style="font-size:13px; color:var(--navy); opacity:0.7;">As of March 31, 2025 &nbsp;|&nbsp; Source: DPWH Human Resource Management Division</p>
           </div>
       
-          <!-- Summary Cards - responsive grid -->
-          <div id="workforce-cards-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:12px; margin-bottom:24px; max-width:620px; width:100%; margin-left:auto; margin-right:auto; padding:0 16px;">
-            <div style="background:var(--navy); color:var(--white); border-radius:8px; padding:14px; text-align:center;">
-              <div style="font-size:20px; font-weight:700;">79,749</div>
-              <div style="font-size:10px; opacity:0.8; margin-top:4px;">Total Workforce</div>
+          <!-- Summary Cards -->
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:28px; max-width:700px; margin-left:auto; margin-right:auto;">
+            <div style="background:var(--navy); color:var(--white); border-radius:8px; padding:16px; text-align:center;">
+              <div style="font-size:22px; font-weight:700;">79,749</div>
+              <div style="font-size:11px; opacity:0.8; margin-top:4px;">Total Workforce</div>
             </div>
-            <div style="background:var(--orange); color:var(--white); border-radius:8px; padding:14px; text-align:center;">
-              <div style="font-size:20px; font-weight:700;">17,818</div>
-              <div style="font-size:10px; opacity:0.9; margin-top:4px;">Regular (Filled)</div>
+            <div style="background:var(--orange); color:var(--white); border-radius:8px; padding:16px; text-align:center;">
+              <div style="font-size:22px; font-weight:700;">17,818</div>
+              <div style="font-size:11px; opacity:0.9; margin-top:4px;">Regular (Filled)</div>
             </div>
-            <div style="background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:8px; padding:14px; text-align:center;">
-              <div style="font-size:20px; font-weight:700;">1,745</div>
-              <div style="font-size:10px; opacity:0.7; margin-top:4px;">Regular (Vacant)</div>
+            <div style="background:#fff; color:var(--navy); border:2px solid var(--navy); border-radius:8px; padding:16px; text-align:center;">
+              <div style="font-size:22px; font-weight:700;">1,745</div>
+              <div style="font-size:11px; opacity:0.7; margin-top:4px;">Regular (Vacant)</div>
             </div>
-            <div style="background:#fff; color:var(--navy); border:2px solid var(--orange); border-radius:8px; padding:14px; text-align:center;">
-              <div style="font-size:20px; font-weight:700;">2,060</div>
-              <div style="font-size:10px; opacity:0.7; margin-top:4px;">Co-Terminous (CTI)</div>
+            <div style="background:#fff; color:var(--navy); border:2px solid var(--orange); border-radius:8px; padding:16px; text-align:center;">
+              <div style="font-size:22px; font-weight:700;">2,060</div>
+              <div style="font-size:11px; opacity:0.7; margin-top:4px;">Co-Terminous (CTI)</div>
             </div>
           </div>
       
           <!-- Charts & Table -->
-          <div id="workforce-charts-table" style="display:grid; grid-template-columns:1fr; gap:20px; max-width:620px; width:100%; margin:0 auto; padding:0 16px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:700px; margin-left:auto; margin-right:auto;">
       
             <div>
-              <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:12px; text-align:left;">Filled Positions by Office Type</p>
-              <div style="display:flex; flex-direction:column; gap:10px; font-size:12px; color:var(--navy);">
+              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Filled Positions by Office Type</p>
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:var(--navy);">
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:100px; flex-shrink:0; font-size:11px;">Central Office</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
-                    <div style="width:30%; background:var(--navy); height:12px; border-radius:4px;"></div>
+                  <span style="width:110px; flex-shrink:0;">Central Office</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                    <div style="width:30%; background:var(--navy); height:14px; border-radius:4px;"></div>
                   </div>
-                  <span style="width:50px; text-align:right; font-size:11px;">2,358</span>
+                  <span style="width:46px; text-align:right;">2,358</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:100px; flex-shrink:0; font-size:11px;">Class A Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
-                    <div style="width:100%; background:var(--orange); height:12px; border-radius:4px;"></div>
+                  <span style="width:110px; flex-shrink:0;">Class A Regions</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                    <div style="width:100%; background:var(--orange); height:14px; border-radius:4px;"></div>
                   </div>
-                  <span style="width:50px; text-align:right; font-size:11px;">8,062</span>
+                  <span style="width:46px; text-align:right;">8,062</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:100px; flex-shrink:0; font-size:11px;">Class B Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:12px; min-width:80px;">
-                    <div style="width:92%; background:var(--navy); height:12px; border-radius:4px; opacity:0.6;"></div>
+                  <span style="width:110px; flex-shrink:0;">Class B Regions</span>
+                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                    <div style="width:92%; background:var(--navy); height:14px; border-radius:4px; opacity:0.6;"></div>
                   </div>
-                  <span style="width:50px; text-align:right; font-size:11px;">7,398</span>
+                  <span style="width:46px; text-align:right;">7,398</span>
                 </div>
               </div>
             </div>
       
             <div>
-              <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:12px; text-align:left;">Workforce Breakdown</p>
-              <table style="width:100%; font-size:11px; border-collapse:collapse; color:var(--navy);">
+              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Workforce Breakdown</p>
+              <table style="width:100%; font-size:12px; border-collapse:collapse; color:var(--navy);">
                 <thead>
                   <tr style="background:var(--navy); color:var(--white);">
-                    <th style="padding:6px; text-align:left;">Category</th>
-                    <th style="padding:6px; text-align:right;">Count</th>
-                    <th style="padding:6px; text-align:right;">Rate</th>
+                    <th style="padding:6px 8px; text-align:left;">Category</th>
+                    <th style="padding:6px 8px; text-align:right;">Count</th>
+                    <th style="padding:6px 8px; text-align:right;">Rate</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:5px 6px;">Regular Positions</td>
-                    <td style="padding:5px 6px; text-align:right;">19,563</td>
-                    <td style="padding:5px 6px; text-align:right;">—</td>
+                    <td style="padding:6px 8px;">Regular Positions</td>
+                    <td style="padding:6px 8px; text-align:right;">19,563</td>
+                    <td style="padding:6px 8px; text-align:right;">—</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:5px 6px;">Vacancy Rate</td>
-                    <td style="padding:5px 6px; text-align:right;">1,745</td>
-                    <td style="padding:5px 6px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
+                    <td style="padding:6px 8px;">Vacancy Rate</td>
+                    <td style="padding:6px 8px; text-align:right;">1,745</td>
+                    <td style="padding:6px 8px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:5px 6px;">BBB (Engineer) Positions</td>
-                    <td style="padding:5px 6px; text-align:right;">2,079</td>
-                    <td style="padding:5px 6px; text-align:right;">—</td>
+                    <td style="padding:6px 8px;">BBB (Engineer) Positions</td>
+                    <td style="padding:6px 8px; text-align:right;">2,079</td>
+                    <td style="padding:6px 8px; text-align:right;">—</td>
                   </tr>
                   <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:5px 6px;">Contractual (CTI)</td>
-                    <td style="padding:5px 6px; text-align:right;">2,060</td>
-                    <td style="padding:5px 6px; text-align:right;">—</td>
+                    <td style="padding:6px 8px;">Contractual (CTI)</td>
+                    <td style="padding:6px 8px; text-align:right;">2,060</td>
+                    <td style="padding:6px 8px; text-align:right;">—</td>
                   </tr>
                   <tr style="font-weight:700; background:var(--navy); color:var(--white);">
-                    <td style="padding:6px;">Grand Total</td>
-                    <td style="padding:6px; text-align:right;">79,749</td>
-                    <td style="padding:6px; text-align:right;">100%</td>
+                    <td style="padding:6px 8px;">Grand Total</td>
+                    <td style="padding:6px 8px; text-align:right;">79,749</td>
+                    <td style="padding:6px 8px; text-align:right;">100%</td>
                   </tr>
                 </tbody>
               </table>
@@ -3613,7 +3541,6 @@
 
     <div class="ann-layout">
 
-      <!-- Mobile Filter Toggle -->
       <!--  SIDEBAR  -->
       <div class="ann-sidebar">
 
@@ -3641,22 +3568,28 @@
       </div>
 
       <!--  MAIN  -->
-      <div style="flex:1;">
+      <div>
         <!-- Toolbar -->
-        <div class="ann-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px;">
-          <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;min-width:0;">
-            <div class="ann-date-active-pill" id="ann-date-pill" onclick="annClearDate()" style="display:none;">
-              <span id="ann-date-pill-label">April 2026</span>
-              <span style="font-size:14px;line-height:1;">&#x2715;</span>
-            </div>
+        <div class="ann-toolbar">
+          <div class="ann-search-wrap">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input type="text" id="ann-search" placeholder="Search announcements&hellip;" oninput="annApply()">
           </div>
-          <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-            <select class="ann-sort" id="ann-sort" onchange="annApply()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--white);cursor:pointer;">
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-            </select>
-            <div class="ann-count" id="ann-count" style="font-size:12px;color:var(--textlt);">Showing <strong>0</strong></div>
-          </div>
+          <select class="ann-sort" id="ann-sort" onchange="annApply()">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+
+        <!-- Active date pill -->
+        <div class="ann-date-active-pill" id="ann-date-pill" onclick="annClearDate()">
+          <span id="ann-date-pill-label">April 2026</span>
+          <span style="font-size:14px;line-height:1;">&#x2715;</span>
+        </div>
+
+        <!-- Meta -->
+        <div class="ann-meta-row">
+          <div class="ann-count" id="ann-count">Showing <strong>0</strong> announcements</div>
         </div>
 
         <!-- List -->
@@ -3691,7 +3624,6 @@
 
     <div class="news-layout">
 
-    <!-- Mobile Filter Toggle -->
     <!--  SIDEBAR  -->
     <div class="news-sidebar">
 
@@ -3742,20 +3674,18 @@
     <div>
 
       <!-- Toolbar -->
-      <div class="news-toolbar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px 12px;margin-bottom:16px;">
-        <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;min-width:0;">
+      <div class="news-toolbar" style="align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;">
           <div class="ns-active-pill" id="news-active-pill" onclick="newsClearFilter()">
             <span id="news-pill-label">NCR</span>
             <span style="font-size:14px;line-height:1;">&#x2715;</span>
           </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0;">
-          <select class="news-sort" id="news-sort" onchange="newsApply()" style="padding:6px 12px 6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;appearance:none;background-image:url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23666%27 stroke-width=%272%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e');background-repeat:no-repeat;background-position:right 4px center;background-size:16px;padding-right:28px;">
+          <select class="news-sort" id="news-sort" onchange="newsApply()">
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
           </select>
-          <div class="news-count" id="news-count" style="font-size:12px;color:var(--textlt);">Showing <strong>0</strong></div>
         </div>
+        <div class="news-count" id="news-count">Showing <strong>0</strong> articles</div>
       </div>
 
       <!-- Featured article slot -->
@@ -3811,6 +3741,94 @@
       </div>
 
       <!-- FILTER PANEL -->
+      <div class="filter-panel">
+        <div class="filter-panel-header">
+          <div class="filter-panel-title">Filter Vacancies</div>
+          <div class="results-meta" style="margin-bottom:0;">
+            <span class="results-count">Showing <strong id="resultCount">0</strong> of <strong id="totalCount">0</strong> vacancies</span>
+          </div>
+        </div>
+        <div class="filter-grid">
+          <div class="filter-group" style="grid-column: span 2;">
+            <label for="searchInput">Search</label>
+            <div class="filter-search-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <input type="text" id="searchInput" placeholder="Search by position, bureau, item no…" oninput="applyFilters()">
+            </div>
+          </div>
+          <div class="filter-group">
+            <label for="filterRegion">Region / Office</label>
+            <select id="filterRegion" onchange="applyFilters()">
+              <option value="">All Offices</option>
+              <option value="Central Office">Central Office</option>
+              <optgroup label=" Regional Offices " disabled></optgroup>
+              <option value="NCR">NCR - National Capital Region</option>
+              <option value="CAR">CAR - Cordillera Administrative Region</option>
+              <option value="Region I">Region I - Ilocos</option>
+              <option value="Region II">Region II - Cagayan Valley</option>
+              <option value="Region III">Region III - Central Luzon</option>
+              <option value="Region IV-A">Region IV-A - CALABARZON</option>
+              <option value="Region IV-B">Region IV-B - MIMAROPA</option>
+              <option value="Region V">Region V - Bicol</option>
+              <option value="Region VI">Region VI - Western Visayas</option>
+              <option value="Region VII">Region VII - Central Visayas</option>
+              <option value="Region VIII">Region VIII - Eastern Visayas</option>
+              <option value="Region IX">Region IX - Zamboanga Peninsula</option>
+              <option value="Region X">Region X - Northern Mindanao</option>
+              <option value="Region XI">Region XI - Davao Region</option>
+              <option value="Region XII">Region XII - SOCCSKSARGEN</option>
+              <option value="Region XIII">Region XIII - Caraga</option>
+              <option value="BARMM">BARMM - Bangsamoro Autonomous Region</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory" onchange="applyFilters()">
+              <option value="">All Categories</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Administration">Administration</option>
+              <option value="Architecture">Architecture</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterSG">Salary Grade</label>
+            <select id="filterSG" onchange="applyFilters()">
+              <option value="">All Grades</option>
+              <option value="8">SG 8</option>
+              <option value="13">SG 13</option>
+              <option value="14">SG 14</option>
+              <option value="15">SG 15</option>
+              <option value="16">SG 16</option>
+              <option value="19">SG 19</option>
+              <option value="22">SG 22</option>
+              <option value="24">SG 24</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterDeadline">Closing</label>
+            <select id="filterDeadline" onchange="applyFilters()">
+              <option value="">Any Date</option>
+              <option value="urgent">Closing Soon (≤7 days)</option>
+              <option value="soon">Within 2 Weeks</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn-filter-apply" onclick="applyFilters()">Apply Filters</button>
+          <button class="btn-filter-reset" onclick="resetFilters()">Reset</button>
+          <div class="sort-wrap" style="margin-left:auto;">
+            <span class="sort-label">Sort by:</span>
+            <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+              <option value="latest">Latest Posted</option>
+              <option value="deadline">Nearest Deadline</option>
+              <option value="sg-asc">Salary Grade ↑</option>
+              <option value="sg-desc">Salary Grade ↓</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       <!-- QUICK CATEGORY CHIPS -->
       <div class="chip-row" role="group" aria-label="Filter by category">
         <div class="chip active" onclick="chipFilter(this,'')" data-cat="">All</div>
@@ -5617,7 +5635,7 @@
           <div class="doc-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
           <div class="doc-card-meta">
             <span class="doc-card-tag">JICA Project</span>
-            <span class="doc-card-title">JICA Technical Cooperation Project �� Phase III</span>
+            <span class="doc-card-title">JICA Technical Cooperation Project — Phase III</span>
           </div>
         </div>
         <div class="doc-card-body">
@@ -5771,7 +5789,7 @@
         </div>
       </div>
 
-      <!-- Card: RAP – Do��a Imelda Pumping Station -->
+      <!-- Card: RAP – Doña Imelda Pumping Station -->
       <div class="doc-card law-card" onclick="window.open('https://www.dpwh.gov.ph/dpwh/pdf/FINAL%20RAP%20RNDP%20SP-8/SP8%20RAP%20Report%20Main%20Repor%20FINAL%20(Submitted%202024.07.01).pdf', '_blank')">
         <div class="doc-card-top">
           <div class="doc-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
