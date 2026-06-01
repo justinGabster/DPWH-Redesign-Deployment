@@ -230,6 +230,7 @@
     .hist-item {
       display: flex; gap: 0; align-items: flex-start;
       margin-bottom: 4px; position: relative;
+      min-width: 0;
     }
     .hist-dot {
       width: 14px; height: 14px; border-radius: 50%;
@@ -251,6 +252,10 @@
       border-radius: 10px; padding: 16px 20px;
       flex: 1; margin-bottom: 12px;
       transition: box-shadow 0.2s;
+      max-width: 100%;
+      overflow: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     .hist-card:hover { box-shadow: 0 4px 16px rgba(11,26,74,0.08); }
     .hist-year {
@@ -263,8 +268,13 @@
       font-family: var(--font-display) !important;
       font-size: 15px; font-weight: 700;
       color: var(--navy); margin-bottom: 6px;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
     }
-    .hist-card p { font-size: 13px; color: var(--textlt); line-height: 1.7; margin: 0; }
+    .hist-card p { font-size: 13px; color: var(--textlt); line-height: 1.7; margin: 0;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
     .hist-badge {
       display: inline-block; margin-top: 10px;
       font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
@@ -596,6 +606,10 @@
       .hist-background-col {
         position: static !important;
       }
+      .hist-timeline {
+        margin: 0 auto !important;
+        width: 100% !important;
+      }
       .about-grid {
         grid-template-columns: 1fr 1fr !important;
       }
@@ -604,6 +618,12 @@
       .about-grid { grid-template-columns: 1fr !important; }
       #page-references > .page-header { padding: 28px 20px !important; }
       #about-about-dpwh, #about-history > .content-body { padding: 20px !important; }
+      .hist-section-intro {
+        margin-bottom: 24px !important;
+      }
+      .hist-background-col {
+        margin: 0 auto !important;
+      }
     }
 
     /* ── 14. csection-label — consistent icon+label chip ────────────*/
