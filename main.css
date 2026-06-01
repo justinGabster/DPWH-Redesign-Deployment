@@ -4092,8 +4092,21 @@ a {
       display: block !important;
       background: transparent;
       border: none;
-      padding: 0;
+      padding: 0 !important;
       margin-bottom: 18px;
+    }
+    .mobile-filter-drawer .filter-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+      gap: 16px !important;
+    }
+    .mobile-filter-drawer .filter-actions {
+      display: flex !important;
+      gap: 12px !important;
+      margin-top: 16px !important;
+    }
+    .mobile-filter-drawer .results-meta {
+      grid-column: 1 / -1 !important;
     }
     .mobile-filter-toggle {
       display: none !important;
