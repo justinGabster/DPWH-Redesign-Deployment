@@ -3683,11 +3683,10 @@ a {
 @media (max-width: 768px) {
   .header-search { 
     display: flex !important;
-    position: fixed;
-    left: 12px;
-    right: 60px;
+    position: absolute;
+    left: 16px;
     top: 48px;
-    width: auto;
+    width: 200px;
     margin: 0 !important;
     padding: 8px 12px;
     background: rgba(255,255,255,0.12);
