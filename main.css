@@ -4088,6 +4088,26 @@ a {
       display: none !important;
     }
   }
+
+  /* Mobile-only adjustments for About Logo and Workforce */
+  @media (max-width: 600px) {
+    #about-logo-descriptions {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      margin-left: 12px;
+    }
+    
+    #workforce-cards-container {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
+    
+    #workforce-charts-table {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      margin-left: 12px;
+    }
+  }
   
   /* Announcements list items - with expand functionality */
   .ann-item { 
