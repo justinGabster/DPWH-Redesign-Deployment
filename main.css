@@ -3686,14 +3686,40 @@ a {
     gap: 12px !important; 
     position: relative;
   }
-  .header-search { 
+  /* Hide search bar from desktop header on mobile */
+  header .header-search { 
+    display: none !important;
+  }
+  
+  /* Mobile nav container with search and menu */
+  nav { 
+    display: flex !important; 
+    align-items: center !important; 
+    padding: 12px 16px !important; 
+    position: relative;
+    flex-wrap: nowrap !important;
+    white-space: nowrap;
+  }
+  
+  /* Search and menu container - main flex wrapper */
+  .nav-search-container {
     display: flex !important;
-    position: fixed !important;
-    left: 16px !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    width: 200px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 1rem !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  /* Search bar in nav - grows to fill available space */
+  .nav-search-container .header-search { 
+    display: flex !important;
+    position: static !important;
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    width: auto !important;
     margin: 0 !important;
     padding: 8px 12px !important;
     background: rgba(255,255,255,0.12) !important;
@@ -3704,10 +3730,12 @@ a {
     justify-content: flex-start !important;
     z-index: 98 !important;
     height: fit-content !important;
-    /* Position at nav bar level - header height is ~72px */
-    top: 73px !important;
+    top: auto !important;
+    left: auto !important;
   }
-  .header-search input { 
+  
+  /* Search input - shrinks with container */
+  .nav-search-container .header-search input { 
     width: 100% !important;
     font-size: 12px !important;
     padding: 0 !important;
@@ -3716,10 +3744,20 @@ a {
     outline: none !important;
     color: var(--white) !important;
     font-family: var(--font-sans) !important;
+    min-width: 0 !important;
   }
-  .header-search input::placeholder { color: rgba(255,255,255,0.6) !important; }
-  .header-search svg { width: 12px !important; height: 12px !important; flex-shrink: 0 !important; }
-  .header-search button { 
+  
+  .nav-search-container .header-search input::placeholder { 
+    color: rgba(255,255,255,0.6) !important; 
+  }
+  
+  .nav-search-container .header-search svg { 
+    width: 12px !important; 
+    height: 12px !important; 
+    flex-shrink: 0 !important; 
+  }
+  
+  .nav-search-container .header-search button { 
     font-size: 12px !important; 
     padding: 0 !important; 
     background: none !important; 
@@ -3728,16 +3766,21 @@ a {
     cursor: pointer !important; 
     flex-shrink: 0 !important; 
   }
-  nav { 
-    display: flex !important; 
-    align-items: center !important; 
-    justify-content: flex-end !important;
-    padding: 12px 16px !important; 
-    position: relative;
-    gap: 12px;
+  
+  /* Hamburger menu - stays fixed size on right */
+  .nav-search-container .mobile-menu-btn { 
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
   }
+  
   nav .nav-inner { display: none !important; }
-  .mobile-menu-btn { flex-shrink: 0; }
+  nav .nav-inner.active { display: none !important; }
+  
+  .logo-glow { width: 40px !important; height: 40px !important; }
   .logo-glow { width: 40px !important; height: 40px !important; }
   .header-text { margin-top: 0 !important; flex: 1; }
   .header-text .republic { font-size: 9px !important; margin-bottom: 2px !important; }
