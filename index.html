@@ -253,9 +253,9 @@
       flex: 1; margin-bottom: 12px;
       transition: box-shadow 0.2s;
       max-width: 100%;
-      overflow: hidden;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
     }
     .hist-card:hover { box-shadow: 0 4px 16px rgba(11,26,74,0.08); }
     .hist-year {
@@ -268,12 +268,10 @@
       font-family: var(--font-display) !important;
       font-size: 15px; font-weight: 700;
       color: var(--navy); margin-bottom: 6px;
-      word-wrap: break-word !important;
-      overflow-wrap: break-word !important;
+      white-space: nowrap;
     }
     .hist-card p { font-size: 13px; color: var(--textlt); line-height: 1.7; margin: 0;
-      word-wrap: break-word !important;
-      overflow-wrap: break-word !important;
+      white-space: nowrap;
     }
     .hist-badge {
       display: inline-block; margin-top: 10px;
@@ -543,9 +541,6 @@
       color: var(--white) !important;
       position: relative !important;
       overflow: hidden !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-    }
       margin-bottom: 16px !important;
     }
     .hist-background-box::before {
@@ -605,25 +600,9 @@
     @media (max-width: 900px) {
       .hist-layout {
         grid-template-columns: 1fr !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
       }
       .hist-background-col {
         position: static !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .hist-background-box {
-        max-width: 100% !important;
-        overflow: hidden !important;
-      }
-    }
-      .hist-background-col {
-        position: static !important;
-      }
-      .hist-timeline {
-        margin: 0 auto !important;
-        width: 100% !important;
       }
       .about-grid {
         grid-template-columns: 1fr 1fr !important;
