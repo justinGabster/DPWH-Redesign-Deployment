@@ -1261,6 +1261,14 @@ function selectRegion(code, name) {
   if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
 }
 
+/*  MOBILE NAV TOGGLE  */
+function toggleMobileNav() {
+  const navInner = document.getElementById('nav-inner');
+  if (navInner) {
+    navInner.classList.toggle('active');
+  }
+}
+
 /*  PAGE NAVIGATION  */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
