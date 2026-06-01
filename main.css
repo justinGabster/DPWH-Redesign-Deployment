@@ -3811,7 +3811,7 @@ a {
 .mobile-menu-btn { display: none; cursor: pointer; color: var(--white); padding: 12px; }
 .mobile-search-bar { display: none; }
 .mobile-filter-toggle { display: none; }
-.mobile-filter-drawer { display: none; }
+.mobile-filter-drawer { display: block; }
 .mobile-region-toggle { display: none; }
 
 /* Smooth transitions for all toggle elements */
@@ -4067,7 +4067,7 @@ a {
     margin-bottom: 12px;
   }
   .mobile-filter-drawer {
-    display: none;
+    display: block;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -4076,7 +4076,7 @@ a {
   }
   .mobile-filter-drawer.open { display: block !important; }
   
-  /* Mobile view: hide drawer by default, show toggle button */
+  /* Mobile view (≤800px): hide drawer by default, show toggle button */
   @media (max-width: 800px) {
     .mobile-filter-drawer {
       display: none !important;
