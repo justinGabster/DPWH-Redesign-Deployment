@@ -24,8 +24,6 @@
   @media (max-width: 768px) {
     /* Hide desktop filters on mobile */
     .tp-desktop-filters { display: none !important; }
-    /* Show mobile toggle and make drawer visible when open */
-    .mobile-filter-toggle { display: flex !important; }
   }
 
   /* LEGEND DROPDOWN MENU */
@@ -3810,12 +3808,9 @@ a {
 
 .mobile-menu-btn { display: none; cursor: pointer; color: var(--white); padding: 12px; }
 .mobile-search-bar { display: none; }
-.mobile-filter-toggle { display: none; }
-.mobile-filter-drawer { display: block; }
 .mobile-region-toggle { display: none; }
 
 /* Smooth transitions for all toggle elements */
-.mobile-filter-drawer,
 .mobile-region-toggle,
 .ref-nav-item,
 .subpage-tab,
@@ -4074,45 +4069,7 @@ a {
     padding: 16px;
     margin-bottom: 16px;
   }
-  .mobile-filter-drawer.open { display: block !important; }
   
-  /* Mobile view (≤800px): hide drawer by default, show toggle button */
-  @media (max-width: 800px) {
-    .mobile-filter-drawer {
-      display: none !important;
-    }
-    .mobile-filter-toggle {
-      display: flex !important;
-    }
-  }
-
-  /* Desktop view (801px+): show drawer normally, hide toggle button */
-  @media (min-width: 801px) {
-    .mobile-filter-drawer {
-      display: block !important;
-      background: transparent;
-      border: none;
-      padding: 0 !important;
-      margin-bottom: 18px;
-    }
-    .mobile-filter-drawer .filter-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-      gap: 16px !important;
-    }
-    .mobile-filter-drawer .filter-actions {
-      display: flex !important;
-      gap: 12px !important;
-      margin-top: 16px !important;
-    }
-    .mobile-filter-drawer .results-meta {
-      grid-column: 1 / -1 !important;
-    }
-    .mobile-filter-toggle {
-      display: none !important;
-    }
-  }
-
   /* Mobile-only adjustments for About Logo and Workforce */
   @media (max-width: 600px) {
     #about-logo-descriptions {

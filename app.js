@@ -1,14 +1,6 @@
 
     (function() {
 
-      /* MOBILE FILTER DRAWER TOGGLE */
-      window.toggleMobileFilter = function(drawerId) {
-        var drawer = document.getElementById(drawerId);
-        if (drawer) {
-          drawer.classList.toggle('open');
-        }
-      };
-
       /* LEGEND PANEL TOGGLE */
       
       /* INFRA STATS HORIZONTAL CARD SLIDER */
