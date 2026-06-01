@@ -1320,7 +1320,37 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  
+  /* Click outside to close mobile navigation menu */
+  document.addEventListener('click', function(e) {
+    // Only apply on mobile
+    if (window.innerWidth > 768) return;
+    
+    const navInner = document.getElementById('nav-inner');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    
+    if (!navInner || !menuBtn) return;
+    
+    // Check if the menu is currently open
+    const isMenuOpen = navInner.classList.contains('active');
+    
+    if (!isMenuOpen) return;
+    
+    // Check if click target is the hamburger button - if so, let toggleMobileNav handle it
+    if (menuBtn.contains(e.target)) {
+      return;
+    }
+    
+    // Check if click target is inside the nav menu - if so, don't close
+    if (navInner.contains(e.target)) {
+      return;
+    }
+    
+    // Click is outside both menu button and nav menu - close the menu
+    navInner.classList.remove('active');
+  });
 });
+
 
 /*  PAGE NAVIGATION  */
 function showPage(id) {
