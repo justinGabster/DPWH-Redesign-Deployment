@@ -3835,4 +3835,16 @@ a {
     -webkit-overflow-scrolling: touch; 
     width: 100% !important; 
   }
+  
+  /* Stack map and legend vertically on mobile */
+  .map-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .map-row > div:last-child {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    max-height: 300px !important;
+  }
 }
