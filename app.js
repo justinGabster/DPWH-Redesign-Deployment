@@ -1273,6 +1273,10 @@ function toggleMobileNav() {
 function navItemClick(pageId, hasDropdown) {
   if (!hasDropdown) {
     showPage(pageId);
+    if (window.innerWidth <= 900) {
+      const navInner = document.getElementById('nav-inner');
+      if (navInner) navInner.classList.remove('active');
+    }
     return;
   }
   
