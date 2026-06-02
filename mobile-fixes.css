@@ -1,0 +1,100 @@
+
+/* --- NEW MOBILE REFACTOR --- */
+@media (max-width: 768px) {
+  /* Task 1: Subtab Alignment */
+  .subpage-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    padding-bottom: 8px; /* space for scrollbar */
+    -webkit-overflow-scrolling: touch;
+  }
+  .subpage-tab {
+    scroll-snap-align: start;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  /* Task 2: Map Legend and Container */
+  .projects-map-row {
+    flex-direction: column !important;
+  }
+  .map-legend-box {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: unset !important;
+    max-height: 250px !important;
+  }
+
+  /* Task 3: Compact PPP Cards */
+  .ppp-stats-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .ppp-stats-container > div {
+    padding: 10px 14px !important;
+  }
+  .ppp-stats-container > div > div:first-child {
+    font-size: 20px !important;
+  }
+
+  /* Task 4: Un-squeeze Atlas Text Columns */
+  .atlas-intro-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Task 5: Floating/Sticky Filters in News and Announcements */
+  .ann-sidebar, .ns-sidebar, .ann-cal-card, .ns-filter-card, .ann-filter-card {
+    position: static !important; /* Remove sticky */
+    margin-bottom: 24px;
+    top: auto !important;
+  }
+  
+  /* Make the filter categories horizontally scrollable on mobile */
+  .ann-filter-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .ann-filter-list .filter-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+  
+  .ns-filter-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .ns-filter-list .filter-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+
+  /* Task 6: Horizontal Sliders for Cards */
+  .news-grid, .ann-list, .updates-grid, .tp-portal-tiles, .ql-tiles, .contact-cards-grid, .directory-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding-bottom: 12px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .news-grid > *, .ann-list > *, .updates-grid > *, .tp-portal-tiles > *, .ql-tiles > *, .contact-cards-grid > *, .directory-grid > * {
+    scroll-snap-align: start;
+    flex: 0 0 85% !important; /* Take up 85% of screen width so next card peeks */
+    min-width: 85% !important;
+  }
+  
+  /* specific fix for .tp-portal-tiles which uses grid by default */
+  .tp-portal-tiles { grid-template-columns: none !important; }
+}

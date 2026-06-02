@@ -1317,6 +1317,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nav-item.open').forEach(function(item) {
           item.classList.remove('open');
         });
+        const navInner = document.getElementById('nav-inner');
+        if (navInner) {
+          navInner.classList.remove('active');
+        }
       }
     });
   });
@@ -1368,6 +1372,14 @@ function showSubpage(page, sub) {
     const navItem = document.querySelector('#page-references .ref-nav-item[data-section="' + tabId + '"]');
     if (navItem) {
       refNavSwitch(navItem, tabId);
+    }
+    return;
+  }
+  
+  // For careers page, use the switchTab system
+  if (page === 'careers') {
+    if (typeof switchTab === 'function') {
+      switchTab(sub);
     }
     return;
   }
