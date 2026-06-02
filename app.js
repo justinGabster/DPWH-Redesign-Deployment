@@ -1277,7 +1277,7 @@ function navItemClick(pageId, hasDropdown) {
   }
   
   // On mobile with dropdown, toggle the dropdown
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 900) {
     const navItems = document.querySelectorAll('.nav-item');
     let targetItem = null;
     
@@ -1308,12 +1308,12 @@ function navItemClick(pageId, hasDropdown) {
   }
 }
 
-/* Initialize dropdown close handlers on mobile */
+/* Initialize dropdown close handlers on mobile and desktop */
 document.addEventListener('DOMContentLoaded', function() {
   // Close dropdowns when a subpage link is clicked
   document.querySelectorAll('.dropdown a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      if (window.innerWidth <= 768) {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
         document.querySelectorAll('.nav-item.open').forEach(function(item) {
           item.classList.remove('open');
         });
@@ -1321,14 +1321,28 @@ document.addEventListener('DOMContentLoaded', function() {
         if (navInner) {
           navInner.classList.remove('active');
         }
+      } else {
+        // Desktop: temporarily force hide the dropdown to retract it immediately
+        const navItem = e.target.closest('.nav-item');
+        if (navItem) {
+          navItem.classList.add('force-hide');
+          navItem.addEventListener('mouseleave', function onLeave() {
+            navItem.classList.remove('force-hide');
+            navItem.removeEventListener('mouseleave', onLeave);
+          }, { once: true });
+          // Fallback just in case mouse doesn't move
+          setTimeout(function() {
+            navItem.classList.remove('force-hide');
+          }, 1000);
+        }
       }
     });
   });
   
-  /* Click outside to close mobile navigation menu */
+  /* Click outside or on non-dropdown links to close mobile navigation menu */
   document.addEventListener('click', function(e) {
     // Only apply on mobile
-    if (window.innerWidth > 768) return;
+    if (window.innerWidth > 900) return;
     
     const navInner = document.getElementById('nav-inner');
     const menuBtn = document.getElementById('mobile-menu-btn');
@@ -1337,18 +1351,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check if the menu is currently open
     const isMenuOpen = navInner.classList.contains('active');
-    
     if (!isMenuOpen) return;
     
     // Check if click target is the hamburger button - if so, let toggleMobileNav handle it
-    if (menuBtn.contains(e.target)) {
-      return;
+    if (menuBtn.contains(e.target)) return;
+    
+    // If they clicked a nav-link inside the menu that DOES NOT have a dropdown, close the menu
+    if (e.target.classList.contains('nav-link') && navInner.contains(e.target)) {
+      const parentItem = e.target.closest('.nav-item');
+      if (parentItem && !parentItem.querySelector('.dropdown')) {
+        navInner.classList.remove('active');
+        return;
+      }
     }
     
-    // Check if click target is inside the nav menu - if so, don't close
-    if (navInner.contains(e.target)) {
-      return;
-    }
+    // If click target is inside the nav menu generally (and not handled above), don't close
+    if (navInner.contains(e.target)) return;
     
     // Click is outside both menu button and nav menu - close the menu
     navInner.classList.remove('active');
@@ -1359,9 +1377,21 @@ document.addEventListener('DOMContentLoaded', function() {
 /*  PAGE NAVIGATION  */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  const pageElement = document.getElementById('page-' + id);
+  if (pageElement) pageElement.classList.add('active');
   document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // Automatically close mobile menu after navigating
+  if (window.innerWidth <= 900) {
+    const navInner = document.getElementById('nav-inner');
+    if (navInner && navInner.classList.contains('active')) {
+      navInner.classList.remove('active');
+      document.querySelectorAll('.nav-item.open').forEach(item => {
+        item.classList.remove('open');
+      });
+    }
+  }
 }
 
 function showSubpage(page, sub) {

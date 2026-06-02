@@ -157,6 +157,7 @@
   }
   .nav-item:hover .caret { transform: rotate(180deg); }
   .nav-item:hover .dropdown { display: block; }
+  .nav-item.force-hide .dropdown { display: none !important; }
 
   /* DROPDOWN */
   .dropdown {
@@ -443,11 +444,11 @@
   }
 
   /* SUBPAGE TABS */
-  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding-bottom: 8px; }
   .subpage-tab {
     padding: 8px 16px; background: var(--white); border: 1px solid var(--border);
     border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--textlt);
-    cursor: pointer; transition: all 0.15s;
+    cursor: pointer; transition: all 0.15s; flex-shrink: 0; white-space: nowrap;
   }
   .subpage-tab:hover { color: var(--royal); border-color: var(--blue); }
   .subpage-tab.active { background: var(--royal); color: var(--white); border-color: var(--royal); }
@@ -2341,7 +2342,13 @@ table.proj-table tr:hover td { background: var(--light); }
       @media(max-width:768px){ .ann-layout { grid-template-columns:1fr; } }
 
       /*  CALENDAR SIDEBAR  */
-      .ann-sidebar { position:sticky; top:80px; }
+      .ann-sidebar { 
+        position:sticky; 
+        top:80px; 
+        z-index: 10;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
       .ann-cal-card {
         background:var(--white); border:1px solid var(--border); border-radius:10px;
         overflow:hidden; margin-bottom: 16px;
@@ -2573,7 +2580,16 @@ table.proj-table tr:hover td { background: var(--light); }
       @media (max-width: 900px) { .news-layout { grid-template-columns: 1fr; } }
 
       /*  SIDEBAR  */
-      .news-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 16px; }
+      .news-sidebar { 
+        position: sticky; 
+        top: 80px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 16px;
+        z-index: 10;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
 
       .ns-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
       .ns-card-head {
@@ -3808,6 +3824,7 @@ a {
   .hero p { font-size: 13.5px !important; margin-bottom: 20px !important; }
   .page-header { padding: 20px 16px !important; }
   .page-header h2 { font-size: 22px !important; }
+  .page-description { display: none !important; }
   .ql-card { padding: 16px !important; }
   .ql-card h3 { font-size: 14px !important; }
   h2.section-title { font-size: 18px !important; margin-bottom: 16px !important; }
