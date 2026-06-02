@@ -3920,7 +3920,7 @@ a {
   }
 
   /* Task 6: Horizontal Sliders for Cards */
-  .ann-list, .updates-grid, .tp-portal-tiles, .ql-tiles, .contact-cards-grid, .directory-grid {
+  .updates-grid, .tp-portal-tiles, .ql-tiles, .contact-cards-grid, .directory-grid {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -3929,7 +3929,7 @@ a {
     padding-bottom: 12px !important;
     -webkit-overflow-scrolling: touch;
   }
-  .ann-list > *, .updates-grid > *, .tp-portal-tiles > *, .ql-tiles > *, .contact-cards-grid > *, .directory-grid > * {
+  .updates-grid > *, .tp-portal-tiles > *, .ql-tiles > *, .contact-cards-grid > *, .directory-grid > * {
     scroll-snap-align: start;
     flex: 0 0 85% !important; /* Take up 85% of screen width so next card peeks */
     min-width: 85% !important;
@@ -4013,4 +4013,59 @@ a {
 }
 @media (max-width: 768px) {
   .ann-sidebar { position: static !important; max-height: none !important; overflow-y: visible !important; }
+}
+
+/* Task 11: Compact Announcements on Mobile */
+@media (max-width: 768px) {
+  /* Compact Cards */
+  .ann-card {
+    flex-direction: column !important;
+  }
+  .ann-card-date {
+    flex-direction: row !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    justify-content: flex-start !important;
+    min-width: auto !important;
+  }
+  .ann-card-date-m { margin-bottom: 0 !important; font-size: 12px !important; }
+  .ann-card-date-d { font-size: 12px !important; font-family: var(--font-sans) !important; margin: 0 !important; }
+  .ann-card-date-y { margin-top: 0 !important; font-size: 12px !important; }
+  .ann-card-body { padding: 12px !important; }
+  .ann-card-title { font-size: 13.5px !important; margin-bottom: 4px !important; }
+  .ann-card-desc { display: none !important; }
+
+  /* Compact Calendar Sidebar */
+  .ann-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .ann-cal-card { margin-bottom: 0 !important; }
+  .ann-month-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+  .ann-month-btn { padding: 6px 2px !important; font-size: 10.5px !important; }
+  
+  /* Compact Filter Sidebar */
+  .ann-filter-card { border: none !important; background: transparent !important; }
+  .ann-filter-card-head { display: none !important; }
+  .ann-filter-list { 
+    display: flex !important; 
+    flex-wrap: wrap !important; 
+    gap: 6px !important; 
+    padding: 0 !important; 
+  }
+  .ann-filter-row {
+    padding: 6px 12px !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    background: var(--white) !important;
+  }
+  .ann-filter-row.active {
+    border-color: var(--royal) !important;
+    background: var(--light) !important;
+  }
 }
