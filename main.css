@@ -4017,25 +4017,32 @@ a {
 
 /* Task 11: Compact Announcements on Mobile */
 @media (max-width: 768px) {
+  /* Layout Gap Fix */
+  .ann-layout { 
+    gap: 12px !important; 
+    margin-bottom: 16px !important; 
+  }
+
   /* Compact Cards */
   .ann-card {
     flex-direction: column !important;
   }
-  .ann-card-date {
+  .ann-card-left {
     flex-direction: row !important;
     gap: 6px !important;
     padding: 8px 12px !important;
     border-right: none !important;
     border-bottom: 1px solid var(--border) !important;
     justify-content: flex-start !important;
+    align-items: center !important;
     min-width: auto !important;
   }
-  .ann-card-date-m { margin-bottom: 0 !important; font-size: 12px !important; }
-  .ann-card-date-d { font-size: 12px !important; font-family: var(--font-sans) !important; margin: 0 !important; }
-  .ann-card-date-y { margin-top: 0 !important; font-size: 12px !important; }
+  .ann-date-mon { margin-bottom: 0 !important; font-size: 13px !important; }
+  .ann-date-day { font-size: 13px !important; font-family: var(--font-sans) !important; margin: 0 !important; }
+  .ann-date-year { margin-top: 0 !important; font-size: 13px !important; }
   .ann-card-body { padding: 12px !important; }
   .ann-card-title { font-size: 13.5px !important; margin-bottom: 4px !important; }
-  .ann-card-desc { display: none !important; }
+  .ann-card-snippet { display: none !important; }
 
   /* Compact Calendar Sidebar */
   .ann-sidebar {
@@ -4050,13 +4057,14 @@ a {
   .ann-month-btn { padding: 6px 2px !important; font-size: 10.5px !important; }
   
   /* Compact Filter Sidebar */
-  .ann-filter-card { border: none !important; background: transparent !important; }
+  .ann-filter-card { border: none !important; background: transparent !important; margin-bottom: 0 !important; }
   .ann-filter-card-head { display: none !important; }
   .ann-filter-list { 
     display: flex !important; 
     flex-wrap: wrap !important; 
-    gap: 6px !important; 
-    padding: 0 !important; 
+    gap: 8px !important; 
+    padding: 0 !important;
+    justify-content: center !important;
   }
   .ann-filter-row {
     padding: 6px 12px !important;
