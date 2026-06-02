@@ -2341,7 +2341,13 @@ table.proj-table tr:hover td { background: var(--light); }
       @media(max-width:768px){ .ann-layout { grid-template-columns:1fr; } }
 
       /*  CALENDAR SIDEBAR  */
-      .ann-sidebar { position:sticky; top:80px; }
+      .ann-sidebar { 
+        position:sticky; 
+        top:80px; 
+        z-index: 10;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
       .ann-cal-card {
         background:var(--white); border:1px solid var(--border); border-radius:10px;
         overflow:hidden; margin-bottom: 16px;
@@ -2573,7 +2579,16 @@ table.proj-table tr:hover td { background: var(--light); }
       @media (max-width: 900px) { .news-layout { grid-template-columns: 1fr; } }
 
       /*  SIDEBAR  */
-      .news-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 16px; }
+      .news-sidebar { 
+        position: sticky; 
+        top: 80px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 16px;
+        z-index: 10;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+      }
 
       .ns-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
       .ns-card-head {

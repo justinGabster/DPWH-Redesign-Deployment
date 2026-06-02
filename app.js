@@ -1273,6 +1273,13 @@ function toggleMobileNav() {
 function navItemClick(pageId, hasDropdown) {
   if (!hasDropdown) {
     showPage(pageId);
+    // Close mobile menu after navigation
+    if (window.innerWidth <= 768) {
+      const navInner = document.getElementById('nav-inner');
+      if (navInner) {
+        navInner.classList.remove('active');
+      }
+    }
     return;
   }
   
@@ -1310,13 +1317,19 @@ function navItemClick(pageId, hasDropdown) {
 
 /* Initialize dropdown close handlers on mobile */
 document.addEventListener('DOMContentLoaded', function() {
-  // Close dropdowns when a subpage link is clicked
+  // Close dropdowns and menu when a subpage link is clicked
   document.querySelectorAll('.dropdown a').forEach(function(link) {
     link.addEventListener('click', function() {
       if (window.innerWidth <= 768) {
+        // Close all open dropdowns
         document.querySelectorAll('.nav-item.open').forEach(function(item) {
           item.classList.remove('open');
         });
+        // Close the mobile menu
+        const navInner = document.getElementById('nav-inner');
+        if (navInner) {
+          navInner.classList.remove('active');
+        }
       }
     });
   });
