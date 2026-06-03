@@ -1758,57 +1758,54 @@ table.proj-table tr:hover td { background: var(--light); }
   /* Mobile responsive for budget trend */
   @media (max-width: 600px) {
     .bgt-trend-tabs {
-      display: flex;
+      display: none;
     }
     
     .bgt-trend {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      width: 100%;
-      box-sizing: border-box;
+      height: auto;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 8px;
+      padding: 0 12px;
+      margin-top: 16px;
+      min-height: 200px;
+      align-items: flex-end;
     }
     
     .bgt-tbar-wrap {
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0 16px;
+      flex: 0 0 80px;
+      min-width: 80px;
+      height: 100%;
       padding: 0;
     }
     
-    .bgt-tbar-wrap.mobile-visible {
-      display: flex;
-    }
-    
     .bgt-tbar-amt {
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
+      text-align: center;
       color: var(--navy);
     }
     
     .bgt-tbar {
-      width: calc(100% - 32px);
-      min-height: 120px;
+      width: 100%;
       border-radius: 4px 4px 0 0;
-      margin-bottom: 0;
     }
     
     .bgt-tbar-label {
-      font-size: 14px;
-      margin-top: 12px;
+      font-size: 11px;
+      margin-top: 6px;
       font-weight: 600;
       color: var(--navy);
+      text-align: center;
     }
     
     .bgt-tbar-pct {
-      font-size: 13px;
+      font-size: 10px;
       color: var(--orange);
-      margin-top: 4px;
+      margin-top: 2px;
       font-weight: 700;
+      text-align: center;
     }
   }
   /* Compare table */
