@@ -1471,7 +1471,7 @@ table.proj-table tr:hover td { background: var(--light); }
   }
   .fs-view-toggles {
     gap: 4px;
-    display: flex;
+    display: none;
   }
   .fs-view-btn {
     width: 36px;
