@@ -1153,6 +1153,8 @@
     .form-footer-row { flex-direction: column; align-items: flex-start; }
     .btn-send { width: 100%; justify-content: center; }
     .contact-cards-grid { grid-template-columns: 1fr 1fr; }
+    .directory-grid { display: flex; flex-direction: column; gap: 16px; width: 100%; overflow: visible; }
+    .directory-grid > .dir-card { width: 100%; margin-bottom: 8px; }
     .gl-search-wrap { margin-left: 0; width: 100%; }
     .gl-search-wrap input { width: 100%; }
     .gl-cards { grid-template-columns: 1fr 1fr; }
