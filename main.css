@@ -1428,67 +1428,80 @@ table.proj-table tr:hover td { background: var(--light); }
     gap: 12px;
   }
   .fs-controls-row1 {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    gap: 10px;
     justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
   }
   .fs-search-box {
-    width: 100%;
-    box-sizing: border-box;
+    flex: 0 1 280px;
+    max-width: 280px;
     min-width: auto;
-    max-width: none;
-    padding: 10px 12px;
-    height: 44px;
+    box-sizing: border-box;
+    padding: 9px 16px;
+    height: auto;
   }
   .fs-search-box svg {
     min-width: 14px;
     min-height: 14px;
   }
   .fs-search-box input {
-    font-size: 16px;
+    font-size: 14px;
   }
   .fs-search-box input::placeholder {
-    font-size: 16px;
+    font-size: 14px;
   }
   .fs-controls-right {
-    width: 100%;
+    display: flex;
+    width: auto;
     box-sizing: border-box;
     margin-left: 0;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
+    flex: 0 1 auto;
   }
   .fs-sort-select {
-    flex: 1;
-    padding: 10px 12px;
-    font-size: 14px;
-    height: 44px;
+    flex: 0 1 auto;
+    padding: 8px 12px;
+    font-size: 13px;
+    height: auto;
+    white-space: nowrap;
   }
   .fs-view-toggles {
-    gap: 8px;
+    gap: 4px;
+    display: flex;
   }
   .fs-view-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    min-width: 36px;
+    min-height: 36px;
   }
   .fs-controls-row2 {
-    gap: 10px;
-    padding-top: 12px;
-    margin-top: 12px;
+    gap: 8px;
+    padding-top: 8px;
+    margin-top: 8px;
+    width: 100%;
+    flex-basis: 100%;
   }
   .fs-filter-label {
     font-size: 13px;
-    width: 100%;
+    width: auto;
   }
   .fs-era-filters {
-    width: 100%;
-    gap: 8px;
+    width: auto;
+    gap: 6px;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
   .fs-era-btn {
-    padding: 10px 14px;
-    font-size: 13px;
-    min-height: 40px;
+    padding: 7px 14px;
+    font-size: 12px;
+    height: auto;
+    min-height: 36px;
     display: flex;
     align-items: center;
   }
