@@ -4272,8 +4272,18 @@ a {
   border-bottom-color: var(--royal);
 }
 
+/* Desktop: Show grid layout with both sections side-by-side */
+.wf-desktop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .wf-tab-content {
-  display: none;
+  display: block;
   width: 100%;
 }
 
@@ -4291,8 +4301,16 @@ a {
     display: flex;
   }
   
-  .wf-tabs-container > div[style*="grid-template-columns"] {
-    display: none !important;
+  .wf-desktop-grid {
+    display: block;
+  }
+  
+  .wf-tab-content {
+    display: none;
+  }
+  
+  .wf-tab-content.active {
+    display: block;
   }
   
   .wf-tab {
