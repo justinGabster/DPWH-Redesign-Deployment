@@ -444,7 +444,7 @@
   }
 
   /* SUBPAGE TABS */
-  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding-bottom: 8px; }
+  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding-bottom: 8px; }
   .subpage-tab {
     padding: 8px 16px; background: var(--white); border: 1px solid var(--border);
     border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--textlt);
