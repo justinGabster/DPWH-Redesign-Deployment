@@ -1762,52 +1762,53 @@ table.proj-table tr:hover td { background: var(--light); }
     }
     
     .bgt-trend {
-      display: none;
-    }
-    
-    .bgt-trend.mobile-active {
       display: flex;
+      flex-direction: column;
       padding: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
     
     .bgt-tbar-wrap {
-      flex: 0 0 calc(100% - 32px);
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      box-sizing: border-box;
       margin: 0 16px;
-      max-width: 100%;
+      padding: 0;
+    }
+    
+    .bgt-tbar-wrap.mobile-visible {
+      display: flex;
     }
     
     .bgt-tbar-amt {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      color: var(--navy);
     }
     
     .bgt-tbar {
-      width: 100%;
+      width: calc(100% - 32px);
       min-height: 120px;
       border-radius: 4px 4px 0 0;
+      margin-bottom: 0;
     }
     
     .bgt-tbar-label {
-      font-size: 13px;
+      font-size: 14px;
       margin-top: 12px;
       font-weight: 600;
       color: var(--navy);
     }
     
     .bgt-tbar-pct {
-      font-size: 12px;
-      color: var(--navy);
+      font-size: 13px;
+      color: var(--orange);
       margin-top: 4px;
-      font-weight: 600;
-    }
-    
-    .bgt-tbar-wrap {
-      display: none;
-    }
-    
-    .bgt-tbar-wrap.mobile-visible {
-      display: flex;
+      font-weight: 700;
     }
   }
   /* Compare table */
