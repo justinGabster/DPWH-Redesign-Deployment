@@ -1213,8 +1213,7 @@ regions.forEach(r => {
 const legendList = document.getElementById('map-legend-list');
 if (legendList) {
   regionMapData.forEach(r => {
-    // Extract the actual fill color from the corresponding SVG region element
-    let svgColor = r.color; // fallback to the defined color
+    // Apply colors to SVG regions
     document.querySelectorAll('.ph-region').forEach(regionEl => {
       const regionName = regionEl.dataset.name;
       // Match by checking if the SVG region name contains the region code or name
@@ -1225,20 +1224,19 @@ if (legendList) {
         regionName.includes(r.name)
       );
       if (codeMatch) {
-        // Get the fill color from the first path element in the region group
-        const pathEl = regionEl.querySelector('path[fill]');
-        if (pathEl) {
-          const fillColor = pathEl.getAttribute('fill');
-          if (fillColor && fillColor !== '#fff' && fillColor !== 'none') {
-            svgColor = fillColor;
-          }
-        }
+        // Apply the color to all path and polygon elements in this region
+        regionEl.querySelectorAll('path, polygon').forEach(pathEl => {
+          pathEl.setAttribute('fill', r.color);
+          pathEl.setAttribute('stroke', 'rgba(255,255,255,0.3)');
+          pathEl.setAttribute('stroke-width', '1.5');
+        });
       }
     });
     
+    // Create legend item with the exact color from regionMapData
     const item = document.createElement('div');
     item.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:12.5px;cursor:pointer;padding:3px 6px;border-radius:5px;transition:background 0.15s;';
-    item.innerHTML = `<span style="width:12px;height:12px;border-radius:50%;background:${svgColor};flex-shrink:0;border:1.5px solid rgba(0,0,0,0.1);"></span><span style="color:#1A2352;">${r.name}</span>`;
+    item.innerHTML = `<span style="width:12px;height:12px;border-radius:50%;background:${r.color};flex-shrink:0;border:1.5px solid rgba(0,0,0,0.1);"></span><span style="color:#1A2352;">${r.name}</span>`;
     item.addEventListener('mouseenter', () => item.style.background = 'rgba(36,56,166,0.08)');
     item.addEventListener('mouseleave', () => item.style.background = 'transparent');
     item.addEventListener('click', () => selectRegion(r.code, r.name));
