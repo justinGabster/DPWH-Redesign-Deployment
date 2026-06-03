@@ -2426,8 +2426,9 @@ function _applyMapTransform(animate) {
   var svg = document.getElementById('ph-map');
   if (!svg) return;
   svg.style.transition = animate ? 'transform .2s ease' : 'none';
+  // Use the center of the SVG (275, 400 for a 550x800 viewBox) as the transform origin
+  svg.style.transformOrigin = '275px 400px';
   svg.style.transform  = 'scale(' + _mapScale + ') translate(' + _mapTX + 'px,' + _mapTY + 'px)';
-  svg.style.transformOrigin = '0 0';
   /* clamp pan so map never wanders too far */
   var vp = document.getElementById('map-viewport');
   if (vp) {
@@ -2468,11 +2469,20 @@ function mapReset() {
 function _zoomAround(px, py, factor) {
   var newScale = Math.min(_mapMaxScale, Math.max(_mapMinScale, _mapScale * factor));
   var ratio    = newScale / _mapScale;
-  /* adjust translation so the point under cursor stays fixed */
-  _mapTX = px / newScale - (px / _mapScale - _mapTX) / ratio * ratio;
-  /* simpler exact formula: */
-  _mapTX = (_mapTX - px / _mapScale) * ratio + px / newScale;
-  _mapTY = (_mapTY - py / _mapScale) * ratio + py / newScale;
+  
+  // SVG center coordinates (275, 400 for 550x800 viewBox)
+  var svgCenterX = 275;
+  var svgCenterY = 400;
+  
+  // Since transform origin is at SVG center, we need to adjust the zoom math
+  // The viewport center should stay at the same visual location
+  var vp = document.getElementById('map-viewport');
+  var vpCenterX = vp.offsetWidth / 2;
+  var vpCenterY = vp.offsetHeight / 2;
+  
+  // Calculate new translation to keep viewport center on the map
+  _mapTX = (vpCenterX / newScale) - svgCenterX - (vpCenterX / _mapScale - svgCenterX - _mapTX) / ratio;
+  _mapTY = (vpCenterY / newScale) - svgCenterY - (vpCenterY / _mapScale - svgCenterY - _mapTY) / ratio;
   _mapScale = newScale;
 }
 
