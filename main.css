@@ -444,7 +444,7 @@
   }
 
   /* SUBPAGE TABS */
-  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding-bottom: 8px; }
+  .subpage-tabs { display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding-bottom: 8px; }
   .subpage-tab {
     padding: 8px 16px; background: var(--white); border: 1px solid var(--border);
     border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--textlt);
@@ -1097,7 +1097,49 @@
     .hero { padding: 32px 24px; }
     .hero h2 { font-size: 26px; }
     .updates-grid { grid-template-columns: 1fr; }
-    .stats-bar { grid-template-columns: 1fr 1fr; gap: 16px; }
+    
+    /* Infra Statistics Card - Mobile Responsive */
+    .stats-bar {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      padding: 24px !important;
+      width: 100% !important;
+    }
+    
+    .stat-item {
+      border-right: none !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+    }
+    
+    .stat-item:last-child {
+      border-right: none !important;
+    }
+    
+    .stat-num {
+      font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+      line-height: 1.1 !important;
+      margin-bottom: 8px !important;
+      word-break: break-word !important;
+      max-width: 100% !important;
+    }
+    
+    .stat-label {
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem) !important;
+      text-align: center !important;
+      hyphens: auto !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+      line-height: 1.3 !important;
+    }
+    
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .topbar { display: none; }
     main { padding: 0 16px; }
@@ -1420,6 +1462,92 @@ table.proj-table tr:hover td { background: var(--light); }
 }
 .fs-result-bar strong { color: var(--text); }
 .fs-gallery-wrap { padding: 0 0 48px; }
+
+/* Mobile responsive for Former Secretaries */
+@media (max-width: 600px) {
+  .fs-controls-wrap {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .fs-controls-row1 {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .fs-search-box {
+    flex: 0 1 280px;
+    max-width: 280px;
+    min-width: auto;
+    box-sizing: border-box;
+    padding: 9px 16px;
+    height: auto;
+  }
+  .fs-search-box svg {
+    min-width: 14px;
+    min-height: 14px;
+  }
+  .fs-search-box input {
+    font-size: 14px;
+  }
+  .fs-search-box input::placeholder {
+    font-size: 14px;
+  }
+  .fs-controls-right {
+    display: flex;
+    width: auto;
+    box-sizing: border-box;
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
+    flex: 0 1 auto;
+  }
+  .fs-sort-select {
+    flex: 0 1 auto;
+    padding: 8px 12px;
+    font-size: 13px;
+    height: auto;
+    white-space: nowrap;
+  }
+  .fs-view-toggles {
+    gap: 4px;
+    display: none;
+  }
+  .fs-view-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+  .fs-controls-row2 {
+    gap: 8px;
+    padding-top: 8px;
+    margin-top: 8px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .fs-filter-label {
+    font-size: 13px;
+    width: auto;
+  }
+  .fs-era-filters {
+    width: auto;
+    gap: 6px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .fs-era-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+    height: auto;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+}
 .fs-gallery-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
 }
@@ -1632,6 +1760,192 @@ table.proj-table tr:hover td { background: var(--light); }
   .bgt-tbar-label { font-size:10px; color:#4A5578; margin-top: 8px; font-weight:500; }
   .bgt-tbar-pct { font-family:'IBM Plex Mono',monospace; font-size:9px; color:#8A96B4; margin-top: 1px; }
  
+  /* Budget Trend Tab Navigation (Mobile) */
+  .bgt-trend-tabs {
+    display: none;
+    gap: 0;
+    border-bottom: 2px solid #e5e7eb;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .bgt-trend-tab {
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--textlt);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .bgt-trend-tab:hover {
+    color: var(--navy);
+  }
+  
+  .bgt-trend-tab.active {
+    color: var(--navy);
+    border-bottom-color: var(--royal);
+  }
+ 
+  /* Mobile responsive for budget trend */
+  @media (max-width: 600px) {
+    .bgt-trend-tabs {
+      display: none;
+    }
+    
+    .bgt-trend {
+      display: flex;
+      flex-direction: row;
+      height: 250px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      padding: 12px;
+      margin-top: 16px;
+      align-items: flex-end;
+      box-sizing: border-box;
+      min-width: 100%;
+    }
+    
+    .bgt-tbar-wrap {
+      flex: 0 0 85px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .bgt-tbar-amt {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: center;
+      color: var(--navy);
+      order: -2;
+    }
+    
+    .bgt-tbar {
+      width: 60%;
+      min-height: 40px;
+      max-height: calc(100% - 50px);
+      border-radius: 4px 4px 0 0;
+      order: -1;
+    }
+    
+    .bgt-tbar-label {
+      font-size: 12px;
+      margin-top: 8px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+      order: 0;
+    }
+    
+    .bgt-tbar-pct {
+      font-size: 11px;
+      color: var(--orange);
+      margin-top: 2px;
+      font-weight: 700;
+      text-align: center;
+      order: 1;
+    }
+  }
+
+  /* About the Logo Mobile Responsive */
+  @media (max-width: 600px) {
+    .logo-flex-container {
+      flex-direction: column !important;
+      gap: 24px !important;
+      align-items: center !important;
+    }
+
+    .logo-image-wrapper {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 280px !important;
+      margin: 0 auto !important;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+
+    .logo-image-wrapper img {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 280px;
+    }
+
+    .logo-description {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 12px !important;
+      margin-left: 0 !important;
+      padding-top: 0 !important;
+      font-size: 14px !important;
+      box-sizing: border-box;
+    }
+
+    .logo-description p {
+      font-size: 14px !important;
+    }
+
+    .logo-description ol {
+      padding-left: 20px !important;
+      gap: 12px !important;
+    }
+
+    .logo-description li {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+  }
+
+  /* Public-Private Partnership Mobile Responsive */
+  @media (max-width: 600px) {
+    .ppp-stats-container {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .ppp-stat-box {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 16px 12px !important;
+      min-height: 80px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .ppp-content-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    .ppp-content-grid > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
   /* Compare table */
   .bgt-table { width:100%; border-collapse:collapse; font-size:12.5px; }
   .bgt-table th { background:#0B1A4A; color:#fff; padding: 9px 16px; text-align:left; font-weight:500; font-size:11px; letter-spacing:0.04em; }
@@ -3872,17 +4186,223 @@ a {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 0 !important;
   }
+
   .ppp-stats-container > div {
     padding: 10px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
+
+  .ppp-stats-container > div:last-child {
+    grid-column: span 2 !important;
+    width: 100% !important;
+    max-width: 180px !important;
+    margin: 0 auto !important;
+    justify-self: center !important;
+  }
+
   .ppp-stats-container > div > div:first-child {
     font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .ppp-stats-container > div > div:last-child {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word !important;
   }
 
   /* Task 4: Un-squeeze Atlas Text Columns */
   .atlas-intro-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Infra Statistics Hero Banner Mobile Responsive */
+  .infra-hero-flex {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .infra-hero-text {
+    max-width: 100% !important;
+    flex: 1 !important;
+  }
+
+  .infra-hero-slider {
+    flex: 1 !important;
+    min-width: auto !important;
+    width: 100% !important;
+  }
+
+  .infra-hero-slider > div[style*="height:260px"] {
+    height: 200px !important;
+  }
+
+  /* Hero banner padding on mobile */
+  .r-section > div > div[style*="background:linear-gradient"] {
+    padding: 32px 16px 24px !important;
+  }
+
+  /* Hero section text wrapping */
+  .r-section h2[style*="clamp"] {
+    font-size: 22px !important;
+    max-width: 100% !important;
+  }
+
+  .r-section p[style*="max-width"] {
+    max-width: 100% !important;
+  }
+
+  /* Atlas cards - ensure proper padding and text wrapping */
+  .atlas-intro-grid > div {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px 16px !important;
+  }
+
+  .atlas-intro-grid > div p {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
+  }
+
+  .atlas-intro-grid > div ul,
+  .atlas-intro-grid > div ol {
+    list-style-position: inside;
+  }
+
+  .atlas-intro-grid > div li {
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
+  }
+
+  /* Ensure icon + text inside cards wrap properly */
+  .atlas-intro-grid div[style*="display:flex"][style*="gap:8px"] {
+    flex-wrap: wrap !important;
+  }
+
+  .atlas-intro-grid div[style*="display:flex"][style*="gap:20px"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Task 5: PPP Section Mobile Responsive */
+  
+  /* PPP Overview and Existing Situation Cards */
+  .ppp-content-grid > div {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+    overflow-x: hidden !important;
+  }
+
+  .ppp-content-grid > div p {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Filter buttons - stack vertically on mobile */
+  .ppp-filter-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+
+  .ppp-filter-bar span {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  .ppp-filter-bar button {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    font-size: 12px !important;
+    flex: 1 !important;
+  }
+
+  /* Project cards - prevent compression and ensure all elements visible */
+  .ppp-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 12px 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ppp-card > span:first-child {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ppp-card > div:nth-child(2) {
+    width: 100% !important;
+    flex: 1 !important;
+  }
+
+  .ppp-card > div:nth-child(2) > div {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .ppp-card > span:nth-child(3),
+  .ppp-card > span:nth-child(4) {
+    width: auto !important;
+    min-width: auto !important;
+    flex-shrink: 0 !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    white-space: normal !important;
+  }
+
+  /* Ensure status badges and project title have proper spacing */
+  #ppp-list > div[data-status] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Section headers padding */
+  #ppp-list > div > span {
+    padding: 0 10px !important;
+  }
+
+  /* Existing Situation bullets - ensure text wraps properly */
+  div[style*="border-left:3px solid"] {
+    gap: 8px !important;
+    padding: 12px 10px !important;
+  }
+
+  div[style*="border-left:3px solid"] p {
+    font-size: 12px !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
+    line-height: 1.6 !important;
+    overflow-wrap: break-word !important;
   }
 
   /* Task 5: Floating/Sticky Filters in News and Announcements */
@@ -4075,5 +4595,181 @@ a {
   .ann-filter-row.active {
     border-color: var(--royal) !important;
     background: var(--light) !important;
+  }
+
+  /* Workforce Complement Mobile Responsive */
+  #about-workforce [style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  
+  #about-workforce [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  #about-workforce table {
+    font-size: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+  }
+  
+  #about-workforce table thead tr {
+    background: var(--navy) !important;
+    color: var(--white) !important;
+  }
+  
+  #about-workforce table th,
+  #about-workforce table td {
+    padding: 8px 10px !important;
+    box-sizing: border-box !important;
+  }
+  
+  #about-workforce table th {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+  }
+  
+  #about-workforce table td {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  #about-workforce .content-body > div[style*="display:grid"] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 12px !important;
+  }
+  
+  #about-workforce > div > div {
+    box-sizing: border-box !important;
+  }
+  
+  #about-workforce [style*="font-size:22px"] {
+    font-size: 18px !important;
+  }
+  
+  #about-workforce [style*="font-size:11px"] {
+    font-size: 10px !important;
+  }
+  
+  #about-workforce [style*="font-size:13px"] {
+    font-size: 12px !important;
+  }
+  
+  #about-workforce [style*="padding:16px"] {
+    padding: 12px !important;
+  }
+  
+  #about-workforce .content-body {
+    overflow-x: auto !important;
+  }
+}
+
+/* Workforce Tab Navigation */
+.wf-tabs-container {
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wf-tabs {
+  display: none;
+  gap: 0;
+  border-bottom: 2px solid #e5e7eb;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 16px;
+}
+
+.wf-tab {
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: var(--textlt);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.wf-tab:hover {
+  color: var(--navy);
+}
+
+.wf-tab.active {
+  color: var(--navy);
+  border-bottom-color: var(--royal);
+}
+
+/* Desktop: Show grid layout with both sections side-by-side */
+.wf-desktop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wf-tab-content {
+  display: block;
+  width: 100%;
+}
+
+.wf-tab-content.active {
+  display: block;
+}
+
+/* Mobile Tab Navigation */
+@media (max-width: 600px) {
+  .wf-tabs-container {
+    max-width: 100%;
+  }
+  
+  .wf-tabs {
+    display: flex;
+  }
+  
+  .wf-desktop-grid {
+    display: block;
+  }
+  
+  .wf-tab-content {
+    display: none;
+  }
+  
+  .wf-tab-content.active {
+    display: block;
+  }
+  
+  .wf-tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px 12px;
+    font-size: 13px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wf-tab-content {
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  
+  .wf-tab-content table {
+    width: 100%;
+    font-size: 12px;
+  }
+  
+  .wf-tab-content table th,
+  .wf-tab-content table td {
+    padding: 8px 6px !important;
   }
 }

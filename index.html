@@ -1871,10 +1871,10 @@
 </div>
 
 <!-- flex row: text left, slider right -->
-<div style="display:flex;align-items:center;gap:32px;overflow:hidden;">
+<div class="infra-hero-flex" style="display:flex;align-items:center;gap:32px;overflow:hidden;">
 
   <!-- LEFT: text -->
-  <div style="flex:0 0 auto;max-width:280px;">
+  <div class="infra-hero-text" style="flex:0 0 auto;max-width:280px;">
     <h2 style="font-family:var(--font-serif);font-size:clamp(20px,3.5vw,34px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:0;">
       DPWH - Foreword<br><em style="font-style:italic;color:#f0c040;">Infrastructure Atlas</em>
     </h2>
@@ -1885,7 +1885,7 @@
   </div>
 
   <!-- RIGHT: slider -->
-  <div style="flex:1;min-width:0;">
+  <div class="infra-hero-slider" style="flex:1;min-width:0;">
 
     <div style="position:relative;border-radius:14px;overflow:hidden;height:260px;">
 
@@ -2197,31 +2197,31 @@
 
     <!-- Key stats -->
     <div class="ppp-stats-container" style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:30px;">
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+      <div class="ppp-stat-box" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
                   border-radius:8px;padding:12px 20px;text-align:center;">
         <div style="font-size:24px;font-weight:700;color:#f0c040;">23</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;
                     letter-spacing:0.08em;">Total PPP Projects</div>
       </div>
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+      <div class="ppp-stat-box" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
                   border-radius:8px;padding:12px 20px;text-align:center;">
         <div style="font-size:24px;font-weight:700;color:#4ADE80;">3</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;
                     letter-spacing:0.08em;">Ongoing</div>
       </div>
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+      <div class="ppp-stat-box" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
                   border-radius:8px;padding:12px 20px;text-align:center;">
         <div style="font-size:24px;font-weight:700;color:#60A5FA;">4</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;
                     letter-spacing:0.08em;">Under O&amp;M</div>
       </div>
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+      <div class="ppp-stat-box" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
                   border-radius:8px;padding:12px 20px;text-align:center;">
         <div style="font-size:24px;font-weight:700;color:#FB923C;">6</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;
                     letter-spacing:0.08em;">Under Feasibility Study</div>
       </div>
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+      <div class="ppp-stat-box" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
                   border-radius:8px;padding:12px 20px;text-align:center;">
         <div style="font-size:24px;font-weight:700;color:#E879F9;">2</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;
@@ -2230,7 +2230,7 @@
     </div>
 
     <!-- Overview + Metro Manila Situation moved inside -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="ppp-content-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
       
       <!-- Overview -->
       <div style="background:rgba(255,255,255,0.95);border-radius:10px;padding:24px;">
@@ -2293,7 +2293,7 @@
   <!-- PROJECT LIST SECTION -->
   <!-- Filter bar -->
   
-  <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+  <div class="ppp-filter-bar" style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
     <span style="font-size:12px;font-weight:700;color:var(--textlt);text-transform:uppercase;letter-spacing:0.08em;">Filter by Status:</span>
     <button onclick="filterPPP('all',this)" style="font-size:12px;padding:5px 14px;border:1px solid var(--royal);border-radius:100px;background:var(--royal);color:#fff;cursor:pointer;font-weight:600;">All</button>
     <button onclick="filterPPP('ongoing',this)" style="font-size:12px;padding:5px 14px;border:1px solid var(--border);border-radius:100px;background:var(--white);color:var(--textlt);cursor:pointer;font-weight:600;">Ongoing</button>
@@ -3049,9 +3049,9 @@
       <div class="hist-section-intro">
         <h2 class="section-banner" style="margin-bottom:14px;">About the Logo</h2>
       </div>
-      <div style="display:flex; gap:32px; align-items:flex-start; margin-top:16px;">
+      <div style="display:flex; gap:32px; align-items:flex-start; margin-top:16px;" class="logo-flex-container">
         <!-- LEFT: Logo with number dots -->
-        <div style="position:relative; flex-shrink:0; width:300px; height:300px; margin: 40px auto;">
+        <div class="logo-image-wrapper" style="position:relative; flex-shrink:0; width:300px; height:300px; margin: 40px auto;">
           <!-- 1 GEAR FRAME -->
           <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--navy); color:var(--white); border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; z-index:2;">1</div>
           <!-- 3 DORIC COLUMN -->
@@ -3066,7 +3066,7 @@
         </div>
 
         <!-- RIGHT: Description -->
-        <div style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:14px; max-width:520px; padding-top:40px; margin-left:-30px;">
+        <div class="logo-description" style="font-family:var(--font-sans); color:var(--navy); line-height:1.8; font-size:14px; max-width:520px; padding-top:40px; margin-left:-30px;">
           <p style="max-width:100%; width:100%; background:var(--light); padding:10px 16px; border-radius:4px; font-style:normal; color:var(--text); font-weight:500; margin-bottom:24px;">The design conveys the idea of Filipino engineering excellence with sub-themes such as the fine craftsmanship of Filipino design engineers, architects and the whole field of engineering profession, competence and integrity.</p>
           <ol style="padding-left:-20px; display:flex; flex-direction:column; gap:8px;">
             <li><strong>Gear Frame</strong> — Completely circular, representing motion, transmission and direction towards the common man's economic and social upliftment. Seeks unity of effort, direction and purpose.</li>
@@ -3117,6 +3117,9 @@
               </div>
               <div class="bgt-card">
                 <div class="bgt-card-title">Annual Budget Trend (Billion Pesos)</div>
+                <!-- Mobile Tab Navigation -->
+                <div class="bgt-trend-tabs" id="bgt-trend-tabs"></div>
+                <!-- Chart -->
                 <div class="bgt-trend" id="bgt-trend-chart"></div>
               </div>
               <p class="bgt-note">* FY 2021 figures are based on the National Expenditure Program (NEP). All amounts in Billion Pesos.</p>
@@ -3460,76 +3463,85 @@
             </div>
           </div>
       
-          <!-- Charts & Table -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:700px; margin-left:auto; margin-right:auto;">
-      
-            <div>
-              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Filled Positions by Office Type</p>
-              <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:var(--navy);">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Central Office</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:30%; background:var(--navy); height:14px; border-radius:4px;"></div>
+          <!-- Charts & Table with Tab Navigation (Mobile) + Grid (Desktop) -->
+          <div class="wf-tabs-container">
+            <!-- Tab Navigation (Mobile Only) -->
+            <div class="wf-tabs">
+              <button class="wf-tab active" data-tab="filled-positions">Filled Positions</button>
+              <button class="wf-tab" data-tab="workforce-breakdown">Workforce Breakdown</button>
+            </div>
+            
+            <!-- Desktop Grid Layout + Mobile Tab Content -->
+            <div class="wf-desktop-grid">
+        
+              <div class="wf-tab-content active" id="filled-positions">
+                <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Filled Positions by Office Type</p>
+                <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; color:var(--navy);">
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:110px; flex-shrink:0;">Central Office</span>
+                    <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                      <div style="width:30%; background:var(--navy); height:14px; border-radius:4px;"></div>
+                    </div>
+                    <span style="width:46px; text-align:right;">2,358</span>
                   </div>
-                  <span style="width:46px; text-align:right;">2,358</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Class A Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:100%; background:var(--orange); height:14px; border-radius:4px;"></div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:110px; flex-shrink:0;">Class A Regions</span>
+                    <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                      <div style="width:100%; background:var(--orange); height:14px; border-radius:4px;"></div>
+                    </div>
+                    <span style="width:46px; text-align:right;">8,062</span>
                   </div>
-                  <span style="width:46px; text-align:right;">8,062</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span style="width:110px; flex-shrink:0;">Class B Regions</span>
-                  <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
-                    <div style="width:92%; background:var(--navy); height:14px; border-radius:4px; opacity:0.6;"></div>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:110px; flex-shrink:0;">Class B Regions</span>
+                    <div style="flex:1; background:#e5e7eb; border-radius:4px; height:14px;">
+                      <div style="width:92%; background:var(--navy); height:14px; border-radius:4px; opacity:0.6;"></div>
+                    </div>
+                    <span style="width:46px; text-align:right;">7,398</span>
                   </div>
-                  <span style="width:46px; text-align:right;">7,398</span>
                 </div>
               </div>
+        
+              <div class="wf-tab-content" id="workforce-breakdown">
+                <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Workforce Breakdown</p>
+                <table style="width:100%; font-size:12px; border-collapse:collapse; color:var(--navy);">
+                  <thead>
+                    <tr style="background:var(--navy); color:var(--white);">
+                      <th style="padding:6px 8px; text-align:left;">Category</th>
+                      <th style="padding:6px 8px; text-align:right;">Count</th>
+                      <th style="padding:6px 8px; text-align:right;">Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid #e5e7eb;">
+                      <td style="padding:6px 8px;">Regular Positions</td>
+                      <td style="padding:6px 8px; text-align:right;">19,563</td>
+                      <td style="padding:6px 8px; text-align:right;">—</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
+                      <td style="padding:6px 8px;">Vacancy Rate</td>
+                      <td style="padding:6px 8px; text-align:right;">1,745</td>
+                      <td style="padding:6px 8px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e5e7eb;">
+                      <td style="padding:6px 8px;">BBB (Engineer) Positions</td>
+                      <td style="padding:6px 8px; text-align:right;">2,079</td>
+                      <td style="padding:6px 8px; text-align:right;">—</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
+                      <td style="padding:6px 8px;">Contractual (CTI)</td>
+                      <td style="padding:6px 8px; text-align:right;">2,060</td>
+                      <td style="padding:6px 8px; text-align:right;">—</td>
+                    </tr>
+                    <tr style="font-weight:700; background:var(--navy); color:var(--white);">
+                      <td style="padding:6px 8px;">Grand Total</td>
+                      <td style="padding:6px 8px; text-align:right;">79,749</td>
+                      <td style="padding:6px 8px; text-align:right;">100%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        
             </div>
-      
-            <div>
-              <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">Workforce Breakdown</p>
-              <table style="width:100%; font-size:12px; border-collapse:collapse; color:var(--navy);">
-                <thead>
-                  <tr style="background:var(--navy); color:var(--white);">
-                    <th style="padding:6px 8px; text-align:left;">Category</th>
-                    <th style="padding:6px 8px; text-align:right;">Count</th>
-                    <th style="padding:6px 8px; text-align:right;">Rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:6px 8px;">Regular Positions</td>
-                    <td style="padding:6px 8px; text-align:right;">19,563</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:6px 8px;">Vacancy Rate</td>
-                    <td style="padding:6px 8px; text-align:right;">1,745</td>
-                    <td style="padding:6px 8px; text-align:right; color:var(--orange); font-weight:700;">9%</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:6px 8px;">BBB (Engineer) Positions</td>
-                    <td style="padding:6px 8px; text-align:right;">2,079</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
-                  </tr>
-                  <tr style="border-bottom:1px solid #e5e7eb; background:#f9fafb;">
-                    <td style="padding:6px 8px;">Contractual (CTI)</td>
-                    <td style="padding:6px 8px; text-align:right;">2,060</td>
-                    <td style="padding:6px 8px; text-align:right;">—</td>
-                  </tr>
-                  <tr style="font-weight:700; background:var(--navy); color:var(--white);">
-                    <td style="padding:6px 8px;">Grand Total</td>
-                    <td style="padding:6px 8px; text-align:right;">79,749</td>
-                    <td style="padding:6px 8px; text-align:right;">100%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-      
           </div>
         </div>
       </div>

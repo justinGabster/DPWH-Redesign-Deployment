@@ -2529,4 +2529,33 @@ function _pinchDist(touches) {
   return Math.sqrt(dx*dx + dy*dy);
 }
 
+/* Workforce Tab Navigation */
+window.wfTabSwitch = function(tabName) {
+  var tabs = document.querySelectorAll('.wf-tab');
+  var contents = document.querySelectorAll('.wf-tab-content');
+  
+  tabs.forEach(function(tab) {
+    tab.classList.remove('active');
+  });
+  
+  contents.forEach(function(content) {
+    content.classList.remove('active');
+  });
+  
+  var activeTab = document.querySelector('.wf-tab[data-tab="' + tabName + '"]');
+  var activeContent = document.getElementById(tabName);
+  
+  if (activeTab) activeTab.classList.add('active');
+  if (activeContent) activeContent.classList.add('active');
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  var tabs = document.querySelectorAll('.wf-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var tabName = this.getAttribute('data-tab');
+      wfTabSwitch(tabName);
+    });
+  });
+});
 
