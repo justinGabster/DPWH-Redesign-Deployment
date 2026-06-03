@@ -4204,6 +4204,20 @@ a {
     max-width: 100% !important;
     overflow-wrap: break-word !important;
     word-break: break-word !important;
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
+  }
+
+  .atlas-intro-grid > div ul,
+  .atlas-intro-grid > div ol {
+    list-style-position: inside;
+  }
+
+  .atlas-intro-grid > div li {
+    text-align: justify !important;
+    text-align-last: left !important;
+    hyphens: auto !important;
   }
 
   /* Ensure icon + text inside cards wrap properly */
