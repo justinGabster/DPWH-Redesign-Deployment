@@ -1762,50 +1762,63 @@ table.proj-table tr:hover td { background: var(--light); }
     }
     
     .bgt-trend {
-      height: auto;
+      display: flex;
+      flex-direction: row;
+      height: 250px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      gap: 8px;
-      padding: 0 12px;
+      gap: 12px;
+      padding: 12px;
       margin-top: 16px;
-      min-height: 200px;
       align-items: flex-end;
+      box-sizing: border-box;
+      min-width: 100%;
     }
     
     .bgt-tbar-wrap {
-      flex: 0 0 80px;
-      min-width: 80px;
+      flex: 0 0 85px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
       height: 100%;
       padding: 0;
+      box-sizing: border-box;
     }
     
     .bgt-tbar-amt {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       text-align: center;
       color: var(--navy);
+      order: -2;
     }
     
     .bgt-tbar {
-      width: 100%;
+      width: 60%;
+      min-height: 40px;
+      max-height: calc(100% - 50px);
       border-radius: 4px 4px 0 0;
+      order: -1;
     }
     
     .bgt-tbar-label {
-      font-size: 11px;
-      margin-top: 6px;
+      font-size: 12px;
+      margin-top: 8px;
       font-weight: 600;
       color: var(--navy);
       text-align: center;
+      order: 0;
     }
     
     .bgt-tbar-pct {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--orange);
       margin-top: 2px;
       font-weight: 700;
       text-align: center;
+      order: 1;
     }
   }
   /* Compare table */
