@@ -4161,8 +4161,10 @@ a {
 
   .ppp-stats-container > div:last-child {
     grid-column: span 2 !important;
-    max-width: 50% !important;
+    width: 100% !important;
+    max-width: 180px !important;
     margin: 0 auto !important;
+    justify-self: center !important;
   }
 
   .ppp-stats-container > div > div:first-child {
