@@ -1869,6 +1869,41 @@ table.proj-table tr:hover td { background: var(--light); }
       line-height: 1.6 !important;
     }
   }
+
+  /* Public-Private Partnership Mobile Responsive */
+  @media (max-width: 600px) {
+    .ppp-stats-container {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .ppp-stat-box {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 16px 12px !important;
+      min-height: 80px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .ppp-content-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    .ppp-content-grid > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
   /* Compare table */
   .bgt-table { width:100%; border-collapse:collapse; font-size:12.5px; }
   .bgt-table th { background:#0B1A4A; color:#fff; padding: 9px 16px; text-align:left; font-weight:500; font-size:11px; letter-spacing:0.04em; }
