@@ -1718,6 +1718,98 @@ table.proj-table tr:hover td { background: var(--light); }
   .bgt-tbar-label { font-size:10px; color:#4A5578; margin-top: 8px; font-weight:500; }
   .bgt-tbar-pct { font-family:'IBM Plex Mono',monospace; font-size:9px; color:#8A96B4; margin-top: 1px; }
  
+  /* Budget Trend Tab Navigation (Mobile) */
+  .bgt-trend-tabs {
+    display: none;
+    gap: 0;
+    border-bottom: 2px solid #e5e7eb;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .bgt-trend-tab {
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--textlt);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .bgt-trend-tab:hover {
+    color: var(--navy);
+  }
+  
+  .bgt-trend-tab.active {
+    color: var(--navy);
+    border-bottom-color: var(--royal);
+  }
+ 
+  /* Mobile responsive for budget trend */
+  @media (max-width: 600px) {
+    .bgt-trend-tabs {
+      display: flex;
+    }
+    
+    .bgt-trend {
+      display: none;
+    }
+    
+    .bgt-trend.mobile-active {
+      display: flex;
+      padding: 0;
+    }
+    
+    .bgt-tbar-wrap {
+      flex: 0 0 calc(100% - 32px);
+      margin: 0 16px;
+      max-width: 100%;
+    }
+    
+    .bgt-tbar-amt {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .bgt-tbar {
+      width: 100%;
+      min-height: 120px;
+      border-radius: 4px 4px 0 0;
+    }
+    
+    .bgt-tbar-label {
+      font-size: 13px;
+      margin-top: 12px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    
+    .bgt-tbar-pct {
+      font-size: 12px;
+      color: var(--navy);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    
+    .bgt-tbar-wrap {
+      display: none;
+    }
+    
+    .bgt-tbar-wrap.mobile-visible {
+      display: flex;
+    }
+  }
   /* Compare table */
   .bgt-table { width:100%; border-collapse:collapse; font-size:12.5px; }
   .bgt-table th { background:#0B1A4A; color:#fff; padding: 9px 16px; text-align:left; font-weight:500; font-size:11px; letter-spacing:0.04em; }

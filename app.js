@@ -1971,13 +1971,28 @@ function bgtBuildTabs() {
  
 function bgtBuildTrend() {
   const chart = document.getElementById('bgt-trend-chart');
-  if (!chart) return;
+  const tabsEl = document.getElementById('bgt-trend-tabs');
+  if (!chart || !tabsEl) return;
+  
+  // Build tabs for mobile
+  tabsEl.innerHTML = '';
+  bgtTrendData.forEach((d, idx) => {
+    const tab = document.createElement('button');
+    tab.className = 'bgt-trend-tab' + (idx === 0 ? ' active' : '');
+    tab.textContent = d.year;
+    tab.onclick = () => bgtTrendSelectYear(idx);
+    tabsEl.appendChild(tab);
+  });
+  
+  // Build chart for desktop (all bars)
   const max = Math.max(...bgtTrendData.map(d => d.val));
   chart.innerHTML = '';
-  bgtTrendData.forEach(d => {
+  
+  bgtTrendData.forEach((d, idx) => {
     const hp = (d.val / max) * 100;
     const wrap = document.createElement('div');
-    wrap.className = 'bgt-tbar-wrap';
+    wrap.className = 'bgt-tbar-wrap' + (idx === 0 ? ' mobile-visible' : '');
+    wrap.dataset.year = d.year;
     wrap.innerHTML = `
       <div class="bgt-tbar-amt">₱${d.val}B</div>
       <div class="bgt-tbar" style="height:${hp}%;background:${d.highlight ? '#E8620A' : '#2E5FD9'};"></div>
@@ -1985,6 +2000,21 @@ function bgtBuildTrend() {
       ${d.pct ? `<div class="bgt-tbar-pct">${d.pct}</div>` : ''}
     `;
     chart.appendChild(wrap);
+  });
+  
+  // Set initial mobile view
+  bgtTrendSelectYear(0);
+}
+
+function bgtTrendSelectYear(idx) {
+  // Update active tab
+  document.querySelectorAll('.bgt-trend-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+  
+  // Show only selected year's bar on mobile
+  document.querySelectorAll('.bgt-tbar-wrap').forEach((wrap, i) => {
+    wrap.classList.toggle('mobile-visible', i === idx);
   });
 }
  
