@@ -4157,6 +4157,65 @@ a {
     grid-template-columns: 1fr !important;
   }
 
+  /* Infra Statistics Hero Banner Mobile Responsive */
+  .infra-hero-flex {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .infra-hero-text {
+    max-width: 100% !important;
+    flex: 1 !important;
+  }
+
+  .infra-hero-slider {
+    flex: 1 !important;
+    min-width: auto !important;
+    width: 100% !important;
+  }
+
+  .infra-hero-slider > div[style*="height:260px"] {
+    height: 200px !important;
+  }
+
+  /* Hero banner padding on mobile */
+  .r-section > div > div[style*="background:linear-gradient"] {
+    padding: 32px 16px 24px !important;
+  }
+
+  /* Hero section text wrapping */
+  .r-section h2[style*="clamp"] {
+    font-size: 22px !important;
+    max-width: 100% !important;
+  }
+
+  .r-section p[style*="max-width"] {
+    max-width: 100% !important;
+  }
+
+  /* Atlas cards - ensure proper padding and text wrapping */
+  .atlas-intro-grid > div {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px 16px !important;
+  }
+
+  .atlas-intro-grid > div p {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Ensure icon + text inside cards wrap properly */
+  .atlas-intro-grid div[style*="display:flex"][style*="gap:8px"] {
+    flex-wrap: wrap !important;
+  }
+
+  .atlas-intro-grid div[style*="display:flex"][style*="gap:20px"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
   /* Task 5: Floating/Sticky Filters in News and Announcements */
   .ann-sidebar, .ns-sidebar, .ann-cal-card, .ns-filter-card, .ann-filter-card {
     position: static !important; /* Remove sticky */
